@@ -1,6 +1,4 @@
-# TaxEvaders README: 
-
-# flamingflamingos README: 
+# TaxEvaders README:  
 
 ### GitHub Contributors: Bryant Jin, Rachel Wei, Harry Li, Kevin Do
 ### Scrum Board: [https://github.com/wrachel/TaxEvaders/projects/1](https://github.com/wrachel/TaxEvaders/projects/1)
