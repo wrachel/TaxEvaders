@@ -19,7 +19,7 @@ public class controller {
 
     @GetMapping("/")
     public String index() {
-        return "index";
+        return "frontend/index";
     }
 
     @GetMapping("/about/kevin")
