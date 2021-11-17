@@ -16,10 +16,17 @@ import java.util.List;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class controller {
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
     @GetMapping("/about/kevin")
     public String kevin() {
-        return "about-kevin"; // returns HTML VIEW (greeting)
+        return "frontend/about-kevin";
     }
+
 
 }
 
