@@ -1,6 +1,5 @@
 .navbarLink {
     font-family:'Open Sans';
     color: var(--dirtywhite);
-    font-size: 2em;
-    font-weight: bold;
+    font-size: 1.5em;
 }
