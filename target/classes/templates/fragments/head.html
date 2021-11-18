@@ -1,13 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head xmlns:th="http://www.w3.org/1999/xhtml">
-    <title>Layout</title>
+    <title>...</title>
     <th:block th:fragment="header">
-        <!-- Required meta tags -->
+        <!-- Begin head fragments -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+        <!-- fontawesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- font -->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+        <!-- styles css -->
+        <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -16,18 +24,20 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+        <script>
+            if(screen.width>=1000) {document.write("<style>body{zoom:85%;}</style>");}
+            if(screen.width>=1500) {document.write("<style>body{zoom:80%;}</style>");}
+            if(screen.width>=2000) {document.write("<style>body{zoom:75%;}</style>");}
+        </script>
         <!-- Common style for site -->
         <style>
             :root{
-                --yellow: #f1d483;
-                --green: #9daf9b;
-                --purple: #a59aaf;
-                --lblue: #6084a3;
-                --dblue: #2b425b;
-                --gray: #363d47;
-                --white: whitesmoke;
-                --black: black;
-                --grey: grey;
+                --blue: #3498db;
+                --darkblue: #2980b9;
+                --gray: #34495e;
+                --darkgray: #2c3e50;
+                --dirtywhite: #ecf0f1;
             }
 
             html, body{
@@ -37,21 +47,7 @@
                 -moz-animation: fadein 2s; /* Firefox */
                 -webkit-animation: fadein 2s; /* Safari and Chrome */
                 -o-animation: fadein 2s; /* Opera */
-                background-color: var(--lblue);
-                color: var(--black);
-            }
-
-            .dark-mode {
-                background-color: var(--white);
-                color: var(--black);
-            }
-
-            h1{
-                font-size: 5em;
-            }
-
-            a {
-                color: midnightblue;
+                background-color: var(--darkgray);
             }
 
             .fa{
@@ -61,9 +57,6 @@
                 color: white;
             }
 
-            .fa:hover{
-                transform: translateY(10px);
-            }
 
             .fa-youtube-play:hover{
                 color: #cc0000;
@@ -104,13 +97,38 @@
                 margin: auto;
             }
 
-            .navbar-custom .navbar-brand,
-            .navbar-custom .navbar-text {
-                color: var(--lblue);
+            /* large number helps nav remain top layer */
+            .navbar {
+                z-index: 1000;
             }
 
-        </style>
+            a:link, a:visited {
+                color: white;
+                text-shadow: none;
+            }
 
+            a:hover, a:active {
+                color: white;
+                text-decoration: none;
+            }
+
+            table, td, th {
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 15px;
+            }
+
+
+        </style>
+        <!-- End head fragments -->
     </th:block>
 </head>
 <body>
