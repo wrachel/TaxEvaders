@@ -1,4 +1,5 @@
-package com.project.directory;
+package com.project.passwordmanager;
+import com.project.passwordmanager.crypto.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
