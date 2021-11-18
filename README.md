@@ -12,6 +12,8 @@
 | Harry Li ([wiz124](https://github.com/wiz124)) | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Awiz124) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Awiz124) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author=wiz124)  | 
 | Kevin Do ([kevin-dough](https://github.com/kevin-dough)) | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Akevin-dough) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Akevin-dough) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author=kevin-dough)  | 
 
+### Week 0:
+- [Brain Write](https://docs.google.com/document/d/1_DcXELWt1Xcba98KmxPUQn8uWu9u3hsP5LZpCttoDyo/edit?usp=sharing)
 
 ## Ideation:
 Honestly, we had no idea what our new project idea was, but Mr. Mortensen suggested a password tracker would be a good idea. So, our project is a password tracker. 
