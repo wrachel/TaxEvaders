@@ -1,0 +1,6 @@
+.navbarLink {
+    font-family:'Open Sans';
+    color: var(--dirtywhite);
+    font-size: 2em;
+    font-weight: bold;
+}
