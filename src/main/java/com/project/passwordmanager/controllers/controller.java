@@ -17,6 +17,11 @@ public class controller {
         return "frontend/about-kevin";
     }
 
+    @GetMapping("/about/harry")
+    public String harry() {
+        return "frontend/harryabout";
+    }
+
 
 }
 
