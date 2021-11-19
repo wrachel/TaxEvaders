@@ -3,3 +3,16 @@
     color: var(--dirtywhite);
     font-size: 1.5em;
 }
+
+.aboutName {
+    font-family: 'Open Sans';
+    color: var(--dirtywhite);
+    font-size:3em;
+}
+
+.miniTable {
+    color: var(--dirtywhite);
+    font-family:'Open Sans';
+    font-weight: 300;
+    font-size: 1em;
+}

@@ -6,7 +6,7 @@
 
 <head>
     <div layout:fragment="metadata" th:remove="tag">
-        <title>Page Title</title>
+        <title>Kevin's Page</title>
     </div>
 </head>
 
@@ -15,7 +15,39 @@
 <div layout:fragment="content" th:remove="tag">
     <!-- Start of body content specific to page -->
 
+<div style="margin-left: 50px; margin-top: 50px; width:45%" class="row justify-content-around">
+    <div><center>
+        <a title="click to toggle!" onclick="imageSwitch(1)"><img id="image1" style="display:none" th:src="@{/images/kevin-fried.jpg}" src="/static/images/kevin-fried.jpg" width="400px" height="400px"></a>
+        <a title="click to toggle!" onclick="imageSwitch(2)"><img id="image2" style="display:inline" th:src="@{/images/kevin.jpg}" src="static/images/kevin.jpg" width="400px" height="400px"></a>
+        <h1 style="" class="aboutName">KEVIN DO</h1>
+    </center></div>
+    <div>
+        <table class="miniTable">
+            <thead>
+            <tr>
+                <td><a title="click me!" href="https://github.com/kevin-dough" target="_blank">Kevin</a></td>
+                <td><a title="click me!" href="https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Akevin-dough" target="_blank">Issues</a></td>
+                <td><a title="click me!" href="https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Akevin-dough" target="_blank">Scrum Board</a></td>
+                <td><a title="click me!" href="https://github.com/wrachel/TaxEvaders/commits?author=kevin-dough" target="_blank">Commits</a></td>
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+<script>
+    function imageSwitch(type)
+    {
+        if(type===1) {
+            document.getElementById('image1').style.display = 'none';
+            document.getElementById('image2').style.display = 'inline';
+        }
 
+        if(type===2) {
+            document.getElementById('image2').style.display = 'none';
+            document.getElementById('image1').style.display = 'inline';
+        }
+    }
+</script>
     <!-- end of body content specific to page -->
 </div>
 </body>
