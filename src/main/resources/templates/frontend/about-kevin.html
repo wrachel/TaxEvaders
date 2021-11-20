@@ -15,7 +15,7 @@
 <div layout:fragment="content" th:remove="tag">
     <!-- Start of body content specific to page -->
 
-<div style="margin-left: 50px; margin-top: 50px; width:45%" class="row justify-content-around">
+<div style="margin-left: 50px; margin-top: 50px; width:60%" class="row justify-content-around">
     <div><center>
         <a title="click to toggle!" onclick="imageSwitch(1)"><img id="image1" style="display:none" th:src="@{/images/kevin-fried.jpg}" src="/static/images/kevin-fried.jpg" width="400px" height="400px"></a>
         <a title="click to toggle!" onclick="imageSwitch(2)"><img id="image2" style="display:inline" th:src="@{/images/kevin.jpg}" src="static/images/kevin.jpg" width="400px" height="400px"></a>
@@ -25,13 +25,31 @@
         <table class="miniTable">
             <thead>
             <tr>
-                <td><a title="click me!" href="https://github.com/kevin-dough" target="_blank">Kevin</a></td>
-                <td><a title="click me!" href="https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Akevin-dough" target="_blank">Issues</a></td>
-                <td><a title="click me!" href="https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Akevin-dough" target="_blank">Scrum Board</a></td>
-                <td><a title="click me!" href="https://github.com/wrachel/TaxEvaders/commits?author=kevin-dough" target="_blank">Commits</a></td>
+                <th:block th:each="map : ${mapsList}">
+                    <th:block th:each="mapEntry : ${map}">
+                        <td><a title="click me!" th:href="@{${mapEntry.value}}" target="_blank" th:text="${mapEntry.key}"></a></td>
+                    </th:block>
+                </th:block>
             </tr>
             </thead>
         </table>
+        <hr style="color:white;background-color:white">
+        <div>
+            <center>
+                <p class="smallTitle">Genius API</p>
+            <form action="/about/kevin" method="GET">
+                <label style="color:white" for="artistField">Musical Artist Name</label>
+                <input id="artistField" name="artist" type="text">
+                <input type="submit">
+            </form>
+            <div style="padding-top:20px">
+
+                    <img th:src="@{${song_art_url}}" width="200px" height="200px">
+                    <p style="color:white;padding-top:15px" th:text="${song_name}"></p>
+
+            </div>
+            </center>
+        </div>
     </div>
 </div>
 <script>

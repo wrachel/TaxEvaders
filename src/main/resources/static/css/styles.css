@@ -16,3 +16,9 @@
     font-weight: 300;
     font-size: 1em;
 }
+
+.smallTitle {
+    font-family: 'Open Sans';
+    color: var(--dirtywhite);
+    font-size:2em;
+}
