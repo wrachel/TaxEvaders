@@ -6,20 +6,16 @@
 <body>
 <!-- Begin navigation fragments -->
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:var(--gray);min-width:100%;z-index:100" th:fragment="header">
-    <a class="navbar-brand" title="we are not the nsa" style="font-family:'Open Sans';font-weight:bold; color:var(--dirtywhite); font-size:2.7em;" href="/">
-        <img src="/static/images/lock.png" th:src="@{/images/lock.png}" width="35" height="49" class="d-inline-block align-center" alt="" style="margin-top:-10px">
-        &nbsp;NIGHTHAWK SECURITY APPLICATION
-    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Bootstrap menus -->
-    <div class="collapse navbar-collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-                <a class="nav-link navbarLink py-0" style="margin-top:8px; color: var(--dirtywhite);" href="#">PASSTESTER</a>
+    <div class="row justify-content-center">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link navbarLink" style=" color: var(--dirtywhite);" href="#">PASSTESTER</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbarLink py-0" style="margin-top:8px; color: var(--dirtywhite);" href="#">PASSMANAGER</a>
+                <a class="nav-link navbarLink" style=" color: var(--dirtywhite);" href="#">PASSMANAGER</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle navbarLink" style="color: var(--dirtywhite);" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,15 +26,12 @@
                     <a class="dropdown-item" style="color:var(--dirtywhite);font-weight:bold;font-size:1.5em" href="/about/harry">HARRY</a>
                     <a class="dropdown-item" style="color:var(--dirtywhite);font-weight:bold;font-size:1.5em" href="/about/kevin">KEVIN</a>
                     <a class="dropdown-item" style="color:var(--dirtywhite);font-weight:bold;font-size:1.5em" href="#">RACHEL</a>
-
-
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbarLink py-0" style="margin-top:8px; color: var(--dirtywhite);" href="#">ABOUT</a>
-            <li class="nav-item">
+                <a class="nav-link navbarLink" style="color: var(--dirtywhite);" href="#">ABOUT</a>
+            </li>
         </ul>
-
     </div>
 </nav>
 <!-- Begin navigation fragments -->
