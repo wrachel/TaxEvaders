@@ -7,11 +7,22 @@
             <title>Nighthawk Security Application</title>
         </div>
     </head>
+
 </head>
 <body>
 <div  layout:fragment="content" th:remove="tag">
-    <img src="/static/images/harry.jpg" th:src="@{/static/images/harry.jpg}">
+    <img src="/static/images/harry.jpg" th:src="@{/images/harry.jpg}" style="width:400px; height:600px;" class="picture">
 
 </div>
 </body>
+<style>
+    .picture{
+        margin-top:50px;
+        margin-left:50px;
+    }
+    body{
+        overflow-x:hidden;
+    }
+</style>
+
 </html>
