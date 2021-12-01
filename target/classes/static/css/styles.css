@@ -30,3 +30,42 @@
     margin-top:180px;
     width: 10%
 }
+
+.divSectionW {
+    background-color:white;
+    width:100%;
+    overflow:hidden;
+    color: var(--darkgray);
+    padding:30px;
+}
+
+.divSectionG {
+    background-color:var(--darkgray);
+    width:100%;
+    overflow:hidden;
+    color: white;
+    padding:30px;
+}
+
+.sectionTitle {
+    font-family: 'Open Sans';
+}
+
+.sectionText {
+    font-family: 'Roboto';
+    overflow-wrap:break-word;
+}
+
+body::-webkit-scrollbar {
+    width: 19px;
+
+}
+body::-webkit-scrollbar-track {
+    background: var(--gray);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 15px;
+    border: 5px solid transparent;
+    background-clip: content-box;
+}
