@@ -28,8 +28,6 @@ fix/bug-description
 refactor/some-component
 docs/some-component
 ```
-
-
-
-
+If working on a longer, larger issue, please use branches. Below is a visual on how branches work. All other commits can be made to the main branch, and separate branches should be merged when larger issue is completed. 
+![git-branches](https://user-images.githubusercontent.com/40574565/144636388-0d073e07-1f3f-4a8d-9db4-ef61b2a829b8.png)
 
