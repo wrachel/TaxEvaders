@@ -6,32 +6,37 @@
 <body>
 <!-- Begin navigation fragments -->
 <nav class="navbarStyles navbar navbar-expand-lg navbar-dark" style="position:fixed; top:0px; z-index:100;min-width: 100%;" th:fragment="header">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button style="" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="row justify-content-center">
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="navbarLink nav-link" href="#">PASSTESTER</a>
-            </li>
-            <li class="nav-item">
-                <a class="navbarLink nav-link" href="#">PASSMANAGER</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    MINILABS
-                </a>
-                <div class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="navbarDropdownLink dropdown-item" href="#">BRYANT</a>
-                    <a class="navbarDropdownLink dropdown-item" href="/about/harry">HARRY</a>
-                    <a class="navbarDropdownLink dropdown-item" href="/about/kevin">KEVIN</a>
-                    <a class="navbarDropdownLink dropdown-item" href="#">RACHEL</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="navbarLink nav-link" href="#">ABOUT</a>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav">
+                <li class="nav-item" style="padding-top:8px; padding-right:14px">
+                    <a href="/home#top"><img src="/static/images/white_lock.png" th:src="@{/images/white_lock.png}" width="20px" height="28"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarLink nav-link" href="#">PASSTESTER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarLink nav-link" href="#">PASSMANAGER</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        MINILABS
+                    </a>
+                    <div style="background-color: var(--nav);" class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="navbarDropdownLink dropdown-item" href="#">BRYANT</a>
+                        <a class="navbarDropdownLink dropdown-item" href="/about/harry">HARRY</a>
+                        <a class="navbarDropdownLink dropdown-item" href="/about/kevin">KEVIN</a>
+                        <a class="navbarDropdownLink dropdown-item" href="#">RACHEL</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="navbarLink nav-link" href="#">ABOUT</a>
+                </li>
+            </ul>
+        </div>
         <div style="position:fixed; right:20px; top:10px">
             <input style="visibility: hidden" type="checkbox" id="checkbox">
             <label for="checkbox" style="font-size:2em; color: var(--dirtywhite)"><i id="changeicon" class="fas fa-moon"></i></label>

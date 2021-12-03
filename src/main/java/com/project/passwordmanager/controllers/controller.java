@@ -28,6 +28,11 @@ public class controller {
         return "frontend/index";
     }
 
+    @GetMapping("/home")
+    public String home() {
+        return "frontend/index";
+    }
+
     @GetMapping("/about/kevin")
     public String kevin(@RequestParam(name="artist", required=false, defaultValue="NOTD") String artist, Model model) throws IOException, InterruptedException, ParseException, JSONException {
 

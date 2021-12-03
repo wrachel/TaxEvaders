@@ -27,8 +27,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- favicon -->
-        <link rel="icon" type="image/png" sizes="32x32" th:href=@{"/static/icons/favicon-32x32.png"} href="/static/icons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" th:href=@{"/static/icons/favicon-16x16.png"} href="/static/icons/favicon-16x16.png">
+        <link rel="icon" type="image/png" sizes="32x32" th:href=@{/icons/favicon-32x32.png} href="/static/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" th:href=@{/icons/favicon-16x16.png} href="/static/icons/favicon-16x16.png">
 
 
         <script>
@@ -58,6 +58,10 @@
                 -moz-animation: fadein 2s; /* Firefox */
                 -webkit-animation: fadein 2s; /* Safari and Chrome */
                 -o-animation: fadein 2s; /* Opera */
+            }
+
+            html {
+                scroll-behavior: smooth;
             }
 
             body {
@@ -132,6 +136,15 @@
                 padding: 15px;
             }
 
+            a:link, a:visited {
+                color: var(--text);
+                text-shadow: none;
+            }
+
+            a:hover, a:active {
+                color: var(--text);
+                text-decoration: none;
+            }
 
         </style>
         <!-- End head fragments -->
