@@ -32,7 +32,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.project.passwordmanager</mainClass>
+                            <mainClass>com.project.passwordmanager.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
