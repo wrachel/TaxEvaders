@@ -10,9 +10,11 @@
 
         <!-- fontawesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/a8bf0a2920.js" crossorigin="anonymous"></script>
 
         <!-- font -->
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
         <!-- styles css -->
         <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
@@ -23,6 +25,10 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" th:href=@{"/static/icons/favicon-32x32.png"} href="/static/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" th:href=@{"/static/icons/favicon-16x16.png"} href="/static/icons/favicon-16x16.png">
 
 
         <script>
@@ -35,9 +41,14 @@
             :root{
                 --blue: #3498db;
                 --darkblue: #2980b9;
-                --gray: #34495e;
-                --darkgray: #2c3e50;
+                --superdarkblue: #34495e;
+                --gray: #3f3f3f;
                 --dirtywhite: #ecf0f1;
+
+                --nav: var(--darkblue);
+                --scrollbar: var(--blue);
+                --background: var(--gray);
+                --text: var(--dirtywhite);
             }
 
             html, body{
@@ -47,7 +58,11 @@
                 -moz-animation: fadein 2s; /* Firefox */
                 -webkit-animation: fadein 2s; /* Safari and Chrome */
                 -o-animation: fadein 2s; /* Opera */
-                background-color: var(--darkgray);
+            }
+
+            body {
+                background-color: var(--background);
+                padding-top:70px;
             }
 
             .fa{
@@ -102,15 +117,6 @@
                 z-index: 1000;
             }
 
-            a:link, a:visited {
-                color: white;
-                text-shadow: none;
-            }
-
-            a:hover, a:active {
-                color: white;
-                text-decoration: none;
-            }
 
             table, td, th {
                 border: 1px solid #ddd;

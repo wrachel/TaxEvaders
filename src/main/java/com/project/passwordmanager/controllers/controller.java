@@ -18,6 +18,7 @@ import java.util.*;
 import org.json.*;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.web.bind.annotation.RestController;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class controller {

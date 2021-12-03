@@ -5,42 +5,67 @@
 </head>
 <body>
 <!-- Begin navigation fragments -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color:var(--gray);min-width:100%;z-index:100" th:fragment="header">
-    <a class="navbar-brand" title="we are not the nsa" style="font-family:'Open Sans';font-weight:bold; color:var(--dirtywhite); font-size:2.7em;" href="/">
-        <img src="/static/images/lock.png" th:src="@{/images/lock.png}" width="35" height="49" class="d-inline-block align-center" alt="" style="margin-top:-10px">
-        &nbsp;NIGHTHAWK SECURITY APPLICATION
-    </a>
+<nav class="navbarStyles navbar navbar-expand-lg navbar-dark" style="position:fixed; top:0px; z-index:100;min-width: 100%;" th:fragment="header">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- Bootstrap menus -->
-    <div class="collapse navbar-collapse w-100 order-3 dual-collapse2" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-                <a class="nav-link navbarLink py-0" style="margin-top:8px; color: var(--dirtywhite);" href="#">PASSTESTER</a>
+    <div class="row justify-content-center">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="navbarLink nav-link" href="#">PASSTESTER</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbarLink py-0" style="margin-top:8px; color: var(--dirtywhite);" href="#">PASSMANAGER</a>
+                <a class="navbarLink nav-link" href="#">PASSMANAGER</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle navbarLink" style="color: var(--dirtywhite);" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     MINILABS
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:var(--blue)">
-                    <a class="dropdown-item" style="color:var(--dirtywhite);font-weight:bold;font-size:1.5em" href="#">BRYANT</a>
-                    <a class="dropdown-item" style="color:var(--dirtywhite);font-weight:bold;font-size:1.5em" href="/about/harry">HARRY</a>
-                    <a class="dropdown-item" style="color:var(--dirtywhite);font-weight:bold;font-size:1.5em" href="/about/kevin">KEVIN</a>
-                    <a class="dropdown-item" style="color:var(--dirtywhite);font-weight:bold;font-size:1.5em" href="#">RACHEL</a>
-
-
+                <div class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="navbarDropdownLink dropdown-item" href="#">BRYANT</a>
+                    <a class="navbarDropdownLink dropdown-item" href="/about/harry">HARRY</a>
+                    <a class="navbarDropdownLink dropdown-item" href="/about/kevin">KEVIN</a>
+                    <a class="navbarDropdownLink dropdown-item" href="#">RACHEL</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link navbarLink py-0" style="margin-top:8px; color: var(--dirtywhite);" href="#">ABOUT</a>
-            <li class="nav-item">
+                <a class="navbarLink nav-link" href="#">ABOUT</a>
+            </li>
         </ul>
+        <div style="position:fixed; right:20px; top:10px">
+            <input style="visibility: hidden" type="checkbox" id="checkbox">
+            <label for="checkbox" style="font-size:2em; color: var(--dirtywhite)"><i id="changeicon" class="fas fa-moon"></i></label>
 
+        </div>
     </div>
+    <script type="text/javascript">
+        const lightSwitch=document.getElementById("checkbox");
+
+        if(lightSwitch) {
+            const lightSwitchSelected =
+                localStorage.getItem("lightSwitch") !== null &&
+                localStorage.getItem("lightSwitch") === "light";
+            lightSwitch.checked=lightSwitchSelected;
+            if (lightSwitchSelected) {
+                document.body.classList.toggle("light-mode");
+                document.getElementById('changeicon').classList.remove('fa-sun');
+                document.getElementById('changeicon').classList.remove('fa-moon');
+                document.getElementById('changeicon').classList.add('fa-sun');
+            }
+        }
+
+        lightSwitch.addEventListener('click', function(){
+            document.body.classList.toggle("light-mode");
+            console.log('clicked');
+            document.getElementById('changeicon').classList.toggle('fa-sun');
+            document.getElementById('changeicon').classList.toggle('fa-moon');
+            lightSwitch.checked
+                ? localStorage.setItem("lightSwitch","light")
+                : localStorage.removeItem("lightSwitch");
+        })
+    </script>
 </nav>
+
 <!-- Begin navigation fragments -->
 </body>
 </html>

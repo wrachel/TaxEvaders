@@ -1,0 +1,128 @@
+// colors
+$blue: #3498db;
+$darkblue: #2980b9;
+$superdarkblue: #34495e;
+$gray: #3f3f3f;
+$dirtywhite: #ecf0f1;
+
+// dark theme
+$nav: $darkblue;
+$scrollbar: $blue;
+$background: $gray;
+$text:$dirtywhite;
+
+
+.light-mode {
+  $nav: $darkblue;
+  $scrollbar: $blue;
+  $background: $dirtywhite;
+  $text: black;
+
+  $theme-colors: (
+          "nav": $nav,
+          "scrollbar": $scrollbar,
+          "background": $background,
+          "text": $text
+  );
+
+  @each $part, $value in $theme-colors {
+    --#{$part}: #{$value};
+  }
+}
+
+  .navbarLink {
+    font-family:'Open Sans';
+    color: var(--text);
+    font-size: 1.5em;
+  }
+
+  .navbarStyles {
+    background-color: var(--nav);
+    min-width:100%;
+  }
+
+  .navbarDropdownLink{
+    font-family:'Open Sans';
+    color: var(--text);
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+
+  .dropdownMenuBox {
+    background-color: var(--nav);
+    border:none;
+    outline:none;
+  }
+
+  .aboutName {
+    font-family: 'Open Sans';
+    color: var(--text);
+    font-size:3em;
+  }
+
+  .miniTable {
+    color: var(--text);
+    font-family:'Open Sans';
+    font-weight: 300;
+    font-size: 1em;
+  }
+
+  .smallTitle {
+    font-family: 'Open Sans';
+    color: var(--text);
+    font-size:2em;
+  }
+
+  .titleImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:230px;
+    width: 10%;
+    pointer-events: none;
+  }
+
+  .divSection1 {
+    background-color: var(--nav);
+    width:100%;
+    overflow:hidden;
+    color: var(--text);
+    padding:30px;
+  }
+
+  .divSection2 {
+    background-color: var(--background);
+    width:100%;
+    overflow:hidden;
+    color: var(--text);
+    padding:30px;
+  }
+
+  .sectionTitle {
+    font-family: 'Open Sans';
+  }
+
+  .sectionText {
+    font-family: 'Roboto';
+    overflow-wrap:break-word;
+  }
+
+  body::-webkit-scrollbar {
+    width: 19px;
+
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    background-clip: content-box;
+  }
+
+  .logoText {
+    text-align:center;
+    font-family:'Open Sans';
+    font-weight:bold;
+    color: var(--text);
+    font-size:1.5em;
+  }
