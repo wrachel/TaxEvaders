@@ -1,0 +1,127 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>PassTester</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!-- Start of body content specific to page -->
+<body style="background-color: var(--background)"> <!-- change to red/orange/green depending on password strength (cool!) -->
+    <div class="row justify-content-center" style="padding-top:15%">
+        <div>
+            <h1 class="sectionTitle" style="color:var(--text); text-align:center">PassTester</h1>
+            <div style="background-color:var(--nav); color: var(--text); padding:20px" class="row justfiy-content-center">
+                <form>
+                    <input class="passwordInput" size="40" type="password" name="password" placeholder="password" id="password">
+                </form>
+            </div>
+            <div class="row justify-content-center" style="padding-top:15px">
+                <div style="background-color:var(--nav); padding:20px">
+                    <p class="sectionText" style="color:var(--text)" id="characters">characters: </p>
+                    <p class="sectionText" style="color:var(--text)">
+                        special characters?
+                        <i id="specialchars_check" style="display:none" class="fas fa-check"></i>
+                        <i id="specialchars_times" class="fas fa-times"></i>
+                    </p>
+                    <p class="sectionText" style="color:var(--text)">
+                        upper & lower case?
+                        <i id="upperlower_check" style="display:none" class="fas fa-check"></i>
+                        <i id="upperlower_times" class="fas fa-times"></i>
+                    </p>
+                    <p class="sectionText" style="color:var(--text)">
+                        letters & numbers?
+                        <i id="letternumber_check" style="display:none" class="fas fa-check"></i>
+                        <i id="letternumber_times" class="fas fa-times"></i>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    $('#password').keyup(updateStatus);
+    $('#password').keydown(updateStatus);
+
+    function updateStatus() {
+        var cs = $(this).val().length;
+        $('#characters').text("characters: " + cs);
+
+        var specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+        var numbers = /[0123456789]/;
+        var letters = /[qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM]/;
+
+        var charScore, specialCharScore, caseScore, numberLetterScore = 0;
+
+        if(cs>=12){
+            charScore = 1;
+        } else {
+            charScore = 0;
+        }
+
+        var password = $('#password').val();
+        if (specialCharacters.test(password)) {
+            document.getElementById("specialchars_check").style.display = "inline";
+            document.getElementById("specialchars_times").style.display = "none";
+            specialCharScore = 1;
+        } else {
+            document.getElementById("specialchars_check").style.display = "none";
+            document.getElementById("specialchars_times").style.display = "inline";
+            specialCharScore = 0;
+        }
+
+        if (hasLowerCase(password) && hasUpperCase(password)) {
+            document.getElementById("upperlower_check").style.display = "inline";
+            document.getElementById("upperlower_times").style.display = "none";
+            caseScore = 1;
+        } else {
+            document.getElementById("upperlower_check").style.display = "none";
+            document.getElementById("upperlower_times").style.display = "inline";
+            caseScore = 0;
+        }
+
+        if(numbers.test(password) && letters.test(password)) {
+            document.getElementById("letternumber_check").style.display = "inline";
+            document.getElementById("letternumber_times").style.display = "none";
+            numberLetterScore = 1;
+        } else {
+            document.getElementById("letternumber_check").style.display = "none";
+            document.getElementById("letternumber_times").style.display = "inline";
+            numberLetterScore = 0;
+        }
+
+        document.body.style.backgroundColor = backgroundColor(charScore, specialCharScore, caseScore, numberLetterScore, cs);
+    }
+
+        function hasLowerCase(str) {
+            return str.toUpperCase() !== str;
+        }
+
+        function hasUpperCase(str) {
+            return str.toLowerCase() !== str;
+        }
+
+        function backgroundColor(c, sc, ul, ln, characterCount) {
+            var total = c + sc + ul + ln;
+            if(total === 4){
+                return "green";
+            } else if(total===2 || total===3){
+                return "orange";
+            } else if(total===0 && characterCount === 0) {
+                return "var(--background)"
+            } else if(total===0) {
+                return "red";
+            }
+        }
+</script>
+</body>
+    <!-- end of body content specific to page -->
+</div>
+</body>
+</html>

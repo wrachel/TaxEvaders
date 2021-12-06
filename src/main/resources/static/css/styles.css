@@ -80,6 +80,7 @@
 .sectionText {
   font-family: "Roboto";
   overflow-wrap: break-word;
+  font-size: 1.5em;
 }
 
 body::-webkit-scrollbar {
@@ -101,6 +102,19 @@ body::-webkit-scrollbar-thumb {
   font-weight: bold;
   color: var(--text);
   font-size: 1.5em;
+}
+
+.passwordInput {
+  line-height: 50px;
+  font-size: 2em;
+}
+
+.fa-check {
+  color: green;
+}
+
+.fa-times {
+  color: red;
 }
 
 /*# sourceMappingURL=styles.css.map */
