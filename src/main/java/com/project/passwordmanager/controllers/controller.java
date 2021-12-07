@@ -1,8 +1,6 @@
 package com.project.passwordmanager.controllers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +15,6 @@ import java.util.*;
 
 import org.json.*;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class controller {
@@ -102,7 +98,7 @@ public class controller {
         model.addAttribute("song_name", song_name);
         model.addAttribute("mapsList", mapsList);
 
-        return "frontend/about-kevin";
+        return "frontend/kevin/about-kevin";
     }
 
     @GetMapping("/about/harry")
