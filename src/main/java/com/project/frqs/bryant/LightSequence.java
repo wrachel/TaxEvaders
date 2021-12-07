@@ -21,7 +21,7 @@ public class LightSequence {
         System.out.println(this.seq);
     }
 
-    public String fake_display() { // returns the current sequence as an actually normal getter instead of this console bs we have
+    public String getSeq() {
         return this.seq;
     }
 
@@ -29,9 +29,9 @@ public class LightSequence {
         String[] finalArray = new String[5];
 
         LightSequence gradShow = new LightSequence(initSeq);
-        finalArray[0] = gradShow.fake_display();
+        finalArray[0] = gradShow.getSeq();
         gradShow.changeSequence(changeSeq);
-        finalArray[1] = gradShow.fake_display();
+        finalArray[1] = gradShow.getSeq();
         finalArray[2] = gradShow.insertSegment(insertSeg, 4);
         finalArray[3] = oldSeq.replaceFirst(segment, "");
         finalArray[4] = String.valueOf(Math.sqrt(Math.pow(a,2)+Math.pow(b,2)));
@@ -48,5 +48,6 @@ public class LightSequence {
         System.out.println(resultSeq);
         System.out.println(newSeq);
     }
+
 
 }

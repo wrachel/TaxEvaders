@@ -17,6 +17,7 @@ import org.json.*;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.project.frqs.bryant.LightSequence.calculate_sequence;
+import static com.project.frqs.rachel.LightSequence.display_everything;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class controller {
@@ -122,6 +123,16 @@ public class controller {
         return "frqs/frq2"; // returns HTML VIEW (greeting)
     }
 
+    @GetMapping("/rachel/frq2")
+    public String frqunit2(@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel){
+        lightseqmodel.addAttribute("data", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
+        return "frqs/rachelfrq2";
+    }
+   /* @GetMapping("/test")
+    public String test(){
+        return "frqs/rachelfrq2";
+    }
+    */
 
 }
 

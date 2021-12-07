@@ -1,0 +1,61 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Rachel's FRQ Unit 2</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!-- Start of body content specific to page -->
+
+    <!-- end of body content specific to page -->
+    <h2>Incorporating Unit2 FRQ</h2>
+    <form action="/frq2">
+        <label for="initSeq">What would you like the initial sequence to be? </label>
+        <input type="text" id="initSeq" name="initSeq"> <br>
+        <label for="changeSeq">What would you like to change the sequence to? </label>
+        <input type="text" id="changeSeq" name="changeSeq"> <br>
+        <label for="insertSeg">What segment would you like to insert into the above sequence? </label>
+        <input type="text" id="insertSeg" name="insertSeg"> <br>
+        <label for="oldSeq">What sequence would you like to remove a segment from? </label>
+        <input type="text" id="oldSeq" name="oldSeq"> <br>
+        <label for="segment">What segment would you like to remove from the sequence? </label>
+        <input type="text" id="segment" name="segment"> <br>
+        <label for="vertical">What is the vertical distance between the two lights (for part f)? </label>
+        <input type="text" id="vertical" name="vertical"> <br>
+        <label for="horizontal">What is the horizontal distance between the two lights (for part f)? </label>
+        <input type="text" id="horizontal" name="horizontal"> <br>
+
+        <input type="Submit" value="Submit">
+    </form>
+
+    <h2> Displaying Results</h2>
+    <p>Initial Sequence: </p>
+    <p>New Sequence: </p>
+    <p>Sequence after segment is inserted: </p>
+    <p>segment: </p>
+    <p>Distance between the lights: </p>
+
+    <h2> Notes/Reflection on FRQ Unit </h2>
+    <p>NOTES</p>
+
+    <h2>Solutions for FRQ Unit 2</h2>
+
+    <p> a)LightSequence gradShow = new LightSequence("0101 0101 0101"); </p>
+    <p> b) gradShow.display(); </p>
+    <p> c) gradShow.changeSequence("0011 0011 0011");</p>
+    <p> d) String resultSeq = gradshow.insertSegment("1111 1111", 4);</p>
+    <p>e) int index = oldSeq.indexOf(segment);</p>
+    <p>String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + 1);</p>
+    <p>f)int distance = Math.sqrt(a*a + b*b);</p>
+    <p>System.out.println(distance);</p>
+</div>
+</body>
+</html>
