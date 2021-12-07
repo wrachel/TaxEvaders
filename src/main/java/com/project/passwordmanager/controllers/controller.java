@@ -111,6 +111,9 @@ public class controller {
     @GetMapping("/about/rachel")
     public String rachel(){return "frontend/about-rachel"; }
 
+    @GetMapping("/about/bryant")
+    public String bryant(){return "frontend/BryantAbout"; }
+
     // remove later
     @GetMapping("/frq2")
     public String nerd(@RequestParam(name = "a", required = false, defaultValue = "3") int a, @RequestParam(name = "b", required = false, defaultValue = "4") int b, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101") String initSeq, @RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011") String changeSeq, @RequestParam(name = "segment", required = false, defaultValue = "1100000111") String segment, @RequestParam(name = "oldSeq", required = false, defaultValue = "00") String oldSeq, @RequestParam(name = "insertSeg", required = false, defaultValue = "1111 1111") String insertSeg, Model light_model) {
