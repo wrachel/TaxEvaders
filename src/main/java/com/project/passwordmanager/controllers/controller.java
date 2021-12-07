@@ -110,6 +110,9 @@ public class controller {
         return "frontend/harryabout";
     }
 
+    @GetMapping("/about/rachel")
+    public String rachel(){return "frontend/about-rachel"; }
+
 
 }
 

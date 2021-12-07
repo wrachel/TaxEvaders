@@ -1,0 +1,47 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Rachel's About Page</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!-- Start of body content specific to page -->
+
+    <div style="margin-left: 50px; margin-top: 50px; width:60%" class="row justify-content-around">
+        <div><center>
+            <a title="click to toggle!" onclick="imageSwitch(1)"><img id="image1" style="display:none" th:src="@{/images/rachel-profile-picture.jpg}" src="/static/images/rachel-profile-picture.jpg" width="400px" height="400px"></a>
+            <a title="click to toggle!" onclick="imageSwitch(2)"><img id="image2" style="display:inline" th:src="@{/images/rachel-profile-picture2.jpg}" src="static/images/rachel-profile-picture2.jpg" width="400px" height="400px"></a>
+            <h1 style="" class="aboutName">Rachel Wei</h1>
+        </center></div>
+
+        <div>
+            <img src="/images/FRQ-Unit2.PNG" alt="Rachel's FRQ Unit 2 solutions" width="500" height="400" >
+        </div>
+
+            <script>
+                function imageSwitch(type)
+                {
+                    if(type===1) {
+                        document.getElementById('image1').style.display = 'none';
+                        document.getElementById('image2').style.display = 'inline';
+                    }
+
+                    if(type===2) {
+                        document.getElementById('image2').style.display = 'none';
+                        document.getElementById('image1').style.display = 'inline';
+                    }
+                }
+            </script>
+            <!--end of body content specific to page -->
+
+</body>
+
+</html>
