@@ -106,6 +106,7 @@ $text:$dirtywhite;
     font-family: 'Roboto';
     overflow-wrap:break-word;
     font-size:1.5em;
+    margin-bottom: 0;
   }
 
   body::-webkit-scrollbar {
@@ -139,4 +140,9 @@ $text:$dirtywhite;
 
   .fa-times {
     color:red;
+  }
+
+  .codeOutput {
+    color: #1da1f2;
+    font-size:1.25em;
   }
