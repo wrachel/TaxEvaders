@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Very professional project</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+<h2>Demo</h2>
+<form action="/frq2">
+    <label for="initSeq">What would you like to intialize the sequence as? </label>
+    <input type="text" id="initSeq" name="initSeq"> <br>
+    <label for="changeSeq">What would you like to change the sequence to? </label>
+    <input type="text" id="changeSeq" name="changeSeq"> <br>
+    <label for="insertSeg">What segment would you like to insert into the above sequence (inserts at index 4 because i am <em>not</em> doing bounds checks)? </label>
+    <input type="text" id="insertSeg" name="insertSeg"> <br>
+    <label for="oldSeq">What sequence would you like to remove a segment from? </label>
+    <input type="text" id="oldSeq" name="oldSeq"> <br>
+    <label for="segment">What segment would you like to remove from the previous sequence? </label>
+    <input type="text" id="segment" name="segment"> <br>
+    <label for="a">What is the vertical distance between the two lights? </label>
+    <input type="text" id="a" name="a"> <br>
+    <label for="b">What is the horizontal distance between the two lights? </label>
+    <input type="text" id="b" name="b"> <br>
+
+    <input type="submit" value="Submit">
+</form>
+<table class="mx-auto">
+    <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Value</th>
+    </tr>
+    <tr th:each="value, idx : ${data}">
+        <td th:text="${desc[idx.index]}"></td>
+        <td th:text="${value}"></td>
+    </tr>
+</table>
+
+<h2>Obligatory Reflection</h2>
+<p>Maybe doing these in second trimester wasn't a good idea, because I completely forgot what this unit was supposed to be about. Most of my solutions were very elegant by normal standards, but I'm pretty sure they were not the intended solutions. At all. All of my friends used like substring concatenation and stuff, while I was using replace statements.</p>
+<p>Speaking of, replace statements are entirely turing complete. This was proved a long time ago but I don't remember who did it. I actually made an entire arithmetic implementation using solely string replacement instructions.</p>
+<p>Anyway, I'm getting off-topic. The activity was a pretty nice review of...objects, I guess? It was a lot of getter and setter stuff. And object instantiation. Lots of that, actually. I don't really have much to say about this -- it's not like this is a particularly groundbreaking revelation. If you're just learning about objects <em>now</em>, you probably aren't cut out fo computer science.</p>
+<p>The website creation process was pretty interesting. I had to do a lot of modification to the original code in order to get it to work. That was a headache and a half. I probably could have handled the actual data transfer better, like with an array or a JSON object. I mean, not that creating 6 different parameters isn't fun, but it's a pain to read and a lot of copying and pasting. It also violates DRY, which is Very Bad (tm).</p>
+
+
+<h2>Obligatory Code</h2>
+<code>
+    a) LightSequence gradShow = new LightSequence("0101 0101 0101");
+    b) gradShow.display();
+    c) gradShow.changeSequence("0011 0011 0011");
+    d) LightSequence resultSeq = gradShow.insertSegment("1111 1111", 4);
+    e) String newSeq = oldSeq.replaceFirst(segment, "");
+    f) import java.lang.Math;
+    // code omitted
+    System.out.println(Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)));
+</code>
+</body>
+</html>
