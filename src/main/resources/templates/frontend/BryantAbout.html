@@ -22,8 +22,31 @@ System.out.println(Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)));
 
 <body>
 <div layout:fragment="content" th:remove="tag">
-    <h1>Hey kids</h1>
-    <p>It's me. You know who I am.</p>
+    <div style="margin-left: 50px; margin-top: 50px; width:60%" class="row justify-content-around">
+        <div><center>
+            <a title="click to toggle!" onclick="imageSwitch(1)"><img id="image1" style="display:none" th:src="@{/images/yaboi.jpg}" src="/static/images/yaboi.jpg" width="400px" height="400px"></a>
+            <a title="click to toggle!" onclick="imageSwitch(2)"><img id="image2" style="display:inline" th:src="@{/images/dominance_assertion.jpeg}" src="static/images/dominance_assertion.jpeg" width="400px" height="400px"></a>
+            <h1 style="" class="aboutName">its me</h1>
+        </center></div>
+
+        <div>
+            <a href="/frq">This is indeed my frq</a>
+        </div>
+
+        <script>
+            function imageSwitch(type)
+            {
+                if(type===1) {
+                    document.getElementById('image1').style.display = 'none';
+                    document.getElementById('image2').style.display = 'inline';
+                }
+
+                if(type===2) {
+                    document.getElementById('image2').style.display = 'none';
+                    document.getElementById('image1').style.display = 'inline';
+                }
+            }
+        </script>
 </div>
 </body>
 </html>
