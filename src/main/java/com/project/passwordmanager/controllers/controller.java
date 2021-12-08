@@ -37,6 +37,16 @@ public class controller {
         return "frontend/passtester";
     }
 
+    @GetMapping("/signin")
+    public String signIn() {
+        return "frontend/signin";
+    }
+
+    @GetMapping("/signup")
+    public String signUp() {
+        return "frontend/signup";
+    }
+
     @GetMapping("/about/kevin")
     public String kevin(@RequestParam(name="artist", required=false, defaultValue="NOTD") String artist, Model model) throws IOException, InterruptedException, ParseException, JSONException {
 
