@@ -108,7 +108,34 @@ public class controller {
     }
 
     @GetMapping("/about/harry")
-    public String harry() {
+    public String harry(@RequestParam(name="jap", required=false, defaultValue="") String japan, Model model) throws IOException, InterruptedException, ParseException, JSONException {
+
+      //API request, translates japanese to english
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://kanjialive-api.p.rapidapi.com/api/public/search/rain"))
+                .header("x-rapidapi-host", "kanjialive-api.p.rapidapi.com")
+                .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+/*        JSONObject jo = new JSONObject(response.body());
+//        System.out.println(jo);
+        JSONObject response_jo = jo.getJSONObject("response");
+        JSONArray hitsArray = response_jo.getJSONArray("hits");
+
+        JSONObject firstHit = hitsArray.getJSONObject(0);
+//        System.out.println("first hit:" + firstHit.toString());
+
+        JSONObject firstHitResult = (JSONObject) firstHit.get("result");
+
+        String Word = firstHitResult.get("word").toString();
+        String definition = firstHitResult.get("definitions").toString();
+
+        model.addAttribute("word",Word);
+        model.addAttribute("definition",definition);
+*/
         return "frontend/harryabout";
     }
 
