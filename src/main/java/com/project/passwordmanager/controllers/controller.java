@@ -53,7 +53,6 @@ public class controller {
             prefix = "%20";
         }
 
-
         System.out.println(artistName);
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -102,6 +101,10 @@ public class controller {
         model.addAttribute("mapsList", mapsList);
 
         return "frontend/kevin/about-kevin";
+    }
+    @GetMapping("/harry/frq2")
+    public String hfrq2() {
+        return "frontend/harryfrq2";
     }
 
     @GetMapping("/about/harry")
