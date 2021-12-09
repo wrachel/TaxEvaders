@@ -41,21 +41,31 @@
 
         <input type="submit" value="Submit">
     </form>
-
+    <!--<tr th:each = "display, idx : ${displayArray}">
+        <td th:text = "${displayArray[idx.index]}"/>
+        <td th:text = "${value}"/>
+        <td/>
+        -->
     <h2> Displaying Results</h2>
-    <p>Initial Sequence: </p>
-    <p>New Sequence: </p>
-    <p>Sequence after segment is inserted: </p>
-    <p>segment: </p>
-    <p>Distance between the lights: </p>
+    <p th:text="${data}"></p>
+    <!--<p>: Initial Sequence </p>
+    <p th:text="${}">: New Sequence</p>
+    <p th:text="${}">: Sequence after segment is inserted</p>
+    <p th:text="${}">: segment</p>
+    <p th:text="${}">: Distance between the lights</p> -->
 
     <h2> Notes/Reflection on FRQ Unit </h2>
-    <p>NOTES</p>
+    <href = "https://docs.google.com/document/d/1bdeKhlj34GqYaTwPCsn4Er7RvofaMheYy40i66PUy8g/edit"> More thorough notes for College Board Unit</href>
+    <h3>Highlighted notes/key takeaways from the FRQ</h3>
+    <p>Understanding how to create and store Objects and instances of classes</p>
+    <p>Calling Void Method and Non-Void Method</p>
+    <p>String Methods</p>
+    <p>Math class Methods</p>
 
     <h2>Solutions for FRQ Unit 2</h2>
 
     <p> a)LightSequence gradShow = new LightSequence("0101 0101 0101"); </p>
-    <p> b) gradShow.display(); </p>
+    <p > b) gradShow.display(); </p>
     <p> c) gradShow.changeSequence("0011 0011 0011");</p>
     <p> d) String resultSeq = gradshow.insertSegment("1111 1111", 4);</p>
     <p>e) int index = oldSeq.indexOf(segment);</p>

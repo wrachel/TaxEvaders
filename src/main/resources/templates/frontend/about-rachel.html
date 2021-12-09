@@ -26,6 +26,22 @@
             <a href="/rachel/frq2">FRQ Unit 2 LINK</a>
         </div>
 
+        <div>
+            <center>
+                <p class="smallTitle">Weather API</p>
+                <form action="/about/rachel" method="GET">
+                    <label style="color:white" for="location">Input the name of a city to see what their weather is like!</label>
+                    <input id="location" name="location" type="text">
+                    <input type="submit">
+                </form>
+
+                <table class="API">
+                    <tr>
+                        <!-- Usage of Java HashMap and Thymeleaf -->
+                        <td th:text="${map.main.temp}"></td>
+                    </tr>
+                </table>
+
             <script>
                 function imageSwitch(type)
                 {

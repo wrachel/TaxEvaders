@@ -13,7 +13,11 @@ import java.net.URI;
 import java.net.http.HttpResponse;
 import java.util.*;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
+
 import org.json.*;
+import org.json.simple.parser.JSONParser;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.project.frqs.bryant.LightSequence.calculate_sequence;
@@ -109,8 +113,6 @@ public class controller {
         return "frontend/harryabout";
     }
 
-    @GetMapping("/about/rachel")
-    public String rachel(){return "frontend/about-rachel"; }
 
     @GetMapping("/about/bryant")
     public String bryant(){return "frontend/BryantAbout"; }
@@ -128,11 +130,60 @@ public class controller {
         lightseqmodel.addAttribute("data", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
         return "frqs/rachelfrq2";
     }
-   /* @GetMapping("/test")
-    public String test(){
-        return "frqs/rachelfrq2";
+    @GetMapping("/about/rachel")
+    public String rachel(@RequestParam(name = "location", required = false, defaultValue = "San Diego") String location, Model weathermodel) throws IOException, InterruptedException, ParseException, JSONException{
+
+        List<String> locationList = new ArrayList<String>();
+        String [] a = location.split(" ");
+
+        StringBuilder locationName = new StringBuilder();
+
+        String prefix = "";
+
+        for (String i : a) {
+            locationName.append(prefix);
+            locationName.append(i);
+            prefix = "%20";
+        }
+
+        System.out.println(location);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://community-open-weather-map.p.rapidapi.com/weather?q="+ locationName))
+                .header("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
+                .header("x-rapidapi-key", "8211d43935msh926990e704c2717p15ea0fjsn8c393a17973a")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        //JSONObject jo = new JSONObject(response.body());
+        //JSONArray weatherArray = jo.getJSONArray("main");
+
+        //JSONObject finaltemp = weatherArray.getJSONObject(3);
+        //String song_art_url = finaltemp.get("temp").toString();
+        //JSONObject jo = new JSONObject(main);
+        //JSONObject jo_temp = jo.getJSONObject("temp");
+
+        //String temp = jo.get("temp").toString();
+
+
+        //JSONObject jo = new JSONObject(response.body());
+//        System.out.println(jo);
+        //JSONObject response_jo = jo.getJSONObject("response");
+        //JSONObject weathertemp = jo.getJSONObject("temp");
+//-----
+        //Object obj = new JSONParser().parse(response.body());
+        //JSONObject jo = (JSONObject) obj;
+//
+
+        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
+        weathermodel.addAttribute("map", map);
+        weathermodel.addAttribute("main", map.get("main"));
+
+
+        return "frontend/about-rachel";
     }
-    */
+
 
 }
 
