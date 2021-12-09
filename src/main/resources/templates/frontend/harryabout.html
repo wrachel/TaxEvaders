@@ -19,7 +19,7 @@
         <div><center>
             <a title="click to toggle!" onclick="imageSwitch(1)"><img id="image1" style="display:none" th:src="@{/images/grayharry.jpg}" src="/static/images/grayharry.jpg" width="400px" height="400px"></a>
             <a title="click to toggle!" onclick="imageSwitch(2)"><img id="image2" style="display:inline" th:src="@{/images/harry.jpg}" src="static/images/harry.jpg" width="400px" height="400px"></a>
-            <h1 style="" class="aboutName">Harry Li</h1>
+                <h1 style="" class="aboutName">Harry Li</h1>
         </center></div>
         <div>
             <table class="miniTable">
@@ -32,9 +32,35 @@
                 </tr>
                 </thead>
             </table>
+            <div style="padding-top:50px;">
+                <center>
+                    <p class="smallTitle">Words API</p>
+                    <form action="/about/harry" method="GET">
+                        <label style="color:white" for="artistField">Search Word</label>
+                        <input id="artistField" name="artist" type="text">
+                        <input type="submit">
+                    </form>
+                    <div style="padding-top:20px">
 
+                        <p th:text="@{${word}}" style="color:white;padding-top:15px"></p>
+                        <p style="color:white;padding-top:15px" th:text="${definition}"></p>
+
+                    </div>
+                </center>
+            </div>
         </div>
+        <div style="color:var(--text)">
+        <h1 class="sectionTitle">FRQs</h1>
+        <ul>
+            <li>
+                <a title="click to view page!" href="/harry/frq2">Unit 2</a>
+            </li>
+        </ul>
     </div>
+
+
+</div>
+
     <script>
         function imageSwitch(type)
         {

@@ -1,9 +1,8 @@
-package com.project.passwordmanager.controllers.kevin;
+package com.project.frqs.kevin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
-import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller

@@ -1,0 +1,40 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+  <div layout:fragment="metadata" th:remove="tag">
+    <title>Sign In</title>
+  </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+  <!-- Start of body content specific to page -->
+<div class="backgroundImage"></div>
+  <div class="formBox row justify-content-center">
+    <div style="padding: 15px; background-color: var(--gray); opacity:0.9">
+      <div class="row justify-content-center">
+        <h1 style="color:var(--dirtywhite)" class="sectionTitle">SIGN IN</h1>
+      </div>
+      <p><input class="inputForm" type="text" name="username" placeholder="username" required></p>
+      <p><input class="inputForm" id="passwordForm" type="password" name="password" placeholder="password" required></p>
+
+      <div class="row justify-content-around">
+        <div class="w-50">
+          <input type="checkbox" name="rememberMe" id="rememberMeCheck">
+          <label style="color:var(--dirtywhite)" for="rememberMeCheck">Remember Me</label>
+        </div>
+        <div class="w-50 text-md-right"></div>
+      </div>
+      <p><input class="submitButton" type="submit" value="SIGN IN"></p>
+      <p style="color: var(--dirtywhite); line-height: 0px; padding-top:5px">Don't have an account? <a style="color:var(--nav)" href="/signup">Sign Up</a></p>
+    </div>
+  </div>
+  <!-- end of body content specific to page -->
+</div>
+</body>
+</html>
