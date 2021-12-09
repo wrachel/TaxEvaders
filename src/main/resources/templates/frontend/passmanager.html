@@ -1,0 +1,56 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>PassManager</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!-- Start of body content specific to page -->
+<div style="padding-top:5%" class="row justify-content-center">
+    <div style="width:50%">
+        <table>
+            <tr class="passManagerTable">
+                <th>Application</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Edit/Delete</th>
+            </tr>
+            <tr class="passManagerTable">
+                <td>Netflix</td>
+                <td>Joe</td>
+                <td><input class="passBox" id="password_ID" type="password" readonly value="MAMAMAAMMAMAMAMAAMA"></td>
+                <td>
+                    <button style="margin-left:25px" onclick="viewPassword('password_ID')" class="manageIcon"><i style="color: var(--text)" class="fa fa-eye fa-fw"></i></button>
+                    <button class="manageIcon"><i style="color: var(--text)" class="fa fa-edit"></i></button>
+                </td>
+            </tr>
+            <tr class="passManagerTable">
+                <td>Netflix</td>
+                <td>Joe</td>
+                <td><input class="passBox" id="password_ID2" type="password" readonly value="MAMAMAAMMAMAMAMAAMA"></td>
+                <td>
+                    <button style="margin-left:25px" onclick="viewPassword('password_ID')" class="manageIcon"><i style="color: var(--text)" class="fa fa-eye fa-fw"></i></button>
+                    <button class="manageIcon"><i style="color: var(--text)" class="fa fa-edit"></i></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function viewPassword(id) {
+            var passwordField = document.getElementById(id)
+            passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</div>
+    <!-- end of body content specific to page -->
+</div>
+</body>
+</html>

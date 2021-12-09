@@ -37,6 +37,11 @@ public class controller {
         return "frontend/passtester";
     }
 
+    @GetMapping("/passmanager")
+    public String passManager() {
+        return "frontend/passmanager";
+    }
+
     @GetMapping("/signin")
     public String signIn() {
         return "frontend/signin";

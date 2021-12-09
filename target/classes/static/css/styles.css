@@ -111,7 +111,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .fa-check {
-  color: green;
+  color: #00ff00;
 }
 
 .fa-times {
@@ -158,6 +158,45 @@ input.inputForm {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
+}
+
+.passManagerTable {
+  text-align: center;
+}
+
+tr.passManagerTable:nth-child(even) {
+  background-color: var(--nav);
+}
+
+.manageIcon {
+  font-size: 8px;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.manageIcon:focus {
+  border: none;
+  outline: none;
+}
+
+.passBox {
+  background-color: transparent;
+  border: none;
+  color: var(--text);
+  text-align: center;
+  width: 100%;
+}
+
+.passBox:focus {
+  border: none;
+  outline: none;
+}
+
+a:focus {
+  border: none;
+  outline: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
