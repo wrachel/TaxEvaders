@@ -137,6 +137,18 @@ public class controller {
          String space =" ";
          model.addAttribute("space", space);
 
+        List<String> playerid = new ArrayList<String>();
+        String [] a = player.split(" ");
+
+        StringBuilder person = new StringBuilder();
+
+        String prefix = "";
+
+        for (String i : a) {
+            person.append(prefix);
+            person.append(i);
+            prefix = "%20";
+        }
 
     //API request, gets NBA player
     HttpRequest request = HttpRequest.newBuilder()
@@ -149,21 +161,15 @@ public class controller {
 
     //uses hashmapping or JSON
     //var map = new ObjectMapper().readValue(response.body(), HashMap.class); works but doesn't update
-        JSONObject jo = new JSONObject(response.body());
-    JSONObject response_jo = jo.getJSONObject("team");
+        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
 
 
     //don't know how this works, just copied off of mort
-    String firstname = jo.get("first_name").toString();
-    String lastname = jo.get("last_name").toString();
-    String position = jo.get("position").toString();
-    String team = response_jo.get("full_name").toString();
+
 
     //   model.addAttribute("jo", jo);
-    model.addAttribute("position", position);
-    model.addAttribute("firstname", firstname);
-    model.addAttribute("lastname", lastname);
-    model.addAttribute("team", team);
+    model.addAttribute("map", map);
+    model.addAttribute("team", map.get("team"));
 
     return "frontend/harryabout";
 
