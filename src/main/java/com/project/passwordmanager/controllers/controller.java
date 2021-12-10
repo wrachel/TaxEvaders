@@ -131,11 +131,8 @@ public class controller {
     }
 
     @GetMapping("/about/harry")
-    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model model) throws IOException, InterruptedException, ParseException, JSONException {
+    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model play) throws IOException, InterruptedException, ParseException, JSONException {
 
-        //spacing between first and last name
-         String space =" ";
-         model.addAttribute("space", space);
 
         List<String> playerid = new ArrayList<String>();
         String [] a = player.split(" ");
@@ -150,29 +147,37 @@ public class controller {
             prefix = "%20";
         }
 
+        //spacing between first and last name
+        String space =" ";
+        play.addAttribute("space", space);
+
     //API request, gets NBA player
-    HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://free-nba.p.rapidapi.com/players/22"))
-            .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
-            .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
-            .method("GET", HttpRequest.BodyPublishers.noBody())
-            .build();
-    HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        try {
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://free-nba.p.rapidapi.com/players/" + player))
+                    .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
+                    .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
+                    .method("GET", HttpRequest.BodyPublishers.noBody())
+                    .build();
+            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-    //uses hashmapping or JSON
-    //var map = new ObjectMapper().readValue(response.body(), HashMap.class); works but doesn't update
-        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
-
-
-    //don't know how this works, just copied off of mort
+            //uses hashmapping or JSON
+            //var map = new ObjectMapper().readValue(response.body(), HashMap.class); works but doesn't update
+            var map = new ObjectMapper().readValue(response.body(), HashMap.class);
 
 
-    //   model.addAttribute("jo", jo);
-    model.addAttribute("map", map);
-    model.addAttribute("team", map.get("team"));
+            //don't know how this works, just copied off of mort
 
-    return "frontend/harryabout";
 
+            //   model.addAttribute("jo", jo);
+            play.addAttribute("map", map);
+            play.addAttribute("team", map.get("team"));
+
+            return "frontend/harryabout";
+        }
+        catch (Exception e){
+            return "frontend/harryabout";
+        }
 
     }
 
