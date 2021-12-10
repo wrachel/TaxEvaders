@@ -127,28 +127,43 @@ public class controller {
     }
 
     @GetMapping("/about/harry")
-    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String name, Model model) throws IOException, InterruptedException, ParseException, JSONException {
-     try {
-         //API request, gets NBA player
-         HttpRequest request = HttpRequest.newBuilder()
-                 .uri(URI.create("https://free-nba.p.rapidapi.com/players/22"))
-                 .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
-                 .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
-                 .method("GET", HttpRequest.BodyPublishers.noBody())
-                 .build();
-         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-         var map = new ObjectMapper().readValue(response.body(), HashMap.class);
+    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model model) throws IOException, InterruptedException, ParseException, JSONException {
 
-         model.addAttribute("map", map);
-         model.addAttribute("position", map.get("position"));
-         model.addAttribute("firstname", map.get("first_name"));
-         model.addAttribute("team", map.get("team"));
+        //spacing between first and last name
+         String space =" ";
+         model.addAttribute("space", space);
 
-         return "frontend/harryabout";
-     }
-     catch(Exception e){
-        return "frontend/harryabout";
-     }
+
+    //API request, gets NBA player
+    HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create("https://free-nba.p.rapidapi.com/players/22"))
+            .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
+            .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
+            .method("GET", HttpRequest.BodyPublishers.noBody())
+            .build();
+    HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
+    //uses hashmapping or JSON
+    //var map = new ObjectMapper().readValue(response.body(), HashMap.class); works but doesn't update
+        JSONObject jo = new JSONObject(response.body());
+    JSONObject response_jo = jo.getJSONObject("team");
+
+
+    //don't know how this works, just copied off of mort
+    String firstname = jo.get("first_name").toString();
+    String lastname = jo.get("last_name").toString();
+    String position = jo.get("position").toString();
+    String team = response_jo.get("full_name").toString();
+
+    //   model.addAttribute("jo", jo);
+    model.addAttribute("position", position);
+    model.addAttribute("firstname", firstname);
+    model.addAttribute("lastname", lastname);
+    model.addAttribute("team", team);
+
+    return "frontend/harryabout";
+
+
     }
 
 
