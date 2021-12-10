@@ -131,11 +131,8 @@ public class controller {
     }
 
     @GetMapping("/about/harry")
-    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model model) throws IOException, InterruptedException, ParseException, JSONException {
+    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model play) throws IOException, InterruptedException, ParseException, JSONException {
 
-        //spacing between first and last name
-         String space =" ";
-         model.addAttribute("space", space);
 
         List<String> playerid = new ArrayList<String>();
         String [] a = player.split(" ");
@@ -150,9 +147,13 @@ public class controller {
             prefix = "%20";
         }
 
+        //spacing between first and last name
+        String space =" ";
+        play.addAttribute("space", space);
+
     //API request, gets NBA player
     HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://free-nba.p.rapidapi.com/players/22"))
+            .uri(URI.create("https://free-nba.p.rapidapi.com/players/" +player))
             .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
             .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
             .method("GET", HttpRequest.BodyPublishers.noBody())
@@ -168,8 +169,8 @@ public class controller {
 
 
     //   model.addAttribute("jo", jo);
-    model.addAttribute("map", map);
-    model.addAttribute("team", map.get("team"));
+    play.addAttribute("map", map);
+    play.addAttribute("team", map.get("team"));
 
     return "frontend/harryabout";
 
