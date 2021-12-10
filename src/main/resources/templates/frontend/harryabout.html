@@ -42,9 +42,9 @@
                     </form>
                     <div style="padding-top:20px">
 
-                        <p th:text="${firstname} + ${space} + ${lastname}"  style="color:white;padding-top:15px"></p>
-                        <p style="color:white;padding-top:15px" th:text="${position}"></p>
-                        <p style="color:white;padding-top:15px" th:text="${team}"></p>
+                        <p th:text="${map.first_name} + ${space} + ${map.last_name}"  style="color:white;padding-top:15px"></p>
+                        <p style="color:white;padding-top:15px" th:text="${map.position}"></p>
+                        <p style="color:white;padding-top:15px" th:text="${map.team.full_name}"></p>
                     </div>
                 </center>
             </div>
