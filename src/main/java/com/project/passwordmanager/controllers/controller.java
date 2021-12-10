@@ -127,35 +127,28 @@ public class controller {
     }
 
     @GetMapping("/about/harry")
-    public String harry(@RequestParam(name="jap", required=false, defaultValue="") String japan, Model model) throws IOException, InterruptedException, ParseException, JSONException {
+    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String name, Model model) throws IOException, InterruptedException, ParseException, JSONException {
+     try {
+         //API request, gets NBA player
+         HttpRequest request = HttpRequest.newBuilder()
+                 .uri(URI.create("https://free-nba.p.rapidapi.com/players/22"))
+                 .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
+                 .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
+                 .method("GET", HttpRequest.BodyPublishers.noBody())
+                 .build();
+         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+         var map = new ObjectMapper().readValue(response.body(), HashMap.class);
 
-      //API request, translates japanese to english
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://kanjialive-api.p.rapidapi.com/api/public/search/rain"))
-                .header("x-rapidapi-host", "kanjialive-api.p.rapidapi.com")
-                .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+         model.addAttribute("map", map);
+         model.addAttribute("position", map.get("position"));
+         model.addAttribute("firstname", map.get("first_name"));
+         model.addAttribute("team", map.get("team"));
 
-/*        JSONObject jo = new JSONObject(response.body());
-//        System.out.println(jo);
-        JSONObject response_jo = jo.getJSONObject("response");
-        JSONArray hitsArray = response_jo.getJSONArray("hits");
-
-        JSONObject firstHit = hitsArray.getJSONObject(0);
-//        System.out.println("first hit:" + firstHit.toString());
-
-        JSONObject firstHitResult = (JSONObject) firstHit.get("result");
-
-        String Word = firstHitResult.get("word").toString();
-        String definition = firstHitResult.get("definitions").toString();
-
-        model.addAttribute("word",Word);
-        model.addAttribute("definition",definition);
-*/
+         return "frontend/harryabout";
+     }
+     catch(Exception e){
         return "frontend/harryabout";
+     }
     }
 
 

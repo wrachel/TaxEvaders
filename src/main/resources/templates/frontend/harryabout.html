@@ -34,17 +34,17 @@
             </table>
             <div style="padding-top:50px;">
                 <center>
-                    <p class="smallTitle">Words API</p>
+                    <p class="smallTitle">NBA API</p>
                     <form action="/about/harry" method="GET">
-                        <label style="color:white" for="artistField">Search Word</label>
-                        <input id="artistField" name="artist" type="text">
+                        <label style="color:white" for="num">Search NBA player by ID</label>
+                        <input id="num" name="player" type="number">
                         <input type="submit">
                     </form>
                     <div style="padding-top:20px">
 
-                        <p th:text="@{${word}}" style="color:white;padding-top:15px"></p>
-                        <p style="color:white;padding-top:15px" th:text="${definition}"></p>
-
+                        <p th:text="${map.first_name}" style="color:white;padding-top:15px"></p>
+                        <p style="color:white;padding-top:15px" th:text="${map.position}"></p>
+                        <p style="color:white;padding-top:15px" th:text="${map.team.full_name}"></p>
                     </div>
                 </center>
             </div>
