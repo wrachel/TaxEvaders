@@ -11,6 +11,8 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.URI;
 import java.net.http.HttpResponse;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.project.frqs.bryant.LightSequence.calculate_sequence;
 import static com.project.frqs.rachel.LightSequence.display_everything;
+
+import com.project.passwordmanager.sql_helper;
 
 @Controller  // HTTP requests are handled as a controller, using the @Controller annotation
 public class controller {
@@ -168,7 +172,58 @@ public class controller {
 
 
     @GetMapping("/about/bryant")
-    public String bryant(){return "frontend/BryantAbout"; }
+    public String bryant(@RequestParam(name = "uuid", required = true, defaultValue = "c93c8573bc6a49b4ade069a9f909c895") String uuid, Model model) throws JSONException, IOException, InterruptedException {
+        String url = "jdbc:sqlite:test.db";
+        sql_helper database = new sql_helper();
+        String[][] work = database.get_work(url);
+
+        model.addAttribute("work", work);
+
+        String base = "https://api.hypixel.net/player";
+        String API_KEY = "[redacted]";
+
+        String uri = base + "?key=" + API_KEY + "&uuid=" + uuid;
+
+
+
+        // shamelessly stolen code because i don't want to write my own http request handling
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+
+        JSONObject resp = new JSONObject(response.body()).getJSONObject("player").getJSONObject("stats").getJSONObject("Bedwars");
+
+        String[] keys = {"eight_one_final_kills_bedwars", "eight_one_final_deaths_bedwars", "eight_two_final_kills_bedwars", "eight_two_final_deaths_bedwars", "four_three_final_kills_bedwars", "four_three_final_deaths_bedwars", "four_four_final_kills_bedwars", "four_four_final_deaths_bedwars"};
+        String[] normalized_names = {"Solos", "Duos", "Threes", "Fours", "Total"};
+
+        int totalKills, totalDeaths;
+        totalKills = totalDeaths = 0;
+
+        int[][] values = new int[5][2];
+
+        for (int i = 0; i < keys.length; i += 2) {
+            try { // make sure connection can be established
+                values[i/2] = new int[] {resp.getInt(keys[i]), resp.getInt(keys[i+1])};
+                totalKills += resp.getInt(keys[i]);
+                totalDeaths += resp.getInt(keys[i+1]);
+            }
+            catch (JSONException e) {
+                values[i] = new int[] {0, 0};
+            }
+        }
+
+        values[4] = new int[] {totalKills, totalDeaths};
+
+        double fkdr = (totalKills / (double) totalDeaths);
+
+        model.addAttribute("names", normalized_names);
+        model.addAttribute("data", values);
+        model.addAttribute("fkdr", fkdr);
+
+        return "frontend/BryantAbout";
+    }
 
     // remove later
     @GetMapping("/frq2")

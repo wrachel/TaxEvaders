@@ -26,11 +26,57 @@ System.out.println(Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)));
         <div><center>
             <a title="click to toggle!" onclick="imageSwitch(1)"><img id="image1" style="display:none" th:src="@{/images/yaboi.jpg}" src="/static/images/yaboi.jpg" width="400px" height="400px"></a>
             <a title="click to toggle!" onclick="imageSwitch(2)"><img id="image2" style="display:inline" th:src="@{/images/dominance_assertion.jpeg}" src="static/images/dominance_assertion.jpeg" width="400px" height="400px"></a>
-            <h1 style="" class="aboutName">its me</h1>
+            <h1 style="color:white" class="aboutName">its me</h1>
         </center></div>
 
         <div>
-            <a href="/frq2">This is indeed my frq</a>
+            <h1 style="color:white"1>Unhealthy gaming habits API</h1>
+            <form action="/about/bryant">
+                <label for="uuid" style="color:white">Please enter a player UUID to see their BedWars statistics: </label>
+                <input type="text" id="uuid" name="uuid"> <br>
+
+                <input type="submit" value="Submit">
+            </form>
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Gamemode</th>
+                    <th>Final Kills</th>
+                    <th>Final Deaths</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="value, idx : ${data}">
+                    <td th:text="${names[idx.index]}"></td>
+                    <td th:text="${value[0]}"></td>
+                    <td th:text="${value[1]}"></td>
+                </tr>
+                </th:block>
+                </tbody>
+            </table>
+            <p style="color:white">FKDR: <span th:text="${fkdr}"></span></p>
+        </div>
+
+        <div>
+            <h1 style="color:white">Project Work</h1>
+            <h3 style="color:white">This table is populated dynamically with SQL. If it's returning abnormal results, it's probably because someone is messing with my database again.</h3>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Project</th>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="entry: ${work}">
+                    <tr>
+                        <td th:text="${entry[2]}"></td>
+                        <td><a th:text="${entry[0]}" th:href="${entry[1]}"></a></td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
         </div>
 
         <script>
