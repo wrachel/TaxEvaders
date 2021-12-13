@@ -150,7 +150,7 @@ public class controller {
         play.addAttribute("space", space);
 
     //API request, gets NBA player
-        try {
+
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://free-nba.p.rapidapi.com/players/" + player))
                     .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
@@ -173,11 +173,9 @@ public class controller {
 
             return "frontend/harryabout";
         }
-        catch (Exception e){
-            return "frontend/harryabout";
-        }
 
-    }
+
+
 
 
     @GetMapping("/about/bryant")
