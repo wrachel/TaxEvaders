@@ -123,10 +123,7 @@ public class controller {
 
         return "frontend/kevin/about-kevin";
     }
-    @GetMapping("/harry/frq2")
-    public String hfrq2() {
-        return "frontend/harryfrq2";
-    }
+
 
     @GetMapping("/about/harry")
     public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model play) throws IOException, InterruptedException, ParseException, JSONException {
@@ -173,9 +170,15 @@ public class controller {
 
             return "frontend/harryabout";
         }
+    @GetMapping("/harry/frq2")
+    public String hfrq2(@RequestParam(name="sequence", required = false, defaultValue = "0000000") String sequence, Model model) throws IOException, InterruptedException {
+     //FRQ answer a
 
+            String a = "LightSequence gradShow = new LightSequence(\"" + sequence + "\");";
+            model.addAttribute("a", a);
 
-
+        return "frontend/harryfrq2";
+    }
 
 
     @GetMapping("/about/bryant")
@@ -190,6 +193,7 @@ public class controller {
         String API_KEY = "[redacted]";
 
         String uri = base + "?key=" + API_KEY + "&uuid=" + uuid;
+
 
 
 
