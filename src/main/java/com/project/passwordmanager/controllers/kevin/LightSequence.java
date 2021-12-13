@@ -1,4 +1,4 @@
-package com.project.frqs.kevin;
+package com.project.passwordmanager.controllers.kevin;
 
 // UNIT 2 FRQ
 

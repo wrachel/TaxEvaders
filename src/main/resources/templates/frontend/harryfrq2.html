@@ -14,24 +14,19 @@
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body>
 <div layout:fragment="content" th:remove="tag">
+
     <div style="color:var(--text); padding-top:30px; padding-left: 30px">
         <h1 class="sectionTitle">Unit 2 FRQ</h1>
             <div class="sectionText">
-                <p>(a) </br>
-                    LightSequence gradShow = new LightSequence("0101 0101 0101");
-                     (b)</br>
-                     gradShow.display();</br>
-                       (c)</br>
-                       gradShow.changeSequence("0011 0011 0011");</br>
-                       (d)</br>
-                        resultSeq = gradShow.insertSegment("1111 1111", 4);</br>
-                      (e)</br>
-                    int index = oldSeq.indexOf(segment);</br>
-                      String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + segment.length());</br>
-                    (f)</br>
-                    System.out.println(Math.sqrt(a*a + b*b));
-                     </p>
+                <form action="/harry/frq2" method="GET">
+                    <label style="color:white" for="sequence">(a)Input initial light sequence:</label>
+                    <input id="sequence" name="sequence" type="text">
+                    <input type="submit">
+                </form>
+                <p th:text = "${a}"><p>
+
             </div>
+
     </div>
 
 </div>

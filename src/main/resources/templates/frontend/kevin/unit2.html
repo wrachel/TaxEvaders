@@ -57,17 +57,14 @@ public void display() {
             <p class="sectionText">(b) Write a statement that will call the display method to display the light sequence for the gradShow object.
             </p>
             <code>gradShow.display();</code>
-            <p class="codeOutput" th:text="${gradShow}"></p>
 
             <p class="sectionText">(c) Write a statement that will be used to update the gradShow light sequence to "0011 0011 0011".
             </p>
             <code>gradShow.changeSequence("0011 0011 0011");</code>
-            <p class="codeOutput" th:text="${newGradShow}"></p>
 
             <p class="sectionText">(d) Write a code segment that will call the insertSegment method to insert the segment "1111 1111" in the current sequence for gradShow at index 4. The resulting sequence will be stored in the string resultSeq.
             </p>
             <code>resultSeq = gradShow.insertSegment("1111 1111", 4);</code>
-            <p class="codeOutput" th:text="${resultSeq}"></p>
 
             <p class="sectionText">(e) Assume that the string oldSeq has been properly declared and initialized and contains the string segment. Write a code segment that will remove the first occurrence of segment from oldSeq and store it in the string newSeq. Consider the following examples.
                 <br>If oldSeq is "1100000111" and segment is "11", then "00000111" should be stored in newSeq.
@@ -76,13 +73,11 @@ public void display() {
             </p>
             <code>int index = oldSeq.indexOf(segment); <br>
                 String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + segment.length());</code>
-            <p class="codeOutput" th:text="${newSeq}"></p>
 
             <p class="sectionText">(f) Two lights will be arranged on a two-dimensional plane. The vertical distance between the two lights is stored in the double variable a. The horizontal distance between the two lights is stored in the double variable b.
                 The straight-line distance between the two lights is given by the formula square root of the quantity a squared plus b squared.
             </p>
             <code>System.out.println(Math.sqrt(a*a + b*b));</code>
-            <p class="codeOutput" th:text="${partf}"></p>
         </div>
 
     </div>

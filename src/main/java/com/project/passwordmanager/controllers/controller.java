@@ -1,5 +1,6 @@
 package com.project.passwordmanager.controllers;
 
+import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
@@ -11,15 +12,12 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.URI;
 import java.net.http.HttpResponse;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 
 import org.json.*;
-import org.json.simple.parser.JSONParser;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.project.frqs.bryant.LightSequence.calculate_sequence;
@@ -125,17 +123,11 @@ public class controller {
 
         return "frontend/kevin/about-kevin";
     }
-    @GetMapping("/harry/frq2")
-    public String hfrq2() {
-        return "frontend/harryfrq2";
-    }
+
 
     @GetMapping("/about/harry")
-    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model model) throws IOException, InterruptedException, ParseException, JSONException {
+    public String harry(@RequestParam(name="player", required=false, defaultValue="22") String player, Model play) throws IOException, InterruptedException, ParseException, JSONException {
 
-        //spacing between first and last name
-         String space =" ";
-         model.addAttribute("space", space);
 
         List<String> playerid = new ArrayList<String>();
         String [] a = player.split(" ");
@@ -150,30 +142,42 @@ public class controller {
             prefix = "%20";
         }
 
+        //spacing between first and last name
+        String space =" ";
+        play.addAttribute("space", space);
+
     //API request, gets NBA player
-    HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://free-nba.p.rapidapi.com/players/22"))
-            .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
-            .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
-            .method("GET", HttpRequest.BodyPublishers.noBody())
-            .build();
-    HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-    //uses hashmapping or JSON
-    //var map = new ObjectMapper().readValue(response.body(), HashMap.class); works but doesn't update
-        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://free-nba.p.rapidapi.com/players/" + player))
+                    .header("x-rapidapi-host", "free-nba.p.rapidapi.com")
+                    .header("x-rapidapi-key", "6644298cbfmsh5ae57041a36c826p198b3ajsne9fb5389efdd")
+                    .method("GET", HttpRequest.BodyPublishers.noBody())
+                    .build();
+            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-
-    //don't know how this works, just copied off of mort
+            //uses hashmapping or JSON
+            //var map = new ObjectMapper().readValue(response.body(), HashMap.class); works but doesn't update
+            var map = new ObjectMapper().readValue(response.body(), HashMap.class);
 
 
-    //   model.addAttribute("jo", jo);
-    model.addAttribute("map", map);
-    model.addAttribute("team", map.get("team"));
-
-    return "frontend/harryabout";
+            //don't know how this works, just copied off of mort
 
 
+            //   model.addAttribute("jo", jo);
+            play.addAttribute("map", map);
+            play.addAttribute("team", map.get("team"));
+
+            return "frontend/harryabout";
+        }
+    @GetMapping("/harry/frq2")
+    public String hfrq2(@RequestParam(name="sequence", required = false, defaultValue = "0000000") String sequence, Model model) throws IOException, InterruptedException {
+     //FRQ answer a
+
+            String a = "LightSequence gradShow = new LightSequence(\"" + sequence + "\");";
+            model.addAttribute("a", a);
+
+        return "frontend/harryfrq2";
     }
 
 
@@ -189,6 +193,7 @@ public class controller {
         String API_KEY = "[redacted]";
 
         String uri = base + "?key=" + API_KEY + "&uuid=" + uuid;
+
 
 
 
@@ -297,7 +302,5 @@ public class controller {
 
         return "frontend/about-rachel";
     }
-
-
 }
 
