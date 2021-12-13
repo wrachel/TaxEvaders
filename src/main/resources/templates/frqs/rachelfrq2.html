@@ -14,67 +14,68 @@
 <body>
 <div layout:fragment="content" th:remove="tag">
     <!-- Start of body content specific to page -->
+    <body style="color:var(--text)">
+        <h2>Incorporating Unit2 FRQ</h2>
+        <form action="/rachel/frq2">
+            <label for="initSeq">Initial Sequence: </label><br>
+            <input type="text" id="initSeq" name="initSeq"><br>
 
+            <label for="changeSeq">What would you like to change the sequence to?: </label><br>
+            <input type="text" id="changeSeq" name="changeSeq"><br>
+
+            <label for="insertSeg">Insert a segment: </label><br>
+            <input type="text" id="insertSeg" name="insertSeg"><br>
+
+            <label for="oldSeq">Type a sequence to remove a segment from </label><br>
+            <input type="text" id="oldSeq" name="oldSeq"><br>
+
+            <label for="segment">What is the segment you would like to remove? </label><br>
+            <input type="text" id="segment" name="segment"><br>
+
+            <label for="vertical">Vertical Distance: </label><br>
+            <input type="integer" id="vertical" name="vertical"><br>
+
+            <label for="horizontal">Horizontal Distance: </label><br>
+            <input type="integer" id="horizontal" name="horizontal"><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+        <!--<tr th:each = "display, idx : ${displayArray}">
+            <td th:text = "${displayArray[idx.index]}"/>
+            <td th:text = "${value}"/>
+            <td/>
+            -->
+        <h2> Displaying Results</h2>
+        <p th:text="${data}"></p>
+        <!--<p>: Initial Sequence </p>
+        <p th:text="${}">: New Sequence</p>
+        <p th:text="${}">: Sequence after segment is inserted</p>
+        <p th:text="${}">: segment</p>
+        <p th:text="${}">: Distance between the lights</p> -->
+
+        <h2> Notes/Reflection on FRQ Unit </h2>
+        <a href="https://docs.google.com/document/d/1bdeKhlj34GqYaTwPCsn4Er7RvofaMheYy40i66PUy8g/edit" target="_blank">Click me to see more thorough notes for College Board Unit</a>
+        <h3>Highlighted notes/key takeaways from the FRQ</h3>
+        <p>Understanding how to create and store Objects and instances of classes</p>
+        <p>Calling Void Method and Non-Void Method</p>
+        <p>String Methods</p>
+        <p>Math class Methods</p>
+
+        <h2>Test Corrections</h2>
+        <p>No test corrections, solutions were accurate. </p>
+
+        <h2>Solutions for FRQ Unit 2</h2>
+
+        <p> a)LightSequence gradShow = new LightSequence("0101 0101 0101"); </p>
+        <p > b) gradShow.display(); </p>
+        <p> c) gradShow.changeSequence("0011 0011 0011");</p>
+        <p> d) String resultSeq = gradshow.insertSegment("1111 1111", 4);</p>
+        <p>e) int index = oldSeq.indexOf(segment);</p>
+        <p>String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + 1);</p>
+        <p>f)int distance = Math.sqrt(a*a + b*b);</p>
+        <p>System.out.println(distance);</p>
+    </body>
     <!-- end of body content specific to page -->
-    <h2>Incorporating Unit2 FRQ</h2>
-    <form action="/rachel/frq2">
-        <label for="initSeq">Initial Sequence: </label><br>
-        <input type="text" id="initSeq" name="initSeq"><br>
-
-        <label for="changeSeq">What would you like to change the sequence to?: </label><br>
-        <input type="text" id="changeSeq" name="changeSeq"><br>
-
-        <label for="insertSeg">Insert a segment: </label><br>
-        <input type="text" id="insertSeg" name="insertSeg"><br>
-
-        <label for="oldSeq">Type a sequence to remove a segment from </label><br>
-        <input type="text" id="oldSeq" name="oldSeq"><br>
-
-        <label for="segment">What is the segment you would like to remove? </label><br>
-        <input type="text" id="segment" name="segment"><br>
-
-        <label for="vertical">Vertical Distance: </label><br>
-        <input type="integer" id="vertical" name="vertical"><br>
-
-        <label for="horizontal">Horizontal Distance: </label><br>
-        <input type="integer" id="horizontal" name="horizontal"><br><br>
-
-        <input type="submit" value="Submit">
-    </form>
-    <!--<tr th:each = "display, idx : ${displayArray}">
-        <td th:text = "${displayArray[idx.index]}"/>
-        <td th:text = "${value}"/>
-        <td/>
-        -->
-    <h2> Displaying Results</h2>
-    <p th:text="${data}"></p>
-    <!--<p>: Initial Sequence </p>
-    <p th:text="${}">: New Sequence</p>
-    <p th:text="${}">: Sequence after segment is inserted</p>
-    <p th:text="${}">: segment</p>
-    <p th:text="${}">: Distance between the lights</p> -->
-
-    <h2> Notes/Reflection on FRQ Unit </h2>
-    <a href="https://docs.google.com/document/d/1bdeKhlj34GqYaTwPCsn4Er7RvofaMheYy40i66PUy8g/edit" target="_blank">Click me to see more thorough notes for College Board Unit</a>
-    <h3>Highlighted notes/key takeaways from the FRQ</h3>
-    <p>Understanding how to create and store Objects and instances of classes</p>
-    <p>Calling Void Method and Non-Void Method</p>
-    <p>String Methods</p>
-    <p>Math class Methods</p>
-
-    <h2>Test Corrections</h2>
-    <p>No test corrections, solutions were accurate. </p>
-
-    <h2>Solutions for FRQ Unit 2</h2>
-
-    <p> a)LightSequence gradShow = new LightSequence("0101 0101 0101"); </p>
-    <p > b) gradShow.display(); </p>
-    <p> c) gradShow.changeSequence("0011 0011 0011");</p>
-    <p> d) String resultSeq = gradshow.insertSegment("1111 1111", 4);</p>
-    <p>e) int index = oldSeq.indexOf(segment);</p>
-    <p>String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + 1);</p>
-    <p>f)int distance = Math.sqrt(a*a + b*b);</p>
-    <p>System.out.println(distance);</p>
 </div>
 </body>
 </html>
