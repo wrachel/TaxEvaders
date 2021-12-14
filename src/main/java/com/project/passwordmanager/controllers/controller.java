@@ -171,11 +171,50 @@ public class controller {
             return "frontend/harryabout";
         }
     @GetMapping("/harry/frq2")
-    public String hfrq2(@RequestParam(name="sequence", required = false, defaultValue = "0000000") String sequence, Model model) throws IOException, InterruptedException {
-     //FRQ answer a
+    public String hfrq2(@RequestParam(name="sequence", required = false, defaultValue = "0101 0101 0101") String sequence,
+                        @RequestParam(name="change", required = false, defaultValue = "0011 0011 0011") String change,
+                        @RequestParam(name="insertion", required = false, defaultValue = "1111 1111") String insertion,
+                        @RequestParam(name="index1", required = false, defaultValue = "4") int index1,
+                        @RequestParam(name="segment", required = false, defaultValue = "11") String segment,
+                        @RequestParam(name="oldseq", required = false, defaultValue = "1100000111") String oldseq,
+                        @RequestParam(name="height", required = false, defaultValue = "4") double height,
+                        @RequestParam(name="width", required = false, defaultValue = "3") double width ,Model model) throws IOException, InterruptedException {
 
+        //FRQ answer a
             String a = "LightSequence gradShow = new LightSequence(\"" + sequence + "\");";
-            model.addAttribute("a", a);
+
+        LightSequence gradShow = new LightSequence(sequence);
+
+        //question b
+        gradShow.display();
+
+        //question c
+       gradShow.changeSequence(change);
+
+       //question d
+        String resultSeq = gradShow.insertSegment(insertion, index1);
+
+
+
+       //question e
+        if(segment.length()>oldseq.length()){
+            String swap = segment;
+            segment = oldseq;
+            oldseq= swap;
+        }
+        int index = oldseq.indexOf(segment);
+        String newSeq = oldseq.substring(0, index) + oldseq.substring(index + segment.length());
+
+        //question f
+        double partf = Math.sqrt(width*width + height*height);
+
+        model.addAttribute("a", a);
+       model.addAttribute("b",sequence);
+        model.addAttribute("c", "\"" + change +"\"" );
+      model.addAttribute("d", resultSeq);
+      model.addAttribute("command", "\"" + insertion+"," + index +"\"" );
+      model.addAttribute("e", newSeq) ;
+      model.addAttribute("f", partf);
 
         return "frontend/harryfrq2";
     }
