@@ -177,6 +177,7 @@ public class controller {
             String a = "LightSequence gradShow = new LightSequence(\"" + sequence + "\");";
             model.addAttribute("a", a);
 
+        LightSequence gradShow = new LightSequence(sequence);
         return "frontend/harryfrq2";
     }
 
