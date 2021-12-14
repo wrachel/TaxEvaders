@@ -172,7 +172,9 @@ public class controller {
         }
     @GetMapping("/harry/frq2")
     public String hfrq2(@RequestParam(name="sequence", required = false, defaultValue = "0101 0101 0101") String sequence,
-                        @RequestParam(name="change", required = false, defaultValue = "0011 0011 0011") String change, Model model) throws IOException, InterruptedException {
+                        @RequestParam(name="change", required = false, defaultValue = "0011 0011 0011") String change,
+                        @RequestParam(name="insertion", required = false, defaultValue = "1111 1111") String insertion,
+                        @RequestParam(name="index", required = false, defaultValue = "4") int index, Model model) throws IOException, InterruptedException {
 
      //FRQ answer a
             String a = "LightSequence gradShow = new LightSequence(\"" + sequence + "\");";
@@ -187,12 +189,13 @@ public class controller {
 
        //question d
 
+           String resultSeq = gradShow.insertSegment(insertion, index);
 
         model.addAttribute("a", a);
        model.addAttribute("b",sequence);
         model.addAttribute("c", "\"" + change +"\"" );
+      model.addAttribute("d", resultSeq);
 
-      //  resultSeq = gradShow.insertSegment(insertSeg, 4);
    /*     int index = oldSeq.indexOf(segment);
         String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + segment.length());
      */

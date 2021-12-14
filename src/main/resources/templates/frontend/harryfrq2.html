@@ -20,21 +20,31 @@
             <div class="sectionText">
 
                 <form action="/harry/frq2" method="GET">
+                    <!--question a-->
                     <label style="color:white" for="sequence">(a)Input initial light sequence:</label>
                     <input id="sequence" name="sequence" type="text" oninput='saveValue(this);' onfocus="this.value=''">
 
 
 
                 <p th:text = "${a}"></p>
+                 <!--question b-->
                 <p th:text="'(b)gradShow.display(); --->' + ${b}"></p>
 
-
+<!--question c-->
                     <label style="color:white" for="change">(c)Input light sequence to change to:</label>
                     <input id="change" name="change" type="text" oninput='saveValue(this);' onfocus="this.value=''">
 
                 <p th:text="'gradShow.changeSequence(' + ${c}+ ');'" ></p>
 
+<!--question d-->
+                    <label style="color:white" for="insertion">(d)Input light sequence for insertion:</label>
+                    <input id="insertion" name="insertion" type="text" >
+                    <br>
+                    <label style="color:white" for="index">Input index for insertion:</label>
+                    <input id="index" name="index" type="number" >
+                    <p th:text="${d}"></p>
 
+                    <br>
                     <input type="submit">
                 </form>
             </div>
