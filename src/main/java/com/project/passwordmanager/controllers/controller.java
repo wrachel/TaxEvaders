@@ -171,13 +171,33 @@ public class controller {
             return "frontend/harryabout";
         }
     @GetMapping("/harry/frq2")
-    public String hfrq2(@RequestParam(name="sequence", required = false, defaultValue = "0000000") String sequence, Model model) throws IOException, InterruptedException {
-     //FRQ answer a
+    public String hfrq2(@RequestParam(name="sequence", required = false, defaultValue = "0101 0101 0101") String sequence,
+                        @RequestParam(name="change", required = false, defaultValue = "0011 0011 0011") String change, Model model) throws IOException, InterruptedException {
 
+     //FRQ answer a
             String a = "LightSequence gradShow = new LightSequence(\"" + sequence + "\");";
-            model.addAttribute("a", a);
 
         LightSequence gradShow = new LightSequence(sequence);
+
+        //question b
+        gradShow.display();
+
+//question c
+       gradShow.changeSequence(change);
+
+       //question d
+
+
+        model.addAttribute("a", a);
+       model.addAttribute("b",sequence);
+        model.addAttribute("c", "\"" + change +"\"" );
+
+      //  resultSeq = gradShow.insertSegment(insertSeg, 4);
+   /*     int index = oldSeq.indexOf(segment);
+        String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + segment.length());
+     */
+      //  double partf = Math.sqrt(a*a + b*b);
+
         return "frontend/harryfrq2";
     }
 
