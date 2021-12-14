@@ -6,14 +6,28 @@
       layout:decorate="~{layout}" lang="en">
 
 <!-- <head> -->
-<th:block layout:fragment="head" th:remove="tag">
+<th:block layout:fragment="metadata" th:remove="tag">
   <title>Draw</title>
 </th:block>
 
 <th:block layout:fragment="content" th:remove="tag">
-  <h1 class="text-center">JavaScript - Draw on Canvas</h1>
-  <div class="container py-4 bg-primary" style="text-align:center;">
-    <canvas id="canvas" width="512" height="384" ></canvas>
+  <h1 style="color:var(--text); padding-top:5%;" class="text-center">JavaScript - Draw on Canvas</h1>
+  <div class="row justify-content-around" style="width:60%;color:var(--text); padding-top:15px">
+    <div style="text-align:center;">
+      <canvas id="canvas" width="512" height="384" ></canvas>
+    </div>
+    <div style="padding-top:15px">
+      <form action="/frq3">
+        <label for="initx">What would you like the starting x-value to be? </label> <br>
+        <input class="inputForm" type="text" id="initx" name="initx"> <br>
+        <label for="inity">What would you like the starting y-value to be? </label> <br>
+        <input class="inputForm" type="text" id="inity" name="inity"> <br>
+        <label for="side">What would you like the side-length to be? </label> <br>
+        <input class="inputForm" type="text" id="side" name="side"> <br><br>
+
+        <input class="submitButton" type="submit" value="Submit">
+      </form>
+    </div>
   </div>
 
   <script>
@@ -28,7 +42,7 @@
     // grid based off of width, height
     function grid(){
       // color and pen width
-      ctx.strokeStyle = 'white';
+      ctx.strokeStyle = 'black';
       ctx.lineWidth = 1;
       // make graph paper look
       for (let col = 0; col < width; col += unit) {
@@ -59,7 +73,7 @@
 
     // square using lines
     function square() {
-      ctx.strokeStyle = 'black';
+      ctx.strokeStyle = '#2980b9';
       ctx.lineWidth = 5;
 
       // starting coordinates
@@ -86,16 +100,6 @@
     square();
     // hack 2: plot line or square on grid from user input according
   </script>
-  <form action="/frq3">
-    <label for="initx">What would you like the starting x-value to be? </label>
-    <input type="text" id="initx" name="initx"> <br>
-    <label for="inity">What would you like the starting y-value to be? </label>
-    <input type="text" id="inity" name="inity"> <br>
-    <label for="side">What would you like the side-length to be? </label>
-    <input type="text" id="side" name="side"> <br>
-
-    <input type="submit" value="Submit">
-  </form>
 
 </th:block>
 
