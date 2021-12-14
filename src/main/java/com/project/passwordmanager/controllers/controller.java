@@ -341,5 +341,10 @@ public class controller {
 
         return "frontend/about-rachel";
     }
+
+    @GetMapping("/frq3")
+    public String frq3() {
+        return "frqs/frq3";
+    }
 }
 
