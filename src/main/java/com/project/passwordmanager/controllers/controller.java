@@ -180,7 +180,7 @@ public class controller {
                         @RequestParam(name="height", required = false, defaultValue = "4") double height,
                         @RequestParam(name="width", required = false, defaultValue = "3") double width ,Model model) throws IOException, InterruptedException {
 
-     //FRQ answer a
+        //FRQ answer a
             String a = "LightSequence gradShow = new LightSequence(\"" + sequence + "\");";
 
         LightSequence gradShow = new LightSequence(sequence);
@@ -188,11 +188,13 @@ public class controller {
         //question b
         gradShow.display();
 
-//question c
+        //question c
        gradShow.changeSequence(change);
 
        //question d
-           String resultSeq = gradShow.insertSegment(insertion, index1);
+        String resultSeq = gradShow.insertSegment(insertion, index1);
+
+
 
        //question e
         if(segment.length()>oldseq.length()){
