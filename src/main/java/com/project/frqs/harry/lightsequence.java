@@ -5,9 +5,10 @@ import java.io.PrintWriter;
 public class LightSequence {
 
     private String seq;
-
+private String oldsequence;
     public LightSequence(String seq) {
         this.seq = seq;
+        oldsequence =seq;
     }
 
     public String insertSegment(String segment, int ind) {
@@ -15,6 +16,7 @@ public class LightSequence {
         return newString;
     }
     public void changeSequence(String newseq) {
+
         seq= newseq;
     }
 

@@ -15,34 +15,50 @@
 <body>
 <div layout:fragment="content" th:remove="tag">
 
-    <div style="color:var(--text); padding-top:30px; padding-left: 30px">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
         <h1 class="sectionTitle">Unit 2 FRQ</h1>
             <div class="sectionText">
 
-                <form action="/harry/frq2" method="GET">
+                <form action="/harry/frq2" method="GET" style="padding-bottom:30px;">
                     <!--question a-->
-                    <label style="color:white" for="sequence">(a)Input initial light sequence:</label>
-                    <input id="sequence" name="sequence" type="text" oninput='saveValue(this);' onfocus="this.value=''">
+                    <label style="color:white; padding-top:30px" for="sequence">(a)Input initial light sequence:</label>
+                    <input id="sequence" name="sequence" type="text" oninput='saveValue(this);' onfocus="this.value=''" required>
 
 
 
                 <p th:text = "${a}"></p>
                  <!--question b-->
-                <p th:text="'(b)gradShow.display(); --->' + ${b}"></p>
+                <p style="padding-top:30px" th:text="'(b)gradShow.display(); --->' + ${b}"></p>
 
 <!--question c-->
-                    <label style="color:white" for="change">(c)Input light sequence to change to:</label>
-                    <input id="change" name="change" type="text" oninput='saveValue(this);' onfocus="this.value=''">
+                    <label style="color:white; padding-top:30px" for="change">(c)Input light sequence to change to:</label>
+                    <input id="change" name="change" type="text" oninput='saveValue(this);' onfocus="this.value=''" required>
 
                 <p th:text="'gradShow.changeSequence(' + ${c}+ ');'" ></p>
 
 <!--question d-->
-                    <label style="color:white" for="insertion">(d)Input light sequence for insertion:</label>
-                    <input id="insertion" name="insertion" type="text" >
+                    <label style="color:white; padding-top:30px" for="insertion">(d)Input light sequence for insertion:</label>
+                    <input id="insertion" name="insertion" type="text" oninput='saveValue(this);' onfocus="this.value=''" required>
                     <br>
-                    <label style="color:white" for="index">Input index for insertion:</label>
-                    <input id="index" name="index" type="number" >
-                    <p th:text="${d}"></p>
+                    <label style="color:white" for="index1">Input index for insertion:</label>
+                    <input id="index1" name="index1" type="number" oninput='saveValue(this);' onfocus="this.value=''" required>
+                    <p th:text="'resultSeq = gradShow.insertSegment('+${command}+');'+' ---> '+${d}"></p>
+
+                    <!--question e-->
+                    <label style="color:white; padding-top:30px" for="segment">(e)Input segment to cut:</label>
+                    <input id="segment" name="segment" type="text" oninput='saveValue(this);' onfocus="this.value=''" required >
+                    <br>
+                    <label style="color:white" for="oldseq">Input light sequence for oldsequence:</label>
+                    <input id="oldseq" name="oldseq" type="text" oninput='saveValue(this);' onfocus="this.value=''" required>
+                    <p>int index = oldSeq.indexOf(segment);</p>
+                    <p th:text="'String newSeq = oldSeq.substring(0, index) + oldSeq.substring(index + segment.length());' + ' ---> ' + ${e}"></p>
+
+<!--question f-->
+                    <label style="color:white; padding-top:30px" for="height">(f)Input height:</label>
+                    <input id="height" name="height" type="number" oninput='saveValue(this);' onfocus="this.value=''" required>
+                    <label style="color:white; padding-top:30px" for="width">Input width:</label>
+                    <input id="width" name="width" type="number" oninput='saveValue(this);' onfocus="this.value=''" required>
+                    <p th:text="'System.out.println(Math.sqrt(a*a + b*b));'+ ' ---> ' + ${f}"></p>
 
                     <br>
                     <input type="submit">
@@ -52,7 +68,14 @@
     </div>
     <script type="text/javascript">
         document.getElementById("sequence").value = getSavedValue("sequence");    // set the value to this input
-        document.getElementById("change").value = getSavedValue("change");   // set the value to this input
+        document.getElementById("change").value = getSavedValue("change");
+        document.getElementById("insertion").value = getSavedValue("insertion");
+        document.getElementById("index1").value = getSavedValue("index1");
+        document.getElementById("segment").value = getSavedValue("segment");
+        document.getElementById("oldseq").value = getSavedValue("oldseq");
+        document.getElementById("height").value = getSavedValue("height");
+        document.getElementById("width").value = getSavedValue("width");
+        // set the value to this input
         /* Here you can add more inputs to set value. if it's saved */
 
         //Save the value function - save it to localStorage as (ID, VALUE)
