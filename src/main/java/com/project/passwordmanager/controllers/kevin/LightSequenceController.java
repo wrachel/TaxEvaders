@@ -11,7 +11,7 @@ public class LightSequenceController {
 
     @GetMapping("/kevin/unit2")
     public String displayFRQ() {
-        return "frontend/kevin/frq2";
+        return "frontend/kevin/unit2";
     }
 
     @GetMapping("/kevin/unit2/interactive")
