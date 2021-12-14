@@ -2,11 +2,11 @@ package com.project.frqs.harry;
 
 import java.io.PrintWriter;
 
-public class LightSequence {
+public class lightsequence {
 
     private String seq;
 private String oldsequence;
-    public LightSequence(String seq) {
+    public lightsequence(String seq) {
         this.seq = seq;
         oldsequence =seq;
     }
