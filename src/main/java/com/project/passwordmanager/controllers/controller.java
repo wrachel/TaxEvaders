@@ -343,7 +343,10 @@ public class controller {
     }
 
     @GetMapping("/frq3")
-    public String frq3() {
+    public String frq3(@RequestParam(name = "initx", required = false, defaultValue = "0") String initx, @RequestParam(name = "inity", required = false, defaultValue = "0") String inity, @RequestParam(name = "side", required = false, defaultValue = "10") String side, Model model) {
+        model.addAttribute("initx", initx);
+        model.addAttribute("inity", inity);
+        model.addAttribute("side", side);
         return "frqs/frq3";
     }
 }

@@ -63,18 +63,20 @@
       ctx.lineWidth = 5;
 
       // starting coordinates
-      const x = unit;
-      const y = unit;
+      const x = unit * [[${initx}]];
+      const y = unit * [[${inity}]];
+      const x0 = width*.5;
+      const y0 = height*.5;
       // length of sides is 4 units
-      const l = unit*4;
+      const l = unit*[[${side}]];
 
       // draw a square
       ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x, y+l);
-      ctx.lineTo(x+l, y+l);
-      ctx.lineTo(x+l, y);
-      ctx.lineTo(x, y);
+      ctx.moveTo(x0 + x, y0 - y);
+      ctx.lineTo(x0 + x, y0 - y - l);
+      ctx.lineTo(x0 + x + l, y0 - y - l);
+      ctx.lineTo(x0 + x + l, y0 - y);
+      ctx.lineTo(x0 + x, y0 - y);
       ctx.stroke();
     }
     // three actions
@@ -84,6 +86,17 @@
     square();
     // hack 2: plot line or square on grid from user input according
   </script>
+  <form action="/frq3">
+    <label for="initx">What would you like the starting x-value to be? </label>
+    <input type="text" id="initx" name="initx"> <br>
+    <label for="inity">What would you like the starting y-value to be? </label>
+    <input type="text" id="inity" name="inity"> <br>
+    <label for="side">What would you like the side-length to be? </label>
+    <input type="text" id="side" name="side"> <br>
+
+    <input type="submit" value="Submit">
+  </form>
+
 </th:block>
 
 </html>
