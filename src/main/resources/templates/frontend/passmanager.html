@@ -26,27 +26,50 @@
             <tr class="passManagerTable">
                 <td>Netflix</td>
                 <td>Joe</td>
-                <td><input class="passBox" id="password_ID" type="password" readonly value="MAMAMAAMMAMAMAMAAMA"></td>
+                <td><input class="passBox" id="password_ID1" type="password" readonly value="MAMAMAAMMAMAMAMAAMA"></td>
                 <td>
-                    <button style="margin-left:25px" onclick="viewPassword('password_ID')" class="manageIcon"><i style="color: var(--text)" class="fa fa-eye fa-fw"></i></button>
+                    <button style="margin-left:25px" onclick="viewPassword('1')" class="manageIcon"><i style="color: var(--text)" class="fa fa-eye fa-fw"></i></button>
                     <button class="manageIcon"><i style="color: var(--text)" class="fa fa-edit"></i></button>
                 </td>
             </tr>
             <tr class="passManagerTable">
                 <td>Netflix</td>
-                <td>Joe</td>
-                <td><input class="passBox" id="password_ID2" type="password" readonly value="MAMAMAAMMAMAMAMAAMA"></td>
+                <td><input class="passBox" id="username_ID2" readonly type="text" value="Joe"></td>
+                <td><input class="passBox" id="password_ID2" readonly type="password" value="MAMAMAAMMAMAMAMAAMA"></td>
                 <td>
-                    <button style="margin-left:25px" onclick="viewPassword('password_ID2')" class="manageIcon"><i style="color: var(--text)" class="fa fa-eye fa-fw"></i></button>
-                    <button class="manageIcon"><i style="color: var(--text)" class="fa fa-edit"></i></button>
+                    <button style="margin-left:25px" onclick="viewPassword('2')" class="manageIcon"><i style="color: var(--text)" class="fa fa-eye fa-fw"></i></button>
+                    <button class="manageIcon" onclick="editFields('2')"><i style="color: var(--text)" class="fa fa-edit"></i></button>
                 </td>
             </tr>
         </table>
     </div>
     <script>
-        function viewPassword(id) {
-            var passwordField = document.getElementById(id)
+        function viewPassword(num) {
+            var passwordField = document.getElementById("password_ID"+num);
             passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+        }
+        function editFields(num) {
+            var passwordField = document.getElementById("password_ID"+num);
+            var usernameField = document.getElementById("username_ID"+num)
+            if(usernameField.readOnly){
+                usernameField.removeAttribute('readonly');
+                usernameField.classList.add("passBoxEditable");
+                usernameField.classList.remove("passBox");
+            } else {
+                usernameField.readOnly= 'true';
+                usernameField.classList.remove("passBoxEditable");
+                usernameField.classList.add("passBox");
+            }
+
+            if(passwordField.readOnly){
+                passwordField.removeAttribute('readonly');
+                passwordField.classList.add("passBoxEditable");
+                passwordField.classList.remove("passBox");
+            } else {
+                passwordField.readOnly= 'true';
+                passwordField.classList.remove("passBoxEditable");
+                passwordField.classList.add("passBox");
+            }
         }
     </script>
 </div>
