@@ -142,9 +142,9 @@ $text:$dirtywhite;
     color:red;
   }
 
-  .codeOutput {
-    color: #1da1f2;
-    font-size:1.25em;
+  .codeText {
+    color: var(--nav);
+    font-size:1.1em;
   }
 
   input.inputForm {
@@ -152,6 +152,10 @@ $text:$dirtywhite;
     height:50px;
     text-indent:5px;
     color: #6f7378;
+  }
+
+  input.inputRadioCheck {
+    transform: scale(2);
   }
 
   .submitButton {

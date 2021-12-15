@@ -1,0 +1,65 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Unit 2 FRQ Interactive</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!-- Start of body content specific to page -->
+    <div style="color:var(--text); padding:30px">
+        <h1 class="sectionTitle">Unit 2 FRQ</h1>
+
+        <div class="row" style="padding-left:20px">
+            <form action="/kevin/unit3/interactive">
+                <label for="rsvp">RSVP? </label>
+                <input style="margin-left:10px" class="inputRadioCheck" type="checkbox" id="rsvp" name="rsvp"> <br>
+                <br>
+                <label>Food Selection</label><br>
+                <div class="row justify-content-around" style="width:50%; margin:0">
+                    <label for="selection1">1</label>
+                    <input class="inputRadioCheck" type="radio" id="selection1" name="selection" value="1">
+                    <label for="selection2">2</label>
+                    <input class="inputRadioCheck" type="radio" id="selection2" name="selection" value="2">
+                    <label for="selection3">3</label>
+                    <input class="inputRadioCheck" type="radio" id="selection3" name="selection" value="3">
+                </div>
+                <br>
+                <label for="option1">Type a random string (option 1): </label><br>
+                <input class="inputForm" type="text" id="option1" name="option1"> <br>
+                <br>
+                <label for="option2">Type a random string (option 2): </label><br>
+                <input class="inputForm" type="text" id="option2" name="option2"> <br><br>
+
+                <input class="submitButton" type="submit" value="Submit">
+            </form>
+            <div style="margin-left:50px">
+                <table>
+                    <tr>
+                        <td th:text="'RSVP: ' + ${rsvp}"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'Food: ' + ${selection}"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'RSVP Message: ' + ${rsvpMsg}"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="'option1 = option2: ' + ${stringMatch}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- end of body content specific to page -->
+    </div>
+</div>
+</body>
+</html>
