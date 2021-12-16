@@ -9,7 +9,7 @@ public class draw {
         this.len = len = Math.min(len, Math.min(16 - x, 12 - y));
     }
 
-    public static String[] get_coordinates(int x, int y, int len) {
+    public static int[] get_coordinates(int x, int y, int len) {
         int[] draw_values = new int[5];
 
         draw square = new draw(x, y, z);
