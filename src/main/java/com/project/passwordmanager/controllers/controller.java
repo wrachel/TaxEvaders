@@ -355,10 +355,11 @@ public class controller {
         return "frqs/rachelfrq2";
     }
     @GetMapping("/harry/frq3")
-    public String hfrq3(@RequestParam(name="attending", required = false, defaultValue = "Yes") String attending ,Model model) throws IOException, InterruptedException {
+    public String hfrq3(@RequestParam(name="attending", required = false, defaultValue = "Yes") String attending ,
+                        @RequestParam(name="select", required = false, defaultValue = "1") int select, Model model) throws IOException, InterruptedException {
         //question a
         boolean rsvp;
-        if (attending.equals("Yes")) {
+        if (attending.equals("on")) {
             rsvp = true;
         } else {
             rsvp = false;
@@ -370,6 +371,21 @@ public class controller {
             System.out.println("Not attending");
             model.addAttribute("a", "Not attending");
         }
+
+        String food="";
+       switch(select){
+           case 1:
+               food = "beef";
+               break;
+           case 2:
+               food = "chicken";
+               break;
+           case 3:
+               food = "pasta";
+               break;
+       }
+       model.addAttribute("b", food);
+
         return "frqs/harryfrq3";
 
     }

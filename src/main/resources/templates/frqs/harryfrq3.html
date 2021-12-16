@@ -13,44 +13,23 @@
     <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
         <h1 class="sectionTitle">Unit 3 FRQ Question 1</h1>
         <div class="sectionText">
-        <!--    <form action="/harry/frq3" method="GET" style="padding-bottom:30px;">
-                question a
-                <p>(a)Are you going to attend?:</p>
-                <button name="attending">Yes</button>
-                <button name="attending">No</button>
-                commment here
-               <label style="color:white; padding-top:30px" for="Yes">Yes</label>
-                <input id="Yes" name="attending" type="button">
-                <label style="color:white; padding-top:30px" for="No">No</label>
-                <input id="No" name="attending" type="button">
-                and comment here
+          <form action="/harry/frq3" method="GET" style="padding-bottom:30px;">
+<!--question a-->
+               <label style="color:white; padding-top:30px" for="attending">Are going to attend</label>
+                <input id="attending" name="attending" type="checkbox">
                 <p>if(rsvp){System.out.println("Attending");}<br>
                     else{System.out.println("Not attending");}
-                </p>
+
                 <p th:text="'Result:'+${a}"></p>
+<!--question b-->
+              <label style="color:white" for="select">Select a number:</label>
+              <input id="select" name="select" type="number" minlength="1" maxlength="3">
+                <p th:text="'Result: ' +${b}"></p>
 
                 <br>
                 <input type="submit">
-            </form> -->
-            <p>(a)
-                if(rsvp){System.out.println("Attending");}<br>
-                else{System.out.println("Not attending");}<br><br>
-               (b) if (selection==1){System.out.println("Beef");}<br>
-                else if(selection==2){System.out.println("Chicken");}<br>
-                else if(selection==3){System.out.println("Pasta");}<br>
-                else{System.out.println("Fish");}<br><br>
-                (c)  switch(selection){<br>
-                case 1: if(rsvp){ option1 = "Thanks for attending. You will be served beef."; }<br>
-                else{ option1 = "Sorry you can't make it"; }<br>
-                break; case 2: if(rsvp){ option1 = "Thanks for attending. You will be served chicken."; }<br>
-                else{ option1 = "Sorry you can't make it"; }<br>
-                break; case 3: if(rsvp){ option1 = "Thanks for attending. You will be served pasta."; }<br>
-                else{ option1 = "Sorry you can't make it"; }<br>
-                break; default: if(rsvp){ option1 = "Thanks for attending. You will be served fish."; }<br>
-                else{ option1 = "Sorry you can't make it"; } break; }<br><br>
-                (d) if (option1 == option2){ System.out.println("True"); }<br>
-                else { System.out.println("False"); }<br>
-            </p>
+            </form>
+
 
         </div>
     </div>
