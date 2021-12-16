@@ -54,6 +54,6 @@ public class RSVP {
         RSVP event = new RSVP(true, 1);
         System.out.println(event.get_attendance());
         System.out.println(event.get_message());
-        System.out.println(event.verify_value("beef");
+        System.out.println(event.verify_value("beef"));
     }
 }

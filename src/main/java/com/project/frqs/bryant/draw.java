@@ -1,5 +1,7 @@
 package com.project.frqs.bryant;
 
+import java.util.Arrays;
+
 public class draw {
     private int x, y, len;
 
@@ -12,7 +14,7 @@ public class draw {
     public static int[] get_coordinates(int x, int y, int len) {
         int[] draw_values = new int[5];
 
-        draw square = new draw(x, y, z);
+        draw square = new draw(x, y, len);
         draw_values[0] = this.x;
         draw_values[1] = this.y;
         draw_values[2] = this.len;
@@ -20,14 +22,8 @@ public class draw {
     }
 
     public static void main(String[] args) {
-        draw gradShow = new draw("0101 0101 0101");
-        gradShow.display();
-        gradShow.changeSequence("0011 0011 0011");
-        String resultSeq = gradShow.insertSegment("1111 1111", 4);
-        String newSeq = "1100000111".replaceFirst("00", "");
-        System.out.println(Math.sqrt(Math.pow(3,2)+Math.pow(4,2)));
-        System.out.println(resultSeq);
-        System.out.println(newSeq);
+        draw draw = new draw(1, 4, 3);
+        System.out.println(Arrays.toString(draw.get_coordinates()));
     }
 
 
