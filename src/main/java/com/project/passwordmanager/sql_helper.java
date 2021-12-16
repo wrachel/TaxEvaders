@@ -52,6 +52,23 @@ public class sql_helper {
         return work;
     }
 
+    public String[][] get_passwords(String url) {
+        String[][] passwords = {};
+
+        String query = "SELECT service, password FROM work";
+
+        try (Connection conn = this.connect(url); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)){ // establish connection
+            while (rs.next()) {
+                passwords = Arrays.copyOf(passwords, passwords.length + 1);
+                passwords[passwords.length - 1] = new String[]{rs.getString("service"), rs.getString("password")};
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return passwords;
+    }
+
     public static void main(String[] args) {
         System.out.println("Helper operational!");
     }

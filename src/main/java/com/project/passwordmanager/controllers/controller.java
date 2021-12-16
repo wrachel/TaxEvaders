@@ -369,5 +369,14 @@ public class controller {
         return "frqs/harryfrq3";
 
     }
+
+    @GetMapping("/api/getPasswords")
+    public String get_passwords() throws JSONException {
+        String url = "jdbc:sqlite:db/passwords.db";
+        sql_helper database = new sql_helper();
+        String[][] passwords = database.get_passwords(url);
+        return new JSONArray(passwords);
+    }
+
 }
 

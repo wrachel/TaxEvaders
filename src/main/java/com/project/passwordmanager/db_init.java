@@ -7,11 +7,10 @@ import java.sql.Statement;
 public class db_init {
     public static void init(String url) {
         Connection conn = null;
-        String init_query = "CREATE TABLE IF NOT EXISTS work (\n"
+        String init_query = "CREATE TABLE IF NOT EXISTS passwords (\n"
                 + "	id integer PRIMARY KEY,\n"
-                + "	name text NOT NULL,\n"
-                + " link text NOT NULL,\n"
-                + " date text NOT NULL\n"
+                + "	service text NOT NULL,\n"
+                + " password text NOT NULL\n"
                 + ");";
 
         try { // make sure connection can be established
@@ -33,7 +32,7 @@ public class db_init {
         }
     }
     public static void main(String[] args) {
-        String url = "jdbc:sqlite:test.db";
+        String url = "jdbc:sqlite:db/passwords.db";
         init(url);
     }
 }
