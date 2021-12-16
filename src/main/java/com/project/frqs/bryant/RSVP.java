@@ -41,7 +41,7 @@ public class RSVP {
     }
 
     public static String[] get_result(boolean rsvp, int selection, String option2) {
-        String[] finalArray = new String[2];
+        String[] finalArray = new String[3];
 
         RSVP event = new RSVP(rsvp, selection);
         finalArray[0] = event.get_attendance();
