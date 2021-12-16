@@ -15,15 +15,14 @@ public class draw {
         int[] draw_values = new int[5];
 
         draw square = new draw(x, y, len);
-        draw_values[0] = this.x;
-        draw_values[1] = this.y;
-        draw_values[2] = this.len;
+        draw_values[0] = square.x;
+        draw_values[1] = square.y;
+        draw_values[2] = square.len;
         return draw_values;
     }
 
     public static void main(String[] args) {
-        draw draw = new draw(1, 4, 3);
-        System.out.println(Arrays.toString(draw.get_coordinates()));
+        System.out.println(Arrays.toString(draw.get_coordinates(1, 4, 3)));
     }
 
 
