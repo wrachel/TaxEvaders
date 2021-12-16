@@ -356,7 +356,9 @@ public class controller {
     }
     @GetMapping("/harry/frq3")
     public String hfrq3(@RequestParam(name="attending", required = false, defaultValue = "Yes") String attending ,
-                        @RequestParam(name="select", required = false, defaultValue = "1") int select, Model model) throws IOException, InterruptedException {
+                        @RequestParam(name="select", required = false, defaultValue = "1") int select,
+                        @RequestParam(name="option1", required = false, defaultValue = "") String option1,
+                        @RequestParam(name="option2", required = false, defaultValue = "") String option2, Model model) throws IOException, InterruptedException {
         //question a
         boolean rsvp;
         if (attending.equals("on")) {
@@ -385,6 +387,34 @@ public class controller {
                break;
        }
        model.addAttribute("b", food);
+
+       //question c
+        String message = "";
+
+        if(rsvp) {
+            switch(select) {
+                case 1:
+                    food = "beef";
+                    break;
+                case 2:
+                    food = "chicken";
+                    break;
+                case 3:
+                    food = "pasta";
+                    break;
+            }
+            message = "Thanks for attending. You will be served " + food + ".";
+        } else {
+            message = "Sorry you can't make it.";
+        }
+        model.addAttribute("c", message);
+//question d
+        if(Objects.equals(option1, option2)){
+            model.addAttribute("d", "True");
+        }
+        else{
+            model.addAttribute("d", "False");
+        }
 
         return "frqs/harryfrq3";
 

@@ -24,7 +24,51 @@
 <!--question b-->
               <label style="color:white" for="select">Select a number:</label>
               <input id="select" name="select" type="number" minlength="1" maxlength="3">
-                <p th:text="'Result: ' +${b}"></p>
+              <p>String food = ""; <br>
+               <p>   switch(selection) {<br>
+                  case 1:<br>
+                  food = "beef";<br>
+                  break;<br>
+                  case 2:<br>
+                  food = "chicken";<br>
+                  break;<br>
+                  case 3:<br>
+                  food = "pasta";<br>
+                  break;<br>
+                  }<br>
+                  System.out.println(food);</p>
+              <p th:text="'Result: ' +${b}"></p>
+<!--question c -->
+              <p> (c)String food = "";<br>
+                  String message = "";<br>
+
+                  if(rsvp) {<br>
+                  switch(selection) {<br>
+                  case 1:<br>
+                  food = "beef";<br>
+                  break;<br>
+                  case 2:<br>
+                  food = "chicken";<br>
+                  break;<br>
+                  case 3:<br>
+                  food = "pasta";<br>
+                  break;<br>
+                  }<br>
+                  message = "Thanks for attending. You will be served " + food + ".";<br>
+                  } else {<br>
+                  message = "Sorry you can't make it.";<br>
+                  }<br>
+                  System.out.println(message);</p>
+              <p th:text="'Result: ' + ${c}"></p>
+<!--question d -->
+              <label style="color:white; padding-top:30px" for="option1">(d)Input a string:</label>
+              <input id="option1" name="option1" type="text" >
+              <label style="color:white; padding-top:30px" for="option2">Input a string:</label>
+              <input id="option2" name="option2" type="text" >
+                <p> if (Objects.equals(option1, option2)){ System.out.println("True"); }<br>
+                    else { System.out.println("False"); }
+                </p>
+              <p th:text="'Result: ' + ${d}"></p>
 
                 <br>
                 <input type="submit">
