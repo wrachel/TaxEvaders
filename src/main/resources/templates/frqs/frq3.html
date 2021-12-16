@@ -26,7 +26,8 @@
           <option value="2">chicken</option>
           <option value="3">pasta</option>
           <option value="31337">fish</option>
-          <br>
+        </select>
+        <br>
         <label for="check">Debug value here: </label> <br>
         <input class="inputForm" type="text" id="check" name="check"> <br><br>
         <label for="initx">What would you like the starting x-value to be? </label> <br>
@@ -40,7 +41,16 @@
       </form>
     </div>
   </div>
-
+  <table class="mx-auto">
+    <tr>
+      <th scope="col">Description</th>
+      <th scope="col">Value</th>
+    </tr>
+    <tr th:each="value, idx : ${data}">
+      <td th:text="${desc[idx.index]}"></td>
+      <td th:text="${value}"></td>
+    </tr>
+  </table>
   <script>
     // https://www.w3schools.com/graphics/canvas_intro.asp
     const canvas = document.getElementById('canvas');

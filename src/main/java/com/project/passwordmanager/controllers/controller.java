@@ -336,6 +336,9 @@ public class controller {
 
     @GetMapping("/frq3")
     public String frq3(@RequestParam(name = "rsvp", required = false, defaultValue = "false") boolean rsvp, @RequestParam(name = "selection", required = false, defaultValue = "1") int selection, @RequestParam(name = "check", required = false, defaultValue = "Sorry you can't make it.") String option2, @RequestParam(name = "initx", required = false, defaultValue = "0") int initx, @RequestParam(name = "inity", required = false, defaultValue = "0") int inity, @RequestParam(name = "side", required = false, defaultValue = "10") int side, Model model) {
+        model.addAttribute("data", get_result(rsvp, selection, option2));
+        model.addAttribute("desc", new String[]{"Attending?", "Custom message", "Message matches debug value?"});
+
         int[] coordinate_values = get_coordinates(initx, inity, side);
         model.addAttribute("initx", coordinate_values[0]);
         model.addAttribute("inity", coordinate_values[1]);
