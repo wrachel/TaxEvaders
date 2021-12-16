@@ -37,7 +37,7 @@ public class RSVP {
     }
 
     public String verify_value(String option2) {
-        return String.valueOf(this.option1 == option2);
+        return String.valueOf(this.option1.equals(option2));
     }
 
     public static String[] get_result(boolean rsvp, int selection, String option2) {
