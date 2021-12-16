@@ -229,7 +229,7 @@ public class controller {
         model.addAttribute("work", work);
 
         String base = "https://api.hypixel.net/player";
-        String API_KEY = "[redacted]";
+        String API_KEY = "e515dfcd-214d-4388-91d6-03b5b80c8b77";
 
         String uri = base + "?key=" + API_KEY + "&uuid=" + uuid;
 
@@ -329,6 +329,9 @@ public class controller {
         return "frontend/about-rachel";
     }
 
+
+
+
     @GetMapping("/frq3")
     public String frq3(@RequestParam(name = "initx", required = false, defaultValue = "0") String initx, @RequestParam(name = "inity", required = false, defaultValue = "0") String inity, @RequestParam(name = "side", required = false, defaultValue = "10") String side, Model model) {
         model.addAttribute("initx", initx);
@@ -341,7 +344,24 @@ public class controller {
         lightseqmodel.addAttribute("data", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
         return "frqs/rachelfrq2";
     }
+    @GetMapping("/harry/frq3")
+    public String hfrq3(@RequestParam(name="attending", required = false, defaultValue = "Yes") String attending ,Model model) throws IOException, InterruptedException {
+        //question a
+        boolean rsvp;
+        if (attending.equals("Yes")) {
+            rsvp = true;
+        } else {
+            rsvp = false;
+        }
+        if (rsvp) {
+            System.out.println("Attending");
+            model.addAttribute("a", "Attending");
+        } else {
+            System.out.println("Not attending");
+            model.addAttribute("a", "Not attending");
+        }
+        return "frqs/harryfrq3";
 
-
+    }
 }
 

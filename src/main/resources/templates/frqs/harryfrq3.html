@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Harry's Page</title>
+    </div>
+
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+        <h1 class="sectionTitle">Unit 3 FRQ Question 1</h1>
+        <div class="sectionText">
+            <form action="/harry/frq3" method="GET" style="padding-bottom:30px;">
+                <!--question a-->
+                <p>(a)Are you going to attend?:</p>
+                <button name="attending">Yes</button>
+                <button name="attending">No</button>
+            <!--    <label style="color:white; padding-top:30px" for="Yes">Yes</label>
+                <input id="Yes" name="attending" type="button">
+                <label style="color:white; padding-top:30px" for="No">No</label>
+                <input id="No" name="attending" type="button">-->
+                <p>if(rsvp){System.out.println("Attending");}<br>
+                    else{System.out.println("Not attending");}
+                </p>
+                <p th:text="'Result:'+${a}"></p>
+
+                <br>
+                <input type="submit">
+            </form>
+
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
