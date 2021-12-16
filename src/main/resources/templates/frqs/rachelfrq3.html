@@ -37,15 +37,16 @@
 </form>
 
 <h2> Displaying Results</h2>
+<!--
 <table class="frq3">
     <tr>
-        <!-- Usage of Java HashMap and Thymeleaf -->
         <td th:text="'Did you rsvp?: ' + ${rsvp}"></td>
         <td th:text="'You will be served ' + ${food}"></td>
         <td th:text="${message}"></td>
         <td th:text="'Does option1 and option2 match?: ' + ${stringMatch}"></td>
     </tr>
 </table>
+-->
 
 <h2> Notes/Reflection on FRQ Unit </h2>
 <a href="https://docs.google.com/document/d/12AK_aCQxpbIst34MGKucKH7U1VykB7FNiyskWB-RYGo/edit?usp=sharing" target="_blank">Click me to see more thorough notes for College Board Unit 3</a>
@@ -57,94 +58,95 @@
 <p>No test corrections, solutions were relatively accurate. Could be instances where code is more efficient.</p>
 
 <h2>Solutions for FRQ Unit 3</h2>
-FRQ Question #1
-a)
-if (rsvp = true){
+<code>
+    FRQ Question #1
+    a)
+    if (rsvp = true){
     System.out.println("attending");
-}
-else {
+    }
+    else {
     System.out.println("not attending");
-}
+    }
 
-b)
-String[] printfood = {"fish", "beef", "chicken", "pasta", "fish"};
-if (selection < 4){
+    b)
+    String[] printfood = {"fish", "beef", "chicken", "pasta", "fish"};
+    if (selection < 4){
     System.out.println(printfood[selection]);
-}
-else {
+    }
+    else {
     System.out.println("fish");
-}
+    }
 
-c)
-if (rsvp = true){
+    c)
+    if (rsvp = true){
     if (selection = 1){
-        option 1 = "Thanks for attending. You will be served beef.";
+    option 1 = "Thanks for attending. You will be served beef.";
     }
     else if (selection = 2){
-        option 1 = "Thanks for attending. You will be served chicken.";
+    option 1 = "Thanks for attending. You will be served chicken.";
     }
     else if (selecttion = 3){
-        option 1 = "Thanks for attending. You will be served pasta.";
+    option 1 = "Thanks for attending. You will be served pasta.";
     }
     else{
-        option 1 = "Thanks for attending. You will be served fish.";
+    option 1 = "Thanks for attending. You will be served fish.";
     }
     if (rsvp = false){
-        option 1 = "Sorry you can't make it.";
+    option 1 = "Sorry you can't make it.";
     }
 
-d)
-if (option 1 == option 2){
+    d)
+    if (option 1 == option 2){
     System.out.println("true");
-}
-else{
+    }
+    else{
     System.out.println("false");
-}
------------------------------------
-FRQ Question #2)
-a)
-public void drawSquare (int x, int y, int len){
+    }
+    </code>
+<code>
+    FRQ Question #2)
+    a)
+    public void drawSquare (int x, int y, int len){
     if (x + length > 10 && y + length > 10){
-        int a = 10-x;
-        int b = 10-y;
-        if (a >= b) {
-            length = b
-        }
-        else {
-            length = a
-        }
-        drawLine(x, y, x+length, y); //draw part of the square
-        drawLine(x, y, x, y+length);
-        drawLine(x+length, y, x+length, y+length);
-        drawLine(x, y+length, x+length, y+length);
-        System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
+    int a = 10-x;
+    int b = 10-y;
+    if (a >= b) {
+    length = b
+    }
+    else {
+    length = a
+    }
+    drawLine(x, y, x+length, y); //draw part of the square
+    drawLine(x, y, x, y+length);
+    drawLine(x+length, y, x+length, y+length);
+    drawLine(x, y+length, x+length, y+length);
+    System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
     }
 
     else if (x + length > 10 && y + length <= 10){
-        length = 10-x;
-        drawLine(x, y, x+length, y); //draw part of the square
-        drawLine(x, y, x, y+length);
-        drawLine(x+length, y, x+length, y+length);
-        drawLine(x, y+length, x+length, y+length);
-        System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
+    length = 10-x;
+    drawLine(x, y, x+length, y); //draw part of the square
+    <p>drawLine(x+length, y, x+length, y+length);</p>
+    drawLine(x, y+length, x+length, y+length);
+    System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
     }
     else if (y + length > 10 && x + length <= 10){
-        length = 10-y;
-        drawLine(x, y, x+length, y); //draw part of the square
-        drawLine(x, y, x, y+length);
-        drawLine(x+length, y, x+length, y+length);
-        drawLine(x, y+length, x+length, y+length);
-        System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
+    length = 10-y;
+    drawLine(x, y, x+length, y); //draw part of the square
+    <p>drawLine(x, y, x, y+length);</p>
+    drawLine(x+length, y, x+length, y+length);
+    drawLine(x, y+length, x+length, y+length);
+    System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
     }
     else if (x + length < 10 && y + length < 10){
-        drawLine(x, y, x+length, y); //draw part of the square
-        drawLine(x, y, x, y+length);
-        drawLine(x+length, y, x+length, y+length);
-        drawLine(x, y+length, x+length, y+length);
-        System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
+    drawLine(x, y, x+length, y); //draw part of the square
+    drawLine(x, y, x, y+length);
+    drawLine(x+length, y, x+length, y+length);
+    drawLine(x, y+length, x+length, y+length);
+    System.out.println("side length = " + length + ", area = " + Math.pow(length, 2)); //print length & area
     }
 
-}
+    }
 </code>
 
 <!-- end of body content specific to page -->

@@ -195,7 +195,7 @@ tr.passManagerTable:nth-child(even) {
 
 .passBoxEditable {
   border: 0;
-  border-bottom: 1px groove var(--text);
+  border-bottom: 1px solid var(--text);
   background-color: transparent;
   color: var(--text);
   text-align: center;
