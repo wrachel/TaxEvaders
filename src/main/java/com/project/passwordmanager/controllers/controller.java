@@ -333,7 +333,8 @@ public class controller {
 
 
     @GetMapping("/frq3")
-    public String frq3(@RequestParam(name = "initx", required = false, defaultValue = "0") String initx, @RequestParam(name = "inity", required = false, defaultValue = "0") String inity, @RequestParam(name = "side", required = false, defaultValue = "10") String side, Model model) {
+    public String frq3(@RequestParam(name = "rsvp", required = false, defaultValue = "false") boolean rsvp, @RequestParam(name = "selection", required = false, defaultValue = "1") int selection, @RequestParam(name = "check", required = false, defaultValue = "Sorry you can't make it.") String option2, @RequestParam(name = "initx", required = false, defaultValue = "0") String initx, @RequestParam(name = "inity", required = false, defaultValue = "0") String inity, @RequestParam(name = "side", required = false, defaultValue = "10") String side, Model model) {
+        int[] coordinate_values = get_coordinates(initx, inity, side);
         model.addAttribute("initx", initx);
         model.addAttribute("inity", inity);
         model.addAttribute("side", side);
