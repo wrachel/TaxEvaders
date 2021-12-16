@@ -46,7 +46,12 @@
             <td/>
             -->
         <h2> Displaying Results</h2>
-        <p th:text="${data}"></p>
+        <table class="frq3">
+            <tr>
+                <!-- Usage of Java HashMap and Thymeleaf -->
+                <td th:text="'initial sequence: ' + ${data}"></td>
+            </tr>
+        </table>
         <!--<p>: Initial Sequence </p>
         <p th:text="${}">: New Sequence</p>
         <p th:text="${}">: Sequence after segment is inserted</p>

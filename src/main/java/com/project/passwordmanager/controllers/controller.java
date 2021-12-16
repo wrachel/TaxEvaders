@@ -283,15 +283,10 @@ public class controller {
         return "frqs/frq2"; // returns HTML VIEW (greeting)
     }
 
-    @GetMapping("/rachel/frq2")
-    public String frqunit2(@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel){
-        lightseqmodel.addAttribute("data", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
-        return "frqs/rachelfrq2";
-    }
     @GetMapping("/about/rachel")
-    public String rachel(@RequestParam(name = "location", required = false, defaultValue = "San Diego") String location, Model weathermodel) throws IOException, InterruptedException, ParseException, JSONException{
+    public String rachel(@RequestParam(name = "location", required = false, defaultValue = "8583955216") String location, Model phonemodel) throws IOException, InterruptedException, ParseException, JSONException{
 
-        List<String> locationList = new ArrayList<String>();
+        /*List<String> locationList = new ArrayList<String>();
         String [] a = location.split(" ");
 
         StringBuilder locationName = new StringBuilder();
@@ -314,31 +309,23 @@ public class controller {
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
 
-        //JSONObject jo = new JSONObject(response.body());
-        //JSONArray weatherArray = jo.getJSONArray("main");
-
-        //JSONObject finaltemp = weatherArray.getJSONObject(3);
-        //String song_art_url = finaltemp.get("temp").toString();
-        //JSONObject jo = new JSONObject(main);
-        //JSONObject jo_temp = jo.getJSONObject("temp");
-
-        //String temp = jo.get("temp").toString();
-
-
-        //JSONObject jo = new JSONObject(response.body());
-//        System.out.println(jo);
-        //JSONObject response_jo = jo.getJSONObject("response");
-        //JSONObject weathertemp = jo.getJSONObject("temp");
-//-----
-        //Object obj = new JSONParser().parse(response.body());
-        //JSONObject jo = (JSONObject) obj;
-//
 
         var map = new ObjectMapper().readValue(response.body(), HashMap.class);
         weathermodel.addAttribute("map", map);
         weathermodel.addAttribute("main", map.get("main"));
+        */
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://veriphone.p.rapidapi.com/verify?phone="+ location))
+                .header("x-rapidapi-host", "veriphone.p.rapidapi.com")
+                .header("x-rapidapi-key", "8211d43935msh926990e704c2717p15ea0fjsn8c393a17973a")
+                .method("GET", HttpRequest.BodyPublishers.noBody())
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
 
-
+        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
+        phonemodel.addAttribute("map", map);
+        phonemodel.addAttribute("phone_region", map.get("phone_region"));
         return "frontend/about-rachel";
     }
 
@@ -349,5 +336,12 @@ public class controller {
         model.addAttribute("side", side);
         return "frqs/frq3";
     }
+    @GetMapping("/rachel/frq2")
+    public String frqunit2(@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel){
+        lightseqmodel.addAttribute("data", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
+        return "frqs/rachelfrq2";
+    }
+
+
 }
 

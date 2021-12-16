@@ -193,6 +193,19 @@ tr.passManagerTable:nth-child(even) {
   width: 100%;
 }
 
+.passBoxEditable {
+  border: 0;
+  border-bottom: 1px solid var(--text);
+  background-color: transparent;
+  color: var(--text);
+  text-align: center;
+  width: 100%;
+}
+
+.passBoxEditable:focus {
+  outline: none;
+}
+
 .passBox:focus {
   border: none;
   outline: none;

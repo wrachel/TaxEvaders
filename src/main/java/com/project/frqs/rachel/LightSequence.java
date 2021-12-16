@@ -14,7 +14,6 @@ public class LightSequence {
         return newString;
     }
 
-
     public void changeSequence(String seq) { // literally just a setter
         this.seq = seq;
     }
@@ -30,7 +29,7 @@ public class LightSequence {
     public static String[] display_everything(int vertical, int horizontal, String initSeq, String changeSeq, String segment, String oldSeq, String insertSeg) {
         String[] displayArray = new String[6];
 
-        com.project.frqs.bryant.LightSequence gradShow = new com.project.frqs.bryant.LightSequence(initSeq);
+        com.project.frqs.rachel.LightSequence gradShow = new com.project.frqs.rachel.LightSequence(initSeq);
         displayArray[0] = gradShow.getSeq();
         gradShow.changeSequence(changeSeq);
         displayArray[1] = gradShow.getSeq();
@@ -40,6 +39,7 @@ public class LightSequence {
         displayArray[5] = String.valueOf(Math.sqrt(vertical*vertical + horizontal*horizontal));
         return displayArray;
     }
+
 
 
 }
