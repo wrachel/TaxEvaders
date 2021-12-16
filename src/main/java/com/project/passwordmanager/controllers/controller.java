@@ -1,8 +1,12 @@
 package com.project.passwordmanager.controllers;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -371,11 +375,13 @@ public class controller {
     }
 
     @GetMapping("/api/getPasswords")
-    public String get_passwords() throws JSONException {
+    public ResponseEntity<String> get_passwords() throws JSONException {
         String url = "jdbc:sqlite:db/passwords.db";
         sql_helper database = new sql_helper();
         String[][] passwords = database.get_passwords(url);
-        return new JSONArray(passwords);
+
+        Gson gson= new GsonBuilder().create();
+        return new ResponseEntity<>(gson.toJson(passwords), HttpStatus.OK);
     }
 
 }
