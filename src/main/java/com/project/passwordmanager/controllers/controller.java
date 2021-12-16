@@ -380,7 +380,7 @@ public class controller {
         sql_helper database = new sql_helper();
         String[][] passwords = database.get_passwords(url);
 
-        Gson gson= new GsonBuilder().create();
+        Gson gson = new GsonBuilder().create();
         return new ResponseEntity<>(gson.toJson(passwords), HttpStatus.OK);
     }
 
