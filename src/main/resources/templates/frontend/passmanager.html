@@ -16,7 +16,18 @@
     <!-- Start of body content specific to page -->
 <div style="padding-top:5%" class="row justify-content-center">
     <div style="width:50%">
-        <table>
+        <table id="passtable">
+            <thead>
+                <th>Application</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Edit/Delete</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+<!--        <table>
             <tr class="passManagerTable">
                 <th>Application</th>
                 <th>Username</th>
@@ -42,6 +53,7 @@
                 </td>
             </tr>
         </table>
+-->
     </div>
     <script>
         function viewPassword(num) {
@@ -71,6 +83,47 @@
                 passwordField.classList.add("passBox");
             }
         }
+    </script>
+
+    <script>
+        const generateHTML = (row, idx) => {
+            html = "";
+            html += `<td>${row[0]}</td>
+                     <td><input class="passBox" id="username_ID${idx+1}" readonly type="text" value="Test"></td>
+                     <td><input class="passBox" id="password_ID${idx+1}" readonly type="password" value="${row[1]}"></td>
+                     <td>
+                        <button style="margin-left:25px" onclick="viewPassword('${idx+1}')" class="manageIcon">
+                        <i style="color: var(--text)" class="fa fa-eye fa-fw"></i>
+                        </button>
+                        <button class="manageIcon" onclick="editFields('${idx+1}')">
+                        <i style="color: var(--text)" class="fa fa-edit"></i>
+                        </button>
+                     </td>`
+            return html;
+        }
+        function get_passwords() {
+            fetch(`/api/getPasswords`).then((response) => {
+                if (response.status !== 200) {
+                    console.log('Failed with code: ' + response.status);
+                    return;
+                }
+                response.json().then((data) => {
+                    // populate table with a minimum of 2 repos and save remainder into selection dropdown
+                    data.forEach((e, idx) => {
+                        const tbody = document.querySelector('#passtable tbody');
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = generateHTML(e, idx);
+                        tbody.appendChild(tr);
+                    })
+                });
+            }).catch((err) => {
+                console.log('Failed with js error ', err);
+            });
+        }
+
+        (async function() {
+            await get_passwords();
+        })();
     </script>
 </div>
     <!-- end of body content specific to page -->
