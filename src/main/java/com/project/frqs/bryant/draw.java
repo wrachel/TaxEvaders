@@ -8,7 +8,7 @@ public class draw {
     public draw(int x, int y, int len) { // constructor moment
         this.x = Math.min(Math.max(x, -16), 15);
         this.y = Math.min(Math.max(y, -12), 11);
-        this.len = len = Math.min(len, Math.min(16 - x, 12 - y));
+        this.len = Math.min(len, Math.min(16 - this.x, 12 - this.y));
     }
 
     public static int[] get_coordinates(int x, int y, int len) {
