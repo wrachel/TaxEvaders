@@ -13,7 +13,7 @@ public class LightSequence {
     }
 
     public String insertSegment(String segment, int ind) {
-        String newString = seq.substring(0, ind) + segment + seq.substring(ind+segment.length());
+        String newString = seq.substring(0, ind) + segment + seq.substring(ind);
         return newString;
     }
     public void changeSequence(String seq) {
