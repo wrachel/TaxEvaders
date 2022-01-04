@@ -240,8 +240,6 @@ public class controller {
         String uri = base + "?key=" + API_KEY + "&uuid=" + uuid;
 
 
-
-
         // shamelessly stolen code because i don't want to write my own http request handling
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
