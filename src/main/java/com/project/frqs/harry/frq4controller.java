@@ -13,11 +13,11 @@ public class frq4controller {
 
     @GetMapping("/harry/frq4a")
     public String frq4q1() throws IOException {
-        return "frontend/frqs/harryfrq4";
+        return "frqs/harryfrq4";
     }
 
     @GetMapping("/harry/frq4b")
     public String frq4q2() throws IOException{
-        return "frontend/frqs/harryfrq4b";
+        return "frqs/harryfrq4b";
     }
 }
