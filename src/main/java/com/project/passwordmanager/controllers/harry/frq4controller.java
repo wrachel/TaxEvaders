@@ -1,4 +1,4 @@
-package com.project.frqs.harry;
+package com.project.passwordmanager.controllers.harry;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
