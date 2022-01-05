@@ -20,10 +20,26 @@
                 <!--question a-->
                 <label style="color:white; padding-top:30px" for="String">Enter a string</label>
                 <input id="String" name="String" type="text">
+                <p>public static void longestStreak(String str){<br>
+                    char previousChar = ' ';<br>
+                    String largestStreak = " ", currentStreak = " ";<br>
+                    for (int i = 0; i < str.length(); i++){<br>
+                    if (str.charAt(i) != previousChar){<br>
+                    currentStreak = " ";<br>
+                    }<br>
+                    currentStreak += str.charAt(i);<br>
+                    if (currentStreak.length() > largestStreak.length()){<br>
+                    largestStreak = currentStreak;<br>
+                    }<br>
+                    previousChar = str.charAt(i);<br>
+                    }<br>
+                    System.out.println(largestStreak.charAt(0)+" "+largestStreak.length());<br>
+                    } <br>
+                    <p>
+                <p th:text="'Most repeated character: '+${a}" ></p>
 
-
-
-
+                <input type="submit">
+            </form>
         </div>
     </div>
 </div>
