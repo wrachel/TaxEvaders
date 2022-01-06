@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FRQ4 Question 1 </title>
+</head>
+<body>
+
+<div>
+    <h1>Rachel's College Board FRQ Unit 4 Question 1</h1>
+    <p>In this question, a user can put in any string and the longest consecutive characer will be returned, as well as how long that consecutive character is</p>
+</div>
+
+    <form action="/rachel/frq4/question1">
+        <label for="str">Input any String that you want!</label>
+        <input id="str" name="str" type="text">
+        <input type="submit">
+    </form>
+
+    <table class="results">
+        <tr>
+            <td><p>This is the longest consecutive character: </p></td>
+            <td th:text= "${longestchar}" ></td>
+        </tr>
+    </table>
+
+</body>
+</html>

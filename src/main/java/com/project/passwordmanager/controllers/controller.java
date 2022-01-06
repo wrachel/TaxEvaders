@@ -290,34 +290,6 @@ public class controller {
     @GetMapping("/about/rachel")
     public String rachel(@RequestParam(name = "location", required = false, defaultValue = "8583955216") String location, Model phonemodel) throws IOException, InterruptedException, ParseException, JSONException{
 
-        /*List<String> locationList = new ArrayList<String>();
-        String [] a = location.split(" ");
-
-        StringBuilder locationName = new StringBuilder();
-
-        String prefix = "";
-
-        for (String i : a) {
-            locationName.append(prefix);
-            locationName.append(i);
-            prefix = "%20";
-        }
-
-        System.out.println(location);
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://community-open-weather-map.p.rapidapi.com/weather?q="+ locationName))
-                .header("x-rapidapi-host", "community-open-weather-map.p.rapidapi.com")
-                .header("x-rapidapi-key", "8211d43935msh926990e704c2717p15ea0fjsn8c393a17973a")
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
-
-        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
-        weathermodel.addAttribute("map", map);
-        weathermodel.addAttribute("main", map.get("main"));
-        */
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://veriphone.p.rapidapi.com/verify?phone="+ location))
                 .header("x-rapidapi-host", "veriphone.p.rapidapi.com")
