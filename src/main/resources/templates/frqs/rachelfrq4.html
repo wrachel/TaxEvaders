@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FRQ4 Question 1 </title>
+
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>Rachel's College Board FRQ Unit 4 Question 1</h1>
+    <p>In this question, a user can put in any string and the longest consecutive characer will be returned, as well as how long that consecutive character is</p>
+</div>
+
+    <form action="/rachel/frq4/question1">
+        <label for="str">Input any String that you want!</label>
+        <input id="str" name="str" type="text">
+        <input type="submit">
+    </form>
+
+    <table class="results">
+        <tr>
+            <td><p>This is the longest consecutive character: </p></td>
+            <td th:text= "${longestchar}" ></td>
+        </tr>
+    </table>
+
+<h2>Solutions for FRQ Unit 3</h2>
+<code>
+    FRQ Question #1
+    a)
+        int longest = 1; //creates variable to track how long the longest consecutive char is
+        int current = 1; //creates variable to track how long the current consecutive char is
+
+        char longestchar = str.charAt[0]; //creates variable to track what the longest char is
+
+        for (int i = 0; i < str.length() - 1; i++){
+            if (str.charAt[i] == str.charAt[i+1]){
+            current++;
+            //updates how long the current consecutive char is
+        }
+
+        else {
+            current = 1;
+        }
+
+        if (current > longest){
+            longest = current; //updates longest
+            longestchar = str.charAt(i); //updates what longest char is
+        }
+
+        System.out.println(longestchar + " " + longest);
+
+</code>
+</body>
+</html>

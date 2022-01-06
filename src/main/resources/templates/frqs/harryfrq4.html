@@ -1,10 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
 
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Harry's Page</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+        <h1 class="sectionTitle">Unit 4 FRQ Question 1</h1>
+        <div class="sectionText">
+            <form action="/harry/frq4a" method="GET" style="padding-bottom:30px;">
+                <!--question a-->
+                <label style="color:white; padding-top:30px" for="String">Enter a string</label>
+                <input id="String" name="String" type="text" oninput='saveValue(this);' onfocus="this.value=''" required>
+                <p>public static void longestStreak(String str){<br>
+                    char previousChar = ' ';<br>
+                    String largestStreak = " ", currentStreak = " ";<br>
+                    for (int i = 0; i < str.length(); i++){<br>
+                    if (str.charAt(i) != previousChar){<br>
+                    currentStreak = " ";<br>
+                    }<br>
+                    currentStreak += str.charAt(i);<br>
+                    if (currentStreak.length() > largestStreak.length()){<br>
+                    largestStreak = currentStreak;<br>
+                    }<br>
+                    previousChar = str.charAt(i);<br>
+                    }<br>
+                    System.out.println(largestStreak.charAt(0)+" "+largestStreak.length());<br>
+                    } <br>
+                    <p>
+                <p th:text="'Most repeated character: '+${a}" ></p>
+
+                <input type="submit">
+            </form>
+        </div>
+
+    <script type="text/javascript">
+        document.getElementById("String").value = getSavedValue("String");    // set the value to this input
+        // set the value to this input
+        /* Here you can add more inputs to set value. if it's saved */
+
+        //Save the value function - save it to localStorage as (ID, VALUE)
+        function saveValue(e){
+            var id = e.id;  // get the sender's id to save it .
+            var val = e.value; // get the value.
+            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override .
+        }
+
+        //get the saved value function - return the value of "v" from localStorage.
+        function getSavedValue  (v){
+            if (!localStorage.getItem(v)) {
+                return "";// You can change this to your defualt value.
+            }
+            return localStorage.getItem(v);
+        }
+    </script>
+    </div>
+</div>
 </body>
 </html>

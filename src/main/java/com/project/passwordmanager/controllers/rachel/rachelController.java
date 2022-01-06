@@ -22,50 +22,5 @@ import org.springframework.web.bind.annotation.RequestParam;
         return "frqs/rachelfrq3";
     }
 
-/*
-    public Object checkString(String option1, String option2) {
-        if (option1.equals(option2)) {
-            return "true";
-        } else {
-            return "false";
-        }
-    }
-
-    public Object rsvpfood(boolean rsvp, int selection) {
-        String note = "";
-        if (rsvp = true) {
-            if (selection == 1) {
-                note = "Thanks for attending. You will be served beef.";
-            } else if (selection == 2) {
-                note = "Thanks for attending. You will be served chicken.";
-            } else if (selection == 3) {
-                note = "Thanks for attending. You will be served pasta.";
-            } else {
-                note = "Thanks for attending. You will be served fish.";
-            }
-        }
-        if (rsvp = false) {
-            note = "Sorry you can't make it.";
-        }
-        return note;
-    }
-
-    public Object printfood(int selection) {
-        String[] food = {"fish", "beef", "chicken", "pasta", "fish"};
-        if (selection < 4) {
-            return food[selection];
-        } else {
-            return "fish";
-        }
-    }
-
-    public Object returnrsvp(boolean rsvp) {
-        if (rsvp = true) {
-            return "attending";
-        } else {
-            return "not attending";
-        }
-    }
-*/
 
 }
