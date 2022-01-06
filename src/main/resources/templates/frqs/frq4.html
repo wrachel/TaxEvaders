@@ -30,18 +30,34 @@
 
   <input type="submit" value="Submit">
 </form>
+
+<p>Longest run of consecutive characters was: <span th:text="${stringResult}"></span></p>
+
 <table class="mx-auto">
   <tr>
-    <th scope="col">Description</th>
-    <th scope="col">Value</th>
+    <th scope="col">Round</th>
+    <th scope="col">Player 1 Move</th>
+    <th scope="col">Player 2 Move</th>
+    <th scope="col">Player 1 Coins</th>
+    <th scope="col">Player 2 Coins</th>
+    <th scope="col">Debug</th>
   </tr>
-  <tr th:each="value, idx : ${data}">
-    <td th:text="${desc[idx.index]}"></td>
-    <td th:text="${value}"></td>
+  <tr th:each="value, idx: ${data[0]}">
+    <td th:text="${value[0]}"></td>
+    <td th:text="${value[1]}"></td>
+    <td th:text="${value[2]}"></td>
+    <td th:text="${value[3]}"></td>
+    <td th:text="${value[4]}"></td>
+    <td th:text="${idx.index}"></td>
   </tr>
 </table>
 
+<p>Result: <span th:text="${data[1][0][0]}"></span></p>
+
 <h2>Obligatory Reflection</h2>
 <p>This was...interesting. Making a stateful game with just Java is kind of a massive pain, since it's basically contingent on refreshes. I just decided to not do that. Hopefully that's alright.</p>
+<p>This is also the first time in a very long time that I have used a three-dimensional array. It's a new experience, to say the least. I'm not sure how I feel about this. I really like the typeless arrays in Python -- I can really easily return all my data as a simple tuple or array, whereas over here I had to do some very strange things in order to actually get all my data out.</p>
+<p>Maybe I should have used two different functions. Meh.</p>
+<p>Code-wise, there's not too much to say. Most of this is very standard. It's iteration all the way down.</p>
 </body>
 </html>
