@@ -4,9 +4,12 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class frq4 {
 
+    private int playerOneCoins;
+    private int playerTwoCoins;
 private char previousChar;
 private String largestStreak, currentStreak;
 
+//question a
     public String longestStreak(String str) throws IndexOutOfBoundsException{
         previousChar = ' ';
 
@@ -25,6 +28,9 @@ private String largestStreak, currentStreak;
         }
         return largestStreak.charAt(0)+" "+" "+"length: "+largestStreak.length();
     }
+
+
+    //question b
     public int getPlayer1Move(){
         int max = 3;
         int min = 1;
@@ -42,9 +48,9 @@ private String largestStreak, currentStreak;
         return 1;
     }
 
-    public String playGame(int r, int c){
-        int playerOneCoins = c;
-        int playerTwoCoins = c;
+    public String playGame(int r, int c, int t){
+         playerOneCoins = c;
+         playerTwoCoins = t;
         int numberOfRoundsLeft = r;
 
         //game simulation loop
@@ -71,9 +77,15 @@ private String largestStreak, currentStreak;
         if(playerTwoCoins > playerOneCoins){
             return "Player 2 wins!";
         }
-        return "Tie game!";
 
+            return "Tie game!";
 
     }
 
+    public int firstcoin(){
+        return playerOneCoins;
+    }
+    public int secondcoin(){
+        return playerTwoCoins;
+    }
 }

@@ -24,8 +24,11 @@
                 <input id="rounds" name="rounds" type="number" min ="1" required>
                 <br>
                 <!-- inputting initial coins-->
-                <label style="color:white; padding-top:30px" for="coin">Enter initial number of coins</label>
+                <label style="color:white; padding-top:30px" for="coin">Enter initial number of coins for player one:</label>
                 <input id="coin" name="coin" type="number" min ="10" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="tcoin">Enter initial number of coins for player two:</label>
+                <input id="tcoin" name="tcoin" type="number" min ="10" required>
                 <br>
                 <input type="submit">
                 <br>
@@ -42,12 +45,13 @@
                      <th>Total Rounds</th>
                 </tr>
                 <tr>
-                        <td></td>
-                        <td></td>
+                        <td th:text="${one}"></td>
+                        <td th:text="${two}"></td>
                         <td th:text="${round}"></td>
                 </tr>
             </table>
-
+            <br>
+            <p th:text="'Result: ' + ${b}"></p>
         </div>
     </div>
 

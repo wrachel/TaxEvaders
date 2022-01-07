@@ -22,12 +22,21 @@ public class frq4controller extends frq4 {
     }
 
     @GetMapping("/harry/frq4b")
-    public String frq4q2(@RequestParam(name = "rounds", required = false, defaultValue = "5") int round,
-                         @RequestParam(name = "coin", required = false, defaultValue = "10") int coin, Model model) throws IOException, InterruptedException{
+    public String frq4q2(@RequestParam(name = "rounds", required = true, defaultValue = "5") int round,
+                         @RequestParam(name = "coin", required = true, defaultValue = "10") int coin,
+                         @RequestParam(name = "tcoin", required = true, defaultValue = "10") int tcoin,Model model) throws IOException, InterruptedException{
 
-        String b = playGame(round, coin);
+        String b = playGame(round, coin, tcoin);
+
+
         model.addAttribute("b", b);
         model.addAttribute("round", round);
+
+        int onecoin = firstcoin();
+        int twocoin = secondcoin();
+
+        model.addAttribute("two", twocoin);
+        model.addAttribute("one", onecoin);
 
         return "frqs/harryfrq4b";
     }
