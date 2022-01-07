@@ -78,7 +78,7 @@ private String largestStreak, currentStreak;
             return "Player 2 wins!";
         }
 
-            return " ";
+            return "Tie game!";
 
     }
 
