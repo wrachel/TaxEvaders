@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coin Game</title>
+  <style>
+    code {
+      display: block;
+      white-space: pre-wrap
+    }
+  </style>
+</head>
+<body>
+<h2>Demo</h2>
+<form action="/frq4">
+  <label for="testString">What string would you like to run through? </label>
+  <input type="text" id="testString" name="testString"> <br>
+  <label for="rounds">How many rounds would you like to play? </label>
+  <input type="text" id="rounds" name="rounds"> <br>
+  <label for="coins">How many coins would you like to start with? </label>
+  <input type="text" id="coins" name="coins"> <br>
+  <label for="strategy">What strategy would you like to use? </label>
+  <select id="strategy" name="strategy">
+    <option value="1">All 1</option>
+    <option value="2">All 2</option>
+    <option value="3">All 3</option>
+    <option value="4">Copy Player Two</option>
+    <option value="5">Random</option>
+  </select> <br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<p>Longest run of consecutive characters was: <span th:text="${stringResult}"></span></p>
+
+<table class="mx-auto">
+  <tr>
+    <th scope="col">Round</th>
+    <th scope="col">Player 1 Move</th>
+    <th scope="col">Player 2 Move</th>
+    <th scope="col">Player 1 Coins</th>
+    <th scope="col">Player 2 Coins</th>
+  </tr>
+  <tr th:each="value, idx: ${data[0]}">
+    <td th:text="${value[0]}"></td>
+    <td th:text="${value[1]}"></td>
+    <td th:text="${value[2]}"></td>
+    <td th:text="${value[3]}"></td>
+    <td th:text="${value[4]}"></td>
+  </tr>
+</table>
+
+<p>Result: <span th:text="${data[1][0][0]}"></span></p>
+
+<h2>Obligatory Reflection</h2>
+<p>This was...interesting. Making a stateful game with just Java is kind of a massive pain, since it's basically contingent on refreshes. I just decided to not do that. Hopefully that's alright.</p>
+<p>This is also the first time in a very long time that I have used a three-dimensional array. It's a new experience, to say the least. I'm not sure how I feel about this. I really like the typeless arrays in Python -- I can really easily return all my data as a simple tuple or array, whereas over here I had to do some very strange things in order to actually get all my data out.</p>
+<p>Maybe I should have used two different functions. Meh.</p>
+<p>Code-wise, there's not too much to say. Most of this is very standard. It's iteration all the way down.</p>
+</body>
+</html>

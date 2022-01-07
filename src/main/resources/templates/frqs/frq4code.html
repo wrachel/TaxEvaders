@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+  public class game {<br>
+  private int startingCoins;<br>
+  private int maxRounds;<br>
+  public game(int s, int r) {<br>
+  startingCoins = s;<br>
+  maxRounds = r;<br>
+  }<br>
+  <br>
+  public int getPlayer1Move(){<br>
+  int max = 3;<br>
+  int min = 1;<br>
+  ThreadLocalRandom tlr = ThreadLocalRandom.current();<br>
+  return tlr.nextInt(min, max+1);<br>
+  }<br>
+  <br>
+  public int getPlayer2Move(int round) {<br>
+  if(round %3==0) {<br>
+  return 3;<br>
+  }<br>
+  <br>
+  if(round %2==0) {<br>
+  return 2;<br>
+  }<br>
+  <br>
+  return 1;<br>
+  }<br>
+  <br>
+  public void playGame(){<br>
+  int playerOneCoins = startingCoins;<br>
+  int playerTwoCoins = startingCoins;<br>
+  int numberOfRoundsLeft = maxRounds;<br>
+  <br>
+  while(playerOneCoins > 3 && playerTwoCoins > 3 && numberOfRoundsLeft >0){<br>
+  numberOfRoundsLeft --;<br>
+  int m1 =getPlayer1Move();<br>
+  int m2 = getPlayer2Move(numberOfRoundsLeft);<br>
+  playerOneCoins -=m1;<br>
+  playerTwoCoins -=m2;<br>
+  if(m1==m2){<br>
+  playerTwoCoins +=1;<br>
+  }<br>
+  if(m1-m2==1){<br>
+  playerTwoCoins +=1;<br>
+  }<br>
+  if(m1-m2==2){<br>
+  playerOneCoins +=1;<br>
+  }<br>
+  }<br>
+  if(playerOneCoins > playerTwoCoins){<br>
+  System.out.println("Player 1 wins!");<br>
+  }<br>
+  if(playerTwoCoins > playerOneCoins){<br>
+  System.out.println("Player 2 wins!");<br>
+  }<br>
+  if(playerOneCoins ==playerTwoCoins) {<br>
+  System.out.println("Tie game!");<br>
+  }<br>
+  }
+</p>
+</body>
+</html>
