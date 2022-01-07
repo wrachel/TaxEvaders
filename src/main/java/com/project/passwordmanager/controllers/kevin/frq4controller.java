@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Controller
+@Controller("kevinfrq4")
 public class frq4controller extends frq4{
 
     @GetMapping("/kevin/unit4")

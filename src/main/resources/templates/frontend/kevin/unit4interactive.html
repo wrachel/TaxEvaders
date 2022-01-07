@@ -21,6 +21,13 @@
             <form action="/kevin/unit4/interactive">
                 <label for="word">Type a random string: </label><br>
                 <input class="inputForm" type="text" id="word" name="word"> <br>
+
+                <label for="word">Round: </label><br>
+                <input class="inputForm" type="text" id="round" name="round"> <br>
+                <label for="coin1">Player 1 Coins: </label><br>
+                <input class="inputForm" type="text" id="coin1" name="coin1"> <br>
+                <label for="coin2">Player 2 Coins: </label><br>
+                <input class="inputForm" type="text" id="coin2" name="coin2"> <br>
                 <br>
 
                 <input class="submitButton" type="submit" value="Submit">
@@ -30,7 +37,18 @@
                     <tr>
                         <td th:text="${longestStreak}"></td>
                     </tr>
-
+                    <tr>
+                        <td th:text="${game}"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="${round}"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="${coin1}"></td>
+                    </tr>
+                    <tr>
+                        <td th:text="${coin2}"></td>
+                    </tr>
                 </table>
             </div>
         </div>
