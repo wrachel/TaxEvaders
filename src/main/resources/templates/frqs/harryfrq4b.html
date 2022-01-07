@@ -17,6 +17,7 @@
     <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
         <h1 class="sectionTitle">Unit 4 FRQ Question 2</h1>
         <div class="sectionText">
+            <h2>Simulating a two player game</h2>
             <!--inputting max rounds-->
             <form action="/harry/frq4b" method="GET" style="padding-bottom:30px;">
                 <label style="color:white; padding-top:30px" for="rounds">Enter number of rounds to be played:</label>
@@ -27,8 +28,25 @@
                 <input id="coin" name="coin" type="number" min ="10" required>
                 <br>
                 <input type="submit">
-            </form>
+                <br>
+                <a href="/harry/frq4code">link to code</a>
 
+            </form>
+            <p>Result:</p>
+            <table>
+                <tr>
+                    <th>Player 1 coins</th>
+
+                     <th>Player 2 coins</th>
+
+                     <th>Total Rounds</th>
+                </tr>
+                <tr>
+                        <td></td>
+                        <td></td>
+                        <td th:text="${round}"></td>
+                </tr>
+            </table>
 
         </div>
     </div>

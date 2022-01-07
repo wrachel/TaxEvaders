@@ -1,5 +1,7 @@
 package com.project.passwordmanager.controllers.harry;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class frq4 {
 
 private char previousChar;
@@ -22,6 +24,56 @@ private String largestStreak, currentStreak;
             previousChar = str.charAt(i);
         }
         return largestStreak.charAt(0)+" "+" "+"length: "+largestStreak.length();
+    }
+    public int getPlayer1Move(){
+        int max = 3;
+        int min = 1;
+        ThreadLocalRandom tlr = ThreadLocalRandom.current();
+        return tlr.nextInt(min, max+1);
+    }
+
+    public int getPlayer2Move(int round) {
+        if(round %3==0) {
+            return 3;
+        }
+        if(round %2==0) {
+            return 2;
+        }
+        return 1;
+    }
+
+    public String playGame(int r, int c){
+        int playerOneCoins = c;
+        int playerTwoCoins = c;
+        int numberOfRoundsLeft = r;
+
+        //game simulation loop
+        while(playerOneCoins > 3 && playerTwoCoins > 3 && numberOfRoundsLeft >0){
+            numberOfRoundsLeft --;
+            int m1 =getPlayer1Move();
+            int m2 = getPlayer2Move(numberOfRoundsLeft);
+            playerOneCoins -=m1;
+            playerTwoCoins -=m2;
+            if(m1==m2){
+                playerTwoCoins +=1;
+
+            }
+            if(m1-m2==1){
+                playerTwoCoins +=1;
+            }
+            if(m1-m2==2){
+                playerOneCoins +=1;
+            }
+        }
+        if(playerOneCoins > playerTwoCoins){
+            return "Player 1 wins!";
+        }
+        if(playerTwoCoins > playerOneCoins){
+            return "Player 2 wins!";
+        }
+        return "Tie game!";
+
+
     }
 
 }
