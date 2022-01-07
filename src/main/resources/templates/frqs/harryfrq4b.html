@@ -17,8 +17,17 @@
     <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
         <h1 class="sectionTitle">Unit 4 FRQ Question 2</h1>
         <div class="sectionText">
-
-
+            <!--inputting max rounds-->
+            <form action="/harry/frq4b" method="GET" style="padding-bottom:30px;">
+                <label style="color:white; padding-top:30px" for="rounds">Enter number of rounds to be played:</label>
+                <input id="rounds" name="rounds" type="number" min ="1" required>
+                <br>
+                <!-- inputting initial coins-->
+                <label style="color:white; padding-top:30px" for="coin">Enter initial number of coins</label>
+                <input id="coin" name="coin" type="number" min ="10" required>
+                <br>
+                <input type="submit">
+            </form>
 
 
         </div>

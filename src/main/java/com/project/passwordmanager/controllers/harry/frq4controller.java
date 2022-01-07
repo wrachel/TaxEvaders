@@ -22,7 +22,8 @@ public class frq4controller extends frq4 {
     }
 
     @GetMapping("/harry/frq4b")
-    public String frq4q2() throws IOException{
+    public String frq4q2(@RequestParam(name = "rounds", required = false, defaultValue = "5") String round,
+                         @RequestParam(name = "coin", required = false, defaultValue = "10") String coin, Model model) throws IOException, InterruptedException{
 
 
         return "frqs/harryfrq4b";
