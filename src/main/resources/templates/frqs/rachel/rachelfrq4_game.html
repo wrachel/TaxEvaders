@@ -7,8 +7,91 @@
 <body>
     <h1> College Board Unit 4 FRQ Question 2</h1>
 
-    <form>
-
+    <form action="/rachel/frq4/question2">
+        <label for="coins">Input the starting number of coins for Player 1 and Player 2!: </label>
+        <input id="coins" name="coins" type="text"><br>
+        <label for="rounds">Input the starting number of rounds for Player 1 and Player 2!: </label>
+        <input id="rounds" name="rounds" type="text"><br>
+        <input type="submit">
     </form>
+
+    <table class="results">
+        <tr>
+            <td><p>This is the winner!!!!!: </p></td>
+            <td th:text= "${winner}" ></td>
+        </tr>
+    </table>
+
+    <h2>Solutions for FRQ Unit 4</h2>
+    <code>
+        FRQ Question #2
+
+        a)
+        //returns a # of coins played by player2
+        int result;
+
+        if (round % 3 = 0){
+            result = 3;
+        }
+
+        else if (round % 2 = 0 && round %3 != 0){
+            result = 2;
+        }
+
+        else{
+            result = 1;
+        }
+
+        return result;
+
+        b)
+        //plays the game
+        int player2coins = startingCoins;
+        int player1coins = startingCoins;
+
+        for(round=1; round <= maxRounds && player1coins>2 && player2coins>2; round++){
+
+            int p1Spends = getPlayer1Move();
+            int p2Spends = getPlayer2Move(round);
+
+            player2coins -= p2Spends;
+            player1coins -= p1Spends;
+            int diff = Math.abs(p1Spends-p2Spends);
+
+            if (diff == 0){
+                player2coins += 1;
+            }
+            else if (diff == 1){
+                player2coins += 1;
+            }
+            else{
+                player1coins += 2;
+                continue;
+            }
+        }
+
+        //prints a winner
+        if (player1coins == player2coins){
+            System.out.println("tie game");
+        }
+        else if (player1coins > player2coins){
+            System.out.println("player 1 wins");
+        }
+        else{
+            System.out.println("player 2 wins");
+        }
+
+    </code>
+
+    <h2>FRQ4 Reflection</h2>
+    <p>
+        I found this FRQ to be more complex than the first problem. When using an IDE (IntelliJ) to implement the FRQ into our project, I realized that when comparing the value of variables I should be using "==" instead of "=".
+    </p>
+    <p>
+        Also, navigating the problem to understand how players lose and gain coins was complicated, but I realized that every round a player loses the number of coins they spend. So, I could just subtract the coins they spend in every situation, and then consider the extra factors (like if they spent the same amount of coins, difference of 1, difference of 2).
+    </p>
+    <p>
+        Key takeaways: this question focuses on for loops/while loops, developing algorithms, nested iteration (may need)
+    </p>
 </body>
 </html>

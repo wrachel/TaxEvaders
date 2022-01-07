@@ -11,6 +11,7 @@ public class rachel_frq4_game {
         startingCoins = s;
         maxRounds = r;
     }
+
     //returns player1move as 1
     public int getPlayer1Move(){
         return 1;
@@ -30,17 +31,11 @@ public class rachel_frq4_game {
         }
         return result;
     }
-
-    public String playgame(){
-        int player2coins = startingCoins;//initializes starting coins
+    public String playGame(){
+        int player2coins = startingCoins;
         int player1coins = startingCoins;
 
-        for(int round=1; round <= maxRounds; round++){
-
-            if (player2coins < 3 || player1coins < 3){
-                break;
-                //break condition
-            }
+        for(int round=1; round <= maxRounds && player2coins > 2 && player1coins > 2; round++){
 
             int p1Spends = getPlayer1Move();
             int p2Spends = getPlayer2Move(round);
@@ -50,15 +45,18 @@ public class rachel_frq4_game {
             int diff = Math.abs(p1Spends-p2Spends);
             if (diff == 0){
                 player2coins += 1;
+                continue;
             }
             else if (diff == 1){
                 player2coins += 1;
+                continue;
             }
             else{
                 player1coins += 2;
+                continue;
             }
         }
-        String winner = " ";
+        String winner = "";
         if (player1coins == player2coins){
             winner = "tie game";
         }
@@ -68,6 +66,7 @@ public class rachel_frq4_game {
         else{
             winner = "player 2 wins";
         }
+
         return winner;
     }
 }
