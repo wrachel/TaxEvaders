@@ -5,7 +5,7 @@ public class frq4 {
 private char previousChar;
 private String largestStreak, currentStreak;
 
-    public String longestStreak(String str){
+    public String longestStreak(String str) throws IndexOutOfBoundsException{
         previousChar = ' ';
 
          largestStreak = "";

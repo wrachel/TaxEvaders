@@ -12,7 +12,7 @@ import java.io.IOException;
 public class frq4controller extends frq4 {
 
     @GetMapping("/harry/frq4a")
-    public String frq4q1(@RequestParam(name = "String", required = false, defaultValue = "") String input, Model model) throws IOException, InterruptedException {
+    public String frq4q1(@RequestParam(name = "String", required = false, defaultValue = "aaaabb") String input, Model model) throws IOException, InterruptedException {
       String a = longestStreak(input);
 
       model.addAttribute("a", a);
