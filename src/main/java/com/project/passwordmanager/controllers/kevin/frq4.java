@@ -1,36 +1,35 @@
-package com.project.passwordmanager.controllers.harry;
+package com.project.passwordmanager.controllers.kevin;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class frq4 {
-
-    private int playerOneCoins;
-    private int playerTwoCoins;
-private char previousChar;
-private String largestStreak, currentStreak;
-
-//question a
-    public String longestStreak(String str) throws IndexOutOfBoundsException{
-        previousChar = ' ';
-
-         largestStreak = "";
-         currentStreak = "";
-
-         for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) != previousChar){
-                currentStreak = "";
-            }
-            currentStreak += str.charAt(i);
-            if (currentStreak.length() > largestStreak.length()){
-                largestStreak = currentStreak;
-            }
-            previousChar = str.charAt(i);
-        }
-        return largestStreak.charAt(0)+" "+" "+"length: "+largestStreak.length();
+    public static void main(String[] args) {
+        System.out.println(longestStreak("CCAAAAAATTTTTTT!"));
     }
 
 
-    //question b
+    public static String longestStreak(String str) {
+        char prevChar = ' ';
+
+        String maxStreak = "";
+        String currStreak = "";
+
+        for (int i = 0; i < str.length(); i++){
+            if (str.charAt(i) != prevChar){
+                currStreak = "";
+            }
+            currStreak += str.charAt(i);
+            if (currStreak.length() > maxStreak.length()){
+                maxStreak = currStreak;
+            }
+            prevChar = str.charAt(i);
+        }
+        return maxStreak.charAt(0)+ " " + maxStreak.length();
+    }
+
+    private int playerOneCoins;
+    private int playerTwoCoins;
+
     public int getPlayer1Move(){
         int max = 3;
         int min = 1;
@@ -49,8 +48,8 @@ private String largestStreak, currentStreak;
     }
 
     public String playGame(int r, int c, int t){
-         playerOneCoins = c;
-         playerTwoCoins = t;
+        playerOneCoins = c;
+        playerTwoCoins = t;
         int numberOfRoundsLeft = r;
 
         //game simulation loop
@@ -78,7 +77,7 @@ private String largestStreak, currentStreak;
             return "Player 2 wins!";
         }
 
-            return "Tie game!";
+        return "Tie game!";
 
     }
 

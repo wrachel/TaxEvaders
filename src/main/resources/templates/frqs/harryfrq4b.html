@@ -17,10 +17,41 @@
     <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
         <h1 class="sectionTitle">Unit 4 FRQ Question 2</h1>
         <div class="sectionText">
+            <h2>Simulating a two player game</h2>
+            <!--inputting max rounds-->
+            <form action="/harry/frq4b" method="GET" style="padding-bottom:30px;">
+                <label style="color:white; padding-top:30px" for="rounds">Enter number of rounds to be played:</label>
+                <input id="rounds" name="rounds" type="number" min ="1" required>
+                <br>
+                <!-- inputting initial coins-->
+                <label style="color:white; padding-top:30px" for="coin">Enter initial number of coins for player one:</label>
+                <input id="coin" name="coin" type="number" min ="10" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="tcoin">Enter initial number of coins for player two:</label>
+                <input id="tcoin" name="tcoin" type="number" min ="10" required>
+                <br>
+                <input type="submit">
+                <br>
+                <a href="/harry/frq4code">link to code</a>
 
+            </form>
+            <p>Result:</p>
+            <table>
+                <tr>
+                    <th>Player 1 coins</th>
 
+                     <th>Player 2 coins</th>
 
-
+                     <th>Total Rounds</th>
+                </tr>
+                <tr>
+                        <td th:text="${one}"></td>
+                        <td th:text="${two}"></td>
+                        <td th:text="${round}"></td>
+                </tr>
+            </table>
+            <br>
+            <p th:text="'Result: ' + ${b}"></p>
         </div>
     </div>
 
