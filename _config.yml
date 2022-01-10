@@ -1,3 +1,7 @@
 theme: jekyll-theme-minimal
 title: TaxEvaders
 description: code code code!
+
+include:
+- contributing.md
+- index.md
