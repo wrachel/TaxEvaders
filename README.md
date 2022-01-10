@@ -39,7 +39,7 @@ Navigate to and run [Main.java] file
 Go to localhost:8080 in a web browser to view our running website
 
 ## How to contribute: 
-See [`contributing.md`](contributing).
+See [`contributing.md`](https://github.com/wrachel/TaxEvaders/blob/5e5f1cb281b90b64575ceae814b73877d11d5ec8/contributing.md).
 NOTE: Although this may be obvious, please do not push any broken code. Thanks. 
 lol
 
