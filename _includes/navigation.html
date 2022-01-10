@@ -1,68 +1,7 @@
-<nav class="navbarStyles navbar navbar-expand-lg navbar-dark" style="position:fixed; top:0px; z-index:100;min-width: 100%;">
-    <button style="" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="row justify-content-center">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav">
-                <li class="nav-item" style="padding-top:8px; padding-right:14px">
-                    <a href="/home#top"><img src="/static/images/white_lock.png" th:src="@{/images/white_lock.png}" width="20px" height="28"></a>
-                </li>
-                <li class="nav-item">
-                    <a style="color:var(--dirtywhite)" class="navbarLink nav-link" href="/passtester">PASSTESTER</a>
-                </li>
-                <li class="nav-item">
-                    <a style="color:var(--dirtywhite)" class="navbarLink nav-link" href="/passmanager">PASSMANAGER</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a style="color:var(--dirtywhite)" class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        MINILABS
-                    </a>
-                    <div style="background-color: var(--nav);" class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="navbarDropdownLink dropdown-item" href="/about/bryant">BRYANT</a>
-                        <a class="navbarDropdownLink dropdown-item" href="/about/harry">HARRY</a>
-                        <a class="navbarDropdownLink dropdown-item" href="/about/kevin">KEVIN</a>
-                        <a class="navbarDropdownLink dropdown-item" href="/about/rachel">RACHEL</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a style="color:var(--dirtywhite)" class="navbarLink nav-link" href="/signin">SIGN IN</a>
-                </li>
-                <li class="nav-item">
-                    <a style="color:var(--dirtywhite)" class="navbarLink nav-link" href="https://wrachel.github.io/TaxEvaders/">Github README</a>
-                </li>
-            </ul>
-        </div>
-        <div style="position:fixed; right:20px; top:10px">
-            <input style="visibility: hidden" type="checkbox" id="checkbox">
-            <label for="checkbox" style="font-size:2em; color: var(--dirtywhite)"><i id="changeicon" class="fas fa-moon"></i></label>
-
-        </div>
-    </div>
-    <script type="text/javascript">
-        const lightSwitch=document.getElementById("checkbox");
-
-        if(lightSwitch) {
-            const lightSwitchSelected =
-                localStorage.getItem("lightSwitch") !== null &&
-                localStorage.getItem("lightSwitch") === "light";
-            lightSwitch.checked=lightSwitchSelected;
-            if (lightSwitchSelected) {
-                document.body.classList.toggle("light-mode");
-                document.getElementById('changeicon').classList.remove('fa-sun');
-                document.getElementById('changeicon').classList.remove('fa-moon');
-                document.getElementById('changeicon').classList.add('fa-sun');
-            }
-        }
-
-        lightSwitch.addEventListener('click', function(){
-            document.body.classList.toggle("light-mode");
-            console.log('clicked');
-            document.getElementById('changeicon').classList.toggle('fa-sun');
-            document.getElementById('changeicon').classList.toggle('fa-moon');
-            lightSwitch.checked
-                ? localStorage.setItem("lightSwitch","light")
-                : localStorage.removeItem("lightSwitch");
-        })
-    </script>
-</nav>
+ <table>
+     <tr>
+         <td><a href=".">Home</a></td>
+         <td><a href="contributing">Contributing</a></td>
+     </tr>
+ </table>
+ <hr>
