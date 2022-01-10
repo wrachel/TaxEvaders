@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -24,7 +24,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 
 import org.json.*;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.project.frqs.bryant.LightSequence.calculate_sequence;
 import static com.project.frqs.bryant.draw.get_coordinates;
@@ -409,5 +408,11 @@ public class controller {
         return new ResponseEntity<>(gson.toJson(passwords), HttpStatus.OK);
     }
 
-}
+    @GetMapping("/test_login")
+    public String get_test(Model model, @ModelAttribute("test") String test) {
+        return test;
+    }
+
+
+    }
 
