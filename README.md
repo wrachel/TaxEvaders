@@ -39,7 +39,7 @@ Navigate to and run [Main.java] file
 Go to localhost:8080 in a web browser to view our running website
 
 ## How to contribute: 
-See `contributing.md`.
+See [`contributing.md`](contributing).
 NOTE: Although this may be obvious, please do not push any broken code. Thanks. 
 lol
 
