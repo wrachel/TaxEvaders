@@ -1,4 +1,3 @@
- {% include navigation.html %}
 # TaxEvaders README:  
 
 ### GitHub Contributors: Bryant Jin, Rachel Wei, Harry Li, Kevin Do
