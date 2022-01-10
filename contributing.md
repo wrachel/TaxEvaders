@@ -1,3 +1,4 @@
+{% include navigation.html %}
 # Contributing to Tax Evaders
 
 ## Contributions
