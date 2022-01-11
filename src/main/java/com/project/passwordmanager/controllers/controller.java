@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.project.frqs.bryant.CoinGame;
 import com.project.frqs.bryant.stringUtil;
+import com.project.frqs.bryant.invitation;
+import com.project.frqs.bryant.passwordGenerator;
 import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -11,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.http.HttpClient;
@@ -24,7 +26,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 
 import org.json.*;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.project.frqs.bryant.LightSequence.calculate_sequence;
 import static com.project.frqs.bryant.draw.get_coordinates;
@@ -328,6 +329,15 @@ public class controller {
         return "frqs/frq4";
     }
 
+    @GetMapping("/frq5")
+    public String frq5(@RequestParam(name = "hostName", required = false, defaultValue = "John Johnson") String hostName, @RequestParam(name = "address", required = false, defaultValue = "16601 Nighthawk Lane") String address, @RequestParam(name = "guest", required = false, defaultValue = "Cache Monee") String guest, @RequestParam(name = "prefix", required = false, defaultValue = "YOU_FORGOT_TO_SPECIFY_A_PREFIX") String prefix, @RequestParam(name = "length", required = false, defaultValue = "1") int length, Model model) {
+        invitation inviteGen = new invitation(hostName, address);
+        passwordGenerator passGen = new passwordGenerator(length, prefix);
+        model.addAttribute("data",new String[]{"invite", "password"});
+        model.addAttribute("desc", new String[]{ inviteGen.generateInvitation(guest), passGen.pwGen()});
+        return "frqs/frq5";
+    }
+
     @GetMapping("/rachel/frq2")
     public String frqunit2(@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel){
         lightseqmodel.addAttribute("data", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
@@ -409,5 +419,11 @@ public class controller {
         return new ResponseEntity<>(gson.toJson(passwords), HttpStatus.OK);
     }
 
-}
+    @GetMapping("/test_login")
+    public String get_test(Model model, @ModelAttribute("test") String test) {
+        return test;
+    }
+
+
+    }
 

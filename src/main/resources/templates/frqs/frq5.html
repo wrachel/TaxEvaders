@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Very professional project</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+<h2>Demo</h2>
+<form action="/frq5">
+    <label for="hostName">Who is the host of the party? </label>
+    <input type="text" id="hostName" name="hostName"> <br>
+    <label for="address">Where is the party? </label>
+    <input type="text" id="address" name="address"> <br>
+    <label for="guest">Who is the guest? </label>
+    <input type="text" id="guest" name="guest"> <br>
+    <label for="prefix">What password prefix would you like to use? </label>
+    <input type="text" id="prefix" name="prefix"> <br>
+    <label for="length">How long would you like the generated password to be? </label>
+    <input type="text" id="length" name ="length"> <br>
+
+    <input type="submit" value="Submit">
+</form>
+<table class="mx-auto">
+    <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Value</th>
+    </tr>
+    <tr th:each="value, idx : ${data}">
+        <td th:text="${desc[idx.index]}"></td>
+        <td th:text="${value}"></td>
+    </tr>
+</table>
+
+<h2>Obligatory Reflection</h2>
+<p>Maybe doing these in second trimester wasn't a good idea, because I completely forgot what this unit was supposed to be about. Most of my solutions were very elegant by normal standards, but I'm pretty sure they were not the intended solutions. At all. All of my friends used like substring concatenation and stuff, while I was using replace statements.</p>
+<p>Speaking of, replace statements are entirely turing complete. This was proved a long time ago but I don't remember who did it. I actually made an entire arithmetic implementation using solely string replacement instructions.</p>
+<p>Anyway, I'm getting off-topic. The activity was a pretty nice review of...objects, I guess? It was a lot of getter and setter stuff. And object instantiation. Lots of that, actually. I don't really have much to say about this -- it's not like this is a particularly groundbreaking revelation. If you're just learning about objects <em>now</em>, you probably aren't cut out fo computer science.</p>
+<p>The website creation process was pretty interesting. I had to do a lot of modification to the original code in order to get it to work. That was a headache and a half. I probably could have handled the actual data transfer better, like with an array or a JSON object. I mean, not that creating 6 different parameters isn't fun, but it's a pain to read and a lot of copying and pasting. It also violates DRY, which is Very Bad (tm).</p>
+
+
+<h2>Obligatory Code</h2>
+<code>
+    public class invitation {
+        private String hostName;
+        private String address;
+
+        public invitation(String hostName, String address) {
+            this.hostName = hostName;
+            this.address = address;
+        }
+
+        public invitation(String address) {
+            this.hostName = "Host";
+            this.address = address;
+        }
+
+        public String getHostName() {
+            return hostName;
+        }
+
+        public void updateAddress(String address) {
+            this.address = address;
+        }
+
+        public String generateInvitation(String name) {
+            return String.format("Dear %s, please attend my event at %s. See you then, %s.", name, address, hostName);
+        }
+    }
+
+    import java.util.Random;
+    public class passwordGenerator {
+        static int passwordsGenerated;
+        private int length;
+        private String prefix;
+
+        public passwordGenerator(int length) {
+            this.length = length;
+            this.prefix = "A";
+        }
+
+        public passwordGenerator(int length, String prefix) {
+            this.length = length;
+            this.prefix = prefix;
+        }
+
+        public int pwCount() {
+            return passwordsGenerated;
+        }
+
+        public String pwGen() {
+        String digits = "";
+        Random rand = new Random();
+
+        for (int i = 0; i < this.length; i++) {
+            digits += rand.nextInt(10);
+        }
+
+        passwordsGenerated += 1;
+
+        return String.format("%s.%s", this.prefix, digits);
+        }
+    }
+</code>
+</body>
+</html>
