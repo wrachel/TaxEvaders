@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CollegeBoard Unit 5 FRQ Question 1</title>
+
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>Rachel's College Board FRQ Unit 5 Question 1</h1>
+    <p>In this question, a user can generate an invite statement for an event they are planning. A user needs to put in their name, the address of the venue, and the name of the person they would like to invite.</p>
+</div>
+
+<form action="/rachel/frq5">
+    <label for="hostName">What is your name?: </label>
+    <input id="hostName" name="hostName" type="text"><br>
+    <label for="address">What is the address of your venue?: </label>
+    <input id="address" name="address" type="text"><br>
+    <label for="invited">What is the name of the person you would like to invite?: </label>
+    <input id="invited" name="invited" type="text"><br>
+    <input type="submit">
+</form>
+
+<table class="results">
+    <tr>
+        <td><p>Here is your invite statement: </p></td>
+        <td th:text= "${inviteNotif}" ></td>
+    </tr>
+</table>
+
+<div>
+    <h1>Rachel's College Board FRQ Unit 5 Question 2</h1>
+    <p>In this question, a user can generate a random password with a prefix, then a period, then a sequence of randomly generated numbers of length chosen by the user. Example password: A.6137418</p>
+</div>
+
+<form action="/rachel/frq5">
+    <label for="length">What would you like the minimum length of your password to be?: </label>
+    <input id="length" name="length" type="text"><br>
+    <label for="prefix">What would you like the prefix of your password to be?: </label>
+    <input id="prefix" name="prefix" type="text"><br>
+    <input type="submit">
+</form>
+
+<table class="results">
+    <tr>
+        <td><p>Here is your random password: </p></td>
+        <td th:text= "${password}" ></td>
+    </tr>
+</table>
+
+</body>
+</html>
