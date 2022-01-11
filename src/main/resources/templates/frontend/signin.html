@@ -20,17 +20,30 @@
       <div class="row justify-content-center">
         <h1 style="color:var(--dirtywhite)" class="sectionTitle">SIGN IN</h1>
       </div>
-      <p><input class="inputForm" type="text" name="username" placeholder="username" required></p>
-      <p><input class="inputForm" id="passwordForm" type="password" name="password" placeholder="password" required></p>
-
-      <div class="row justify-content-around">
-        <div class="w-50">
-          <input type="checkbox" name="rememberMe" id="rememberMeCheck">
-          <label style="color:var(--dirtywhite)" for="rememberMeCheck">Remember Me</label>
-        </div>
-        <div class="w-50 text-md-right"></div>
+      <div th:if="${param.error}">
+        Invalid username and password.
       </div>
-      <p><input class="submitButton" type="submit" value="SIGN IN"></p>
+      <div th:if="${param.logout}">
+        You have been logged out.
+      </div>
+      <form th:action="@{/signin}" method="post">
+        <div><label> User Name : <input type="text" name="username"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <div><input type="submit" value="Sign In"/></div>
+      </form>
+<!--            <form action="/signin" method="POST">-->
+<!--      <p><input class="inputForm" type="text" name="username" placeholder="username" required></p>-->
+<!--      <p><input class="inputForm" id="passwordForm" type="password" name="password" placeholder="password" required></p>-->
+
+<!--      <div class="row justify-content-around">-->
+<!--        <div class="w-50">-->
+<!--          <input type="checkbox" name="rememberMe" id="rememberMeCheck">-->
+<!--          <label style="color:var(&#45;&#45;dirtywhite)" for="rememberMeCheck">Remember Me</label>-->
+<!--        </div>-->
+<!--        <div class="w-50 text-md-right"></div>-->
+<!--      </div>-->
+<!--      <input class="submitButton" type="submit" value="Sign In">-->
+<!--      </form>-->
       <p style="color: var(--dirtywhite); line-height: 0px; padding-top:5px">Don't have an account? <a style="color:var(--nav)" href="/signup">Sign Up</a></p>
     </div>
   </div>
