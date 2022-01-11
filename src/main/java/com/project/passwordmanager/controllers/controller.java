@@ -333,8 +333,8 @@ public class controller {
     public String frq5(@RequestParam(name = "hostName", required = false, defaultValue = "John Johnson") String hostName, @RequestParam(name = "address", required = false, defaultValue = "16601 Nighthawk Lane") String address, @RequestParam(name = "guest", required = false, defaultValue = "Cache Monee") String guest, @RequestParam(name = "prefix", required = false, defaultValue = "YOU_FORGOT_TO_SPECIFY_A_PREFIX") String prefix, @RequestParam(name = "length", required = false, defaultValue = "1") int length, Model model) {
         invitation inviteGen = new invitation(hostName, address);
         passwordGenerator passGen = new passwordGenerator(length, prefix);
-        model.addAttribute("invite", inviteGen.generateInvitation(guest));
-        model.addAttribute("password", passGen.pwGen());
+        model.addAttribute("data",new String[]{"invite", "password"});
+        model.addAttribute("desc", new String[]{ inviteGen.generateInvitation(guest), passGen.pwGen()});
         return "frqs/frq5";
     }
 
