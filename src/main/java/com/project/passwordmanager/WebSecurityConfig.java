@@ -16,15 +16,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // shamele
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/", "/home").permitAll()
+            .authorizeRequests()
+                .antMatchers("/", "/home", "/images/**", "/passtester", "/about/**", "/signup").permitAll() // wtf am i doing
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
+            .formLogin()
                 .loginPage("/signin")
                 .permitAll()
                 .and()
-                .logout()
+            .logout()
                 .permitAll();
     }
 
