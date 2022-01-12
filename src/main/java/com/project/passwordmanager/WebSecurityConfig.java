@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // shamele
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/home", "/images/**", "/passtester", "/about/**", "/signup").permitAll() // wtf am i doing
+                .antMatchers("/", "/home", "/passtester", "/signup", "/about/**", "/images/**", "/icons/**", "/css/**").permitAll() // wtf am i doing
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
