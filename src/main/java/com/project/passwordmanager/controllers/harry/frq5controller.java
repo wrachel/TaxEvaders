@@ -10,6 +10,12 @@ import java.io.IOException;
 public class frq5controller {
     @GetMapping("/harry/frq5a")
     public String frq5q1(){
+
+        return "frqs/harryfrq5";
+    }
+    @GetMapping("/harry/frq5b")
+    public String frq5q2(){
+
         return "frqs/harryfrq5";
     }
 }
