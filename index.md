@@ -15,9 +15,9 @@
 
 | Name               | Issues  | Scrum Board  |  Commits  | 
 | ------------------ | ------- | ------------ | --------- |
-{% for person in site.team_members %}
+{%- for person in site.team_members -%}
 | {{person.name}} ([{{person.github}}](https://github.com/{{person.github}})) | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3A{{person.github}}) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3A{{person.github}}) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author={{person.github}})  |
-{% endfor %}
+{%- endfor -%}
 
 ## Ideation:
 Honestly, we had no idea what our new project idea was, but Mr. Mortensen suggested a password tracker would be a good idea. So, our project is a password tracker. 
