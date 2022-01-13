@@ -7,13 +7,6 @@
 ### Contributors links:
 
 | Name               | Issues  | Scrum Board  |  Commits  | 
-| ------------------ | ------- | ------------ | --------- | 
-| Bryant Jin ([HexaDrakon](https://github.com/HexaDrakon))        | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Ahexadrakon) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Ahexadrakon) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author=HexaDrakon)  | 
-| Rachel Wei ([wrachel](https://github.com/wrachel)) | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Awrachel) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Awrachel) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author=wrachel)  | 
-| Harry Li ([wiz124](https://github.com/wiz124)) | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Awiz124) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Awiz124) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author=wiz124)  | 
-| Kevin Do ([kevin-dough](https://github.com/kevin-dough)) | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3Akevin-dough) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3Akevin-dough) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author=kevin-dough)  | 
-
-| Name               | Issues  | Scrum Board  |  Commits  | 
 | ------------------ | ------- | ------------ | --------- |
 {%- for person in site.team_members -%}
 | {{person.name}} ([{{person.github}}](https://github.com/{{person.github}})) | [Issues](https://github.com/wrachel/TaxEvaders/issues?q=assignee%3A{{person.github}}) | [Scrum Board](https://github.com/wrachel/TaxEvaders/projects/1?card_filter_query=assignee%3A{{person.github}}) | [Commits](https://github.com/wrachel/TaxEvaders/commits?author={{person.github}})  |
