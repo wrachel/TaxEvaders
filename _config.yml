@@ -5,3 +5,17 @@ description: code code code!
 include:
 - contributing.md
 - index.md
+
+team_members:
+  -
+    name: Bryant Jin
+    github: HexaDragon
+  -
+    name: Rachel Wei
+    github: wrachel
+  -
+    name: Harry Li
+    github: wiz124
+  -
+    name: Kevin Do
+    github: kevin-dough
