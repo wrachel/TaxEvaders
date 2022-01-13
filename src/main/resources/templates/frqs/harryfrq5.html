@@ -13,11 +13,48 @@
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body>
 <div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+        <h1 class="sectionTitle">Unit 5 FRQ Question 1</h1>
+        <div class="sectionText">
+            <form action="/harry/frq5a" method="GET" style="padding-bottom:30px;">
+                <label style="color:white; padding-top:30px" for="host">(A)Enter name of the host</label>
+                <input id="host" name="host" type="text">
+
+                <p>Public String getHostName()  { Return hostName; }</p>
+                <p th:text="'Result: ' + ${a}"></p>
+                <br>
+
+                <label style="color:white; padding-top:30px" for="add">(B)Enter an address</label>
+                <input id="add" name="add" type="text">
+
+                <p> Public String setAddress(String ad) {<br>
+                    address=ad;<br>
+                    }
+                </p>
+                <p th:text="'address= '+${b}"></p>
+
+                <label style="color:white; padding-top:30px" for="inv">(C)Enter a name to invite</label>
+                <input id="inv" name="inv" type="text">
+                <p>Public String invite(String me) {<br>
+                    Return “Dear “+me+“, please attend my event at ”+address+“. See you then, ”+hostName+ “.”<br>
+                    }
+                </p>
+                <p th:text="${c}"></p>
+                <label style="color:white; padding-top:30px" for="new">(d)Enter another address: </label>
+                <input id="new" name="new" type="text">
 
 
+                <p>public Invitation(String host, String address) {<br>
+                    this.address = address; <br>
+                    this.hostname = "host";<br>
+                    }
+                </p>
+                <p th:text="'address= ' +${d}"></p>
 
-
-
+                <input type="submit">
+            </form>
+        </div>
+     </div>
 </div>
 </body>
 </html>
