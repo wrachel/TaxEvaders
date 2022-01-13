@@ -55,5 +55,85 @@
     </tr>
 </table>
 
+<h2>Solutions for FRQ Unit 5</h2>
+<code>
+    #1
+
+    a)
+    public String gethostName(){
+        return hostName;
+    }
+
+    b)
+    public Invitation(String location){
+        address = location;
+    }
+
+    c)
+    public static setInvited(String invite){
+        this.invite = invite;
+    }
+    public returnInvite(){
+        String returnstatement = "Dear " + invite + ", please attend my event at " + address + ". See you then, " + hostName + ".";
+        return returnstatement;
+    }
+
+    d)
+    public Invitation(String address)
+    {
+        this.address = address;
+        hostname = "Host";
+    }
+
+
+    #2)
+
+    public class PasswordGenerator{
+        private int length;
+        private String prefix;
+        private static int passwordsGen=0;
+
+        public PasswordGenerator(int length, Sring prefix){
+        this.prefix = prefix;
+        this.length = length;
+    }
+
+    public PasswordGenerator(int length){
+        this.length = length;
+        prefix = "A";
+    }
+
+    public String pwGen(){
+        Random rand = new Random();
+        String password = prefix + ".";
+
+        for(int i = 0; i < length; i++){
+            password = password + rand.nextInt(9);
+        }
+        passwordsGen += 1;
+        return password;
+    }
+
+    public int pwCount(){
+        return passwordsGen;
+    }
+
+    public static void main(String[] args){
+        PasswordGenerator pw1 = new PasswordGenerator(4, "chs");
+        PasswordGenerator pw2 = new PasswordGenerator(6);
+        //can use methods and System.out.println statements as needed to print passwords & password counts
+
+    }
+
+</code>
+
+<h2>FRQ5 Reflection</h2>
+<p>
+    Question 1 was fairly simple and made me write different methods for the class, which I was able to do. Similarly, Question 2 is similar to our PBL project, so I found completing the question fairly simple.
+</p>
+<p>
+    Key takeaways: Understand Constructors & Overload Constructors, understand how to build a class (getters & setters), "this" keyword, static variables and methods
+</p>
+
 </body>
 </html>
