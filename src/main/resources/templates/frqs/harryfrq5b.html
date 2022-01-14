@@ -12,8 +12,8 @@
 
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body>
-<div layout:fragment="content" th:remove="tag">
-  <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+<div layout:fragment="content" th:remove="tag" >
+  <div style="color:var(--text); padding-top:30px; padding-left: 30px; padding-bottom: 50px; ">
     <h1 class="sectionTitle">Unit 5 FRQ Question 2</h1>
     <div class="sectionText">
       <h2>Password Generator</h2>
@@ -30,6 +30,47 @@
         <input type="submit" value="Generate!">
 
       </form>
+      <table style="position:absolute; width:50%;">
+        <tr>
+          <th>Statement:</th>
+          <th>Generated:</th>
+        </tr>
+        <tr>
+          <th>pw1.pwCount();</th>
+          <th th:text="${count1}"></th>
+        </tr>
+        <tr>
+          <th>pw1.pwGen();</th>
+          <th th:text="${pw1}"></th>
+        </tr>
+        <tr>
+          <th>pw1.pwGen();</th>
+          <th th:text="${pw2}"></th>
+        </tr>
+        <tr>
+          <th>pw1.pwCount();</th>
+          <th th:text="${count2}"></th>
+        </tr>
+        <tr>
+          <th>pw2.pwCount();</th>
+          <th th:text="${count3}"></th>
+        </tr>
+        <tr>
+          <th>pw2.pwGen();</th>
+          <th th:text="${pw3}"></th>
+        </tr>
+        <tr>
+          <th>pw2.pwCount();</th>
+          <th th:text="${count4}"></th>
+        </tr>
+        <tr>
+          <th>pw1.pwCount();</th>
+          <th th:text="${count5}"></th>
+        </tr>
+      </table>
+      <br>
+
+
     </div>
   </div>
 </div>
