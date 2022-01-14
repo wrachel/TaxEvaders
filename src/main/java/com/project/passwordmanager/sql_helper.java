@@ -52,7 +52,42 @@ public class sql_helper {
         return work;
     }
 
-    public String[][] get_passwords(String url) {
+    public String[][] get_passwords(String infodb, String passwordsdb, String username) {
+        String[][] passwords = {};
+
+        String userid = "1";
+
+        String query = "SELECT userid FROM userinfo where username = '" + username + "'";
+
+        try (Connection conn = this.connect(infodb); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)){ // establish connection
+            while (rs.next()) {
+                userid = rs.getString("userid");
+                passwords = Arrays.copyOf(passwords, passwords.length + 1);
+                passwords[passwords.length - 1] = new String[]{rs.getString("service"), rs.getString("password")};
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        query = "SELECT service, password FROM passwords where userid = " + userid;
+
+        // DEBUG: Why is the first result empty?
+        try (Connection conn = this.connect(passwordsdb); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)){ // establish connection
+            while (rs.next()) {
+                System.out.println(rs.getMetaData().getColumnName(1));
+                passwords = Arrays.copyOf(passwords, passwords.length + 1);
+                passwords[passwords.length - 1] = new String[]{rs.getString("service"), rs.getString("password")};
+            }
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        passwords = Arrays.copyOfRange(passwords, 1, passwords.length); // Hotfix, remove the null created by error
+        return passwords;
+    }
+
+    public String[][] get_passwords_old(String url) {
         String[][] passwords = {};
 
         String query = "SELECT service, password FROM passwords";

@@ -16,6 +16,7 @@
     <!-- Start of body content specific to page -->
 <div style="padding-top:5%" class="row justify-content-center">
     <div style="width:50%">
+        <p th:text="${username}"></p>
         <table id="passtable">
             <thead>
                 <th>Application</th>
@@ -102,7 +103,7 @@
             return html;
         }
         function get_passwords() {
-            fetch(`/api/getPasswords`).then((response) => {
+            fetch(`/api/getPasswords?username=[[${username}]]`).then((response) => {
                 if (response.status !== 200) {
                     console.log('Failed with code: ' + response.status);
                     return;

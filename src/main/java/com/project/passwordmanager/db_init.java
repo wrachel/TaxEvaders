@@ -8,7 +8,7 @@ public class db_init {
     public static void init(String url) {
         Connection conn = null;
         String init_query = "CREATE TABLE IF NOT EXISTS passwords (\n"
-                + "	id integer PRIMARY KEY,\n"
+                + "	userid integer NOT NULL,\n"
                 + "	service text NOT NULL,\n"
                 + " password text NOT NULL\n"
                 + ");";
@@ -32,7 +32,7 @@ public class db_init {
         }
     }
     public static void main(String[] args) {
-        String url = "jdbc:sqlite:db/passwords.db";
+        String url = "jdbc:sqlite:db/password.db";
         init(url);
     }
 }

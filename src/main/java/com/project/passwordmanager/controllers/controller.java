@@ -11,6 +11,8 @@ import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -53,7 +55,9 @@ public class controller {
     }
 
     @GetMapping("/passmanager")
-    public String passManager() {
+    public String passManager(Model model) {
+        UserDetails principal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("username", principal.getUsername());
         return "frontend/passmanager";
     }
 
@@ -409,11 +413,22 @@ public class controller {
 
     }
 
-    @GetMapping("/api/getPasswords")
-    public ResponseEntity<String> get_passwords() throws JSONException {
-        String url = "jdbc:sqlite:db/passwords.db";
+    @GetMapping("/api/getPasswords2")
+    public ResponseEntity<String> get_passwords_old() throws JSONException {
+        String url = "jdbc:sqlite:db/info.db";
         sql_helper database = new sql_helper();
-        String[][] passwords = database.get_passwords(url);
+        String[][] passwords = database.get_passwords_old(url);
+
+        Gson gson = new GsonBuilder().create();
+        return new ResponseEntity<>(gson.toJson(passwords), HttpStatus.OK);
+    }
+
+    @GetMapping("/api/getPasswords")
+    public ResponseEntity<String> get_passwords(@RequestParam(name = "username", required = false, defaultValue = "user") String username) throws JSONException {
+        String url = "jdbc:sqlite:db/userinfo.db";
+        String url2 = "jdbc:sqlite:db/passwords.db";
+        sql_helper database = new sql_helper();
+        String[][] passwords = database.get_passwords(url, url2, username);
 
         Gson gson = new GsonBuilder().create();
         return new ResponseEntity<>(gson.toJson(passwords), HttpStatus.OK);
@@ -423,7 +438,6 @@ public class controller {
     public String get_test(Model model, @ModelAttribute("test") String test) {
         return test;
     }
-
 
     }
 

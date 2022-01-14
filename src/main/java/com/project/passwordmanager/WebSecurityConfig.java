@@ -38,7 +38,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // shamele
                         .password("password")
                         .roles("USER")
                         .build();
+        UserDetails user2 =
+                User.withDefaultPasswordEncoder()
+                        .username("user2")
+                        .password("password2")
+                        .roles("USER")
+                        .build();
 
-        return new InMemoryUserDetailsManager(user);
+        return new InMemoryUserDetailsManager(user, user2);
     }
 }
