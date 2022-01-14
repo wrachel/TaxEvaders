@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.io.IOException;
 
 @Controller
-public class frq5controller extends frq5 {
+public class Hfrq5controller extends frq5 {
     @GetMapping("/harry/frq5a")
     public String frq5q1(@RequestParam(name = "host", required = false, defaultValue = "karen") String host,
                          @RequestParam(name = "add", required = false, defaultValue = "ad") String add,
