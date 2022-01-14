@@ -17,10 +17,19 @@
     <h1 class="sectionTitle">Unit 5 FRQ Question 2</h1>
     <div class="sectionText">
       <h2>Password Generator</h2>
-      <input type="button" onclick="location.href='/generate.htm'" value="Generate!">
+      <form action="/harry/frq5b" method="GET" style="padding-bottom:30px;">
+        <label style="color:white; padding-top:30px" for="flength">Enter length for 1st password</label>
+        <input id="flength" name="flength" type="number" min="4" required>
+        <br>
+        <label style="color:white; padding-top:30px" for="pref">Enter prefix for 1st password</label>
+        <input id="pref" name="pref" type="text">
+        <br>
+        <label style="color:white; padding-top:30px" for="second">Enter length for 2nd password</label>
+        <input id="second" name="second" type="number" min="6" required>
+        <br>
+        <input type="submit" value="Generate!">
 
-
-      <p th:text="${a}"></p>
+      </form>
     </div>
   </div>
 </div>
