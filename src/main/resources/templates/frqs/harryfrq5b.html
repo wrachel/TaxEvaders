@@ -13,10 +13,16 @@
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body>
 <div layout:fragment="content" th:remove="tag">
+  <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+    <h1 class="sectionTitle">Unit 5 FRQ Question 2</h1>
+    <div class="sectionText">
+      <h2>Password Generator</h2>
+      <input type="button" onclick="location.href='/generate.htm'" value="Generate!">
 
 
-
-
+      <p th:text="${a}"></p>
+    </div>
+  </div>
 </div>
 </body>
 </body>
