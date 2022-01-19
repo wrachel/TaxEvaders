@@ -9,11 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class frq3controller extends frq3{
 
-    @GetMapping("/kevin/unit3")
-    public String displayFRQ() {
-        return "frontend/kevin/unit3";
-    }
-
     @GetMapping("/kevin/unit3/interactive")
     public String displayFRQInteractive(Model model,
                                         @RequestParam(name = "rsvp", required = false, defaultValue = "false") boolean rsvp,

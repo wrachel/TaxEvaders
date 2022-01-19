@@ -9,11 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LightSequenceController {
 
-    @GetMapping("/kevin/unit2")
-    public String displayFRQ() {
-        return "frontend/kevin/unit2";
-    }
-
     @GetMapping("/kevin/unit2/interactive")
     public String displayFRQInteractive(Model model,
                                         @RequestParam(name = "a", required = false, defaultValue = "3") int a,
