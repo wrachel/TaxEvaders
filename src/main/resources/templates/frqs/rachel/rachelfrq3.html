@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rachel's CollegeBoard Unit 3 FRQ</title>
+</head>
+<body>
+<div>
+    <h1>Rachel's College Board FRQ Unit 3</h1>
+    <p>In this question, a user can select random choices to get a meal. Also, to test if different strings equal eachother.</p>
+</div>
+<form action="/rachel/frq3">
+    <label for="rsvp">Click the box if you would like to rsvp! </label>
+    <input style="margin-left:10px" class="inputRadioCheck" type="checkbox" id="rsvp" name="rsvp"> <br>
+    <br>
+    <label for="selection">What food would you like? Input a number between 1 and 4:</label>
+    <input type="integer" id="selection" name="selection" min="1" max="4">
+    <br>
+    <label for="option1">Type a random string (option 1): </label><br>
+    <input type="text" id="option1" name="option1"> <br>
+    <br>
+    <label for="option2">Type a random string (option 2): </label><br>
+    <input type="text" id="option2" name="option2"> <br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<table class="results">
+    <tr>
+        <td><p>Are you attending? </p></td>
+        <td th:text= "${rsvp}" ></td>
+    </tr>
+    <tr>
+        <td><p>You are eating: </p></td>
+        <td th:text= "${food}" ></td>
+    </tr>
+    <tr>
+        <td><p>Auto response: </p></td>
+        <td th:text= "${message}" ></td>
+    </tr>
+    <tr>
+        <td><p>Is option1 equal to option2? </p></td>
+        <td th:text= "${stringMatch}" ></td>
+    </tr>
+</table>
+
+</body>
+</html>
