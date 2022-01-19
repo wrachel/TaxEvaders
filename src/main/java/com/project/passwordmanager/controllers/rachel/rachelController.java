@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
         frq3model.addAttribute("message", rsvpfood(rsvp, selection));
         frq3model.addAttribute("stringMatch", checkString(option1, option2));
 
-        return "frqs/rachelfrq3";
+        return "frqs/rachel/rachelfrq3";
     }
 
 
