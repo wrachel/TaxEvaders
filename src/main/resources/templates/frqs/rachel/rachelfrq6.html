@@ -3,16 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <title>Rachel's CollegeBoard Unit 6 FRQ</title>
+
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
 </head>
 <body>
 <div>
-    <form action="/rachel/frq6">
+    <!--<form action="/rachel/frq6">
         <label for="words">Please list as many words as you can think of. Put a comma between words: </label>
-        <input id="words" name="words" type="text"><br>
+        <input id="words" name="words[]" type="text"><br>
         <input type="submit">
     </form>
+    -->
 </div>
+<h2> Solutions for Question 1</h2>
+<code>
+    #1
+    for (String myValue : words){
+        if (myValue.endsWith("ing"){
+        System.out.println(myValue);
+    }
+</code>
+<h2>Solutions for Question 2</h2>
+<code>
+    public class Payroll{
 
+        private int[] itemsSold; // number of items sold by each employee
+        private double[] wages; // wages to be computed
+
+    /** Returns the bonus threshold as described in part (a).
+    */
+    a)
+        public double computeBonusThreshold() {
+            int greatestSold = itemsSold[0];
+            int leastSold = itemsSold[0];
+            double total;
+
+            for(int i = 0; i < itemsSold.length; i++){
+                if (itemsSold[i] > greatestSold){
+                    greatestSold = itemsSold[i];
+                }
+                if (itemsSold[i] < leastSold){
+                    leastSold = itemsSold[i];
+                }
+
+                total += itemsSold[i];
+            }
+
+            double average = (double) (total - greatestSold - leastSold) / (itemsSold.length - 2.0);
+            return average;
+        }
+
+
+        b)
+    /** Computes employee wages as described in part (b)
+    * and stores them in wages.
+    * The parameter fixedWage represents the fixed amount each employee
+    * is paid per day.
+    * The parameter perItemWage represents the amount each employee
+    * is paid per item sold.
+    */
+
+    public void computeWages(double fixedWage, double perItemWage) {
+        double threshold = computeBonusThreshold();
+
+        for (int i = 0; i < wages.length; i++){
+            wages[i] += fixedWage + (perItemWage * itemsSold[i]);
+
+            if (itemsSold[i] > threshold){
+                wages[i] = wages[i] * 1.1;
+            }
+        }
+        System.out.println(wages[i]); // prints wages to console so we're not lost
+
+    }
+
+
+    }
+</code>
+
+<h2>Addressing no MVC Implementation</h2>
+<p>Why is there no MVC implementation?</p>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/rachelfrq6.java">Java for Question 1</a>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/RachelFRQ6Q2.java">Java for Question 2</a>
+<p> I'm still working on figuring out how to get arrays and ArrayLists to work with HTML forms, and also how that works when funneled through the controller. But, I still completed the questions and tested them using the examples in "rachelfrq4test" (not pushed to github repo)</p>
+
+<h2>Reflection Questions</h2>
+<p>Key Concepts for this week: </p>
+<p>Array lists, loops (enhanced for loop & regular for loop & if), String methods like "endsWith()"</p>
+<p>Overall, I thought that these questions were relatively easy, because I understood how arrays worked as well as how to iterate through an array with an enhanced for loop. I thought implementing it to work in IntelliJ was very annoying, and defaulted to using ArrayLists. </p>
 
 </body>
 </html>

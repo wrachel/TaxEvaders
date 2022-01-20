@@ -6,6 +6,8 @@ import com.project.frqs.bryant.CoinGame;
 import com.project.frqs.bryant.stringUtil;
 import com.project.frqs.bryant.invitation;
 import com.project.frqs.bryant.passwordGenerator;
+import com.project.frqs.bryant.badGrammar;
+import com.project.frqs.bryant.Payroll;
 import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -337,15 +339,26 @@ public class controller {
     public String frq5(@RequestParam(name = "hostName", required = false, defaultValue = "John Johnson") String hostName, @RequestParam(name = "address", required = false, defaultValue = "16601 Nighthawk Lane") String address, @RequestParam(name = "guest", required = false, defaultValue = "Cache Monee") String guest, @RequestParam(name = "prefix", required = false, defaultValue = "YOU_FORGOT_TO_SPECIFY_A_PREFIX") String prefix, @RequestParam(name = "length", required = false, defaultValue = "1") int length, Model model) {
         invitation inviteGen = new invitation(hostName, address);
         passwordGenerator passGen = new passwordGenerator(length, prefix);
-        model.addAttribute("data",new String[]{"invite", "password"});
-        model.addAttribute("desc", new String[]{ inviteGen.generateInvitation(guest), passGen.pwGen()});
+        model.addAttribute("desc", new String[]{"invite", "password"});
+        model.addAttribute("data", new String[]{ inviteGen.generateInvitation(guest), passGen.pwGen()});
         return "frqs/frq5";
     }
 
+    @GetMapping("/frq6")
+    public String frq6(@RequestParam(name = "fixedWage", required = false, defaultValue = "10.0") double fixedWage, @RequestParam(name = "perItemWage", required = false, defaultValue = "1.5") double perItemWage, Model model) {
+        badGrammar words = new badGrammar(new String[] {"ten", "fading", "post", "card", "thunder", "hinge", "trailing", "batting"});
+        Payroll wages = new Payroll(new int[] {48, 50, 37, 62, 38, 70, 55, 37, 64, 60});
+        wages.computeWages(fixedWage, perItemWage);
+        model.addAttribute("words", words.primitiveUnderstandingOfPresentParticiples());
+        model.addAttribute("wages", wages.getWages());
+        model.addAttribute("items", new int[] {48, 50, 37, 62, 38, 70, 55, 37, 64, 60});
+        return "frqs/frq6";
+    }
+
     @GetMapping("/rachel/frq2")
-    public String frqunit2(@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel){
-        lightseqmodel.addAttribute("data", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
-        return "frqs/rachelfrq2";
+    public String frqunit2(/*@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel*/){
+        //lightseqmodel.addAttribute("returnvalue", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
+        return "frqs/rachel/displayFRQ2";
     }
     @GetMapping("/harry/frq3")
     public String hfrq3(@RequestParam(name="attending", required = false, defaultValue = "Yes") String attending ,

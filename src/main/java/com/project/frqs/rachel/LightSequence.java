@@ -14,8 +14,8 @@ public class LightSequence {
         return newString;
     }
 
-    public void changeSequence(String seq) { // literally just a setter
-        this.seq = seq;
+    public void changeSequence(String returnseq) { // literally just a setter
+        seq = returnseq;
     }
 
     public void display() { // console bs
