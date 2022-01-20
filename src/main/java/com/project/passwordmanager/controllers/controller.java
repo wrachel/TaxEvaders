@@ -343,9 +343,9 @@ public class controller {
     }
 
     @GetMapping("/rachel/frq2")
-    public String frqunit2(@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel){
-        lightseqmodel.addAttribute("returnvalue", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
-        return "frqs/rachelfrq2";
+    public String frqunit2(/*@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel*/){
+        //lightseqmodel.addAttribute("returnvalue", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
+        return "frqs/rachel/displayFRQ2";
     }
     @GetMapping("/harry/frq3")
     public String hfrq3(@RequestParam(name="attending", required = false, defaultValue = "Yes") String attending ,
