@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Very professional project</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+<h2>Demo</h2>
+<form action="/frq6">
+    <label for="fixedWage">What would you like the base wage to be? </label>
+    <input type="text" id="fixedWage" name="fixedWage"> <br>
+    <label for="perItemWage">What would you like the per item wage to be? </label>
+    <input type="text" id="perItemWage" name="perItemWage"> <br>
+
+    <input type="submit" value="Submit">
+</form>
+<table class="mx-auto">
+    <tr>
+        <th scope="col">Employee</th>
+        <th scope="col">Items Sold</th>
+        <th scope="col">Wage</th>
+    </tr>
+    <tr th:each="value, idx : ${items}">
+        <td th:text="${idx.index}"></td>
+        <td th:text="${value}"></td>
+        <td th:text="${wages[idx.index]}"></td>
+    </tr>
+</table>
+
+<h2>Obligatory Reflection</h2>
+<p>This felt a lot easier than previous FRQs. Well, most of it did. I don't have much to say about working with arrays, since we've been kind of doing this constantly for the past trimester and a half. Every MVC functions off of arrays.<p>
+<p>What I have a lot to say about is floating point errors. I completely forgot that this was an issue, since I'm used to working with classes that already handle this. Unfortunately, I don't know Java and therefore can't use the BigDecimal class. Half of our numbers, as a result, have tiny errors.</p>
+<p>In retrospect, I could have fixed this by just performing truncation. However, that didn't feel faithful to the original intent of this FRQ, so I'm left with whatever this monstrosity is.</p>
+
+
+<h2>Obligatory Code</h2>
+<code>
+    public class badGrammar {
+        private String[] words;
+        public badGrammar(String[] words) {
+            this.words = words;
+        }
+
+        public String[] primitiveUnderstandingOfPresentParticiples() {
+            String[] presentParticiples = new String[0];
+            for (String word : this.words) {
+                if (word.substring(word.length() - 3).equals("ing")) {
+                    presentParticiples = Arrays.copyOf(presentParticiples, presentParticiples.length + 1);
+                    presentParticiples[presentParticiples.length - 1] = word;
+                }
+            }
+            return presentParticiples;
+        }
+
+
+    public class Payroll {
+        private int[] itemsSold; // number of items sold by each employee
+        private double[] wages = new double[0]; // wages to be computed in part (b)
+
+        public double computeBonusThreshold() {
+            int[] minmax = findExtremes(itemsSold);
+            int min = minmax[0];
+            int max = minmax[1];
+            int sum = 0;
+            for (int items : itemsSold) {
+                sum += items;
+            }
+            sum -= (min + max);
+            return ((double) sum)/(itemsSold.length - 2);
+        }
+
+        public void computeWages(double fixedWage, double perItemWage) {
+            double wage;
+            double threshold = this.computeBonusThreshold();
+            for (int i = 0; i < itemsSold.length; i++) {
+                wage = (fixedWage + perItemWage * itemsSold[i]) * (itemsSold[i] > threshold ? 1.1 : 1.0);
+                if (i + 1 > this.wages.length) {
+                    this.wages = Arrays.copyOf(this.wages, this.wages.length + 1);
+                }
+                this.wages[i] = wage;
+            }
+        }
+
+        public double[] getWages() {
+            return this.wages;
+        }
+
+        private int[] findExtremes(int[] array) {
+            int min, max;
+            min = array[0];
+            max = array[0];
+            for (int value : array) {
+                min = Math.min(min, value);
+                max = Math.max(max, value);
+            }
+            return new int[] {min, max};
+        }
+
+        public Payroll(int[] itemsSold) {
+            this.itemsSold = itemsSold;
+        }
+
+    }
+</code>
+</body>
+</html>

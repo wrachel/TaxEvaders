@@ -30,6 +30,10 @@ public class Payroll {
         }
     }
 
+    public double[] getWages() {
+        return this.wages;
+    }
+
     private int[] findExtremes(int[] array) {
         int min, max;
         min = array[0];
@@ -49,6 +53,6 @@ public class Payroll {
         Payroll test = new Payroll(new int[] {48, 50, 37, 62, 38, 70, 55, 37, 64, 60});
         System.out.println(test.computeBonusThreshold());
         test.computeWages(10.0, 1.5);
-        System.out.println(Arrays.toString(test.wages));
+        System.out.println(Arrays.toString(test.getWages()));
     }
 }
