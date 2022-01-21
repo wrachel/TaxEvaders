@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import com.project.frqs.rachel.rachelfrq6;
 
+@Controller
 public class rachController {
     /*@GetMapping("/rachel/frq6")
     public String rachelfrq5(@RequestParam(name = "words", required = false, defaultValue = "ten, fading, post, card, thunder, hinge, trailing, batting") ArrayList<String> words, Model model) {
@@ -21,9 +22,10 @@ public class rachController {
         return "/frqs/rachel/rachelfrq6";
     }
      */
-    @GetMapping("/rachel/displayFRQ6")
-    public String displayFRQ6(){
-        return "/frqs/rachel/rachelfrq6";
+
+    @GetMapping("/rachel/frq6")
+    public String rachelfrq6(){
+        return "frqs/rachel/rachelfrq6";
     }
 
 }
