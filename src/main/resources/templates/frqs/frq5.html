@@ -32,8 +32,8 @@
         <th scope="col">Value</th>
     </tr>
     <tr th:each="value, idx : ${data}">
-        <td th:text="${value}"></td>
         <td th:text="${desc[idx.index]}"></td>
+        <td th:text="${value}"></td>
     </tr>
 </table>
 

@@ -12,7 +12,113 @@
 <!-- layout::fragment="content" is heart of ThymeLeaf layout -->
 <body>
 <div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+        <h1 class="sectionTitle">Unit 6 FRQ Question 2</h1>
+        <div class="sectionText">
+            <form action="/harry/frq6b" method="GET" style="padding-bottom:30px;">
+             <table style="width:90%">
+                 <tr>
+                    <th colspan="3" style="text-align:center">Insert items sold by each employee:</th>
+                 </tr>
+                <tr>
+                    <td >
+                    <input id="one" name="one" type="number" min="0" >
+                    </td>
 
+                     <td>
+                         <input id="two" name="two" type="number" min="0">
+                     </td>
+                    <td>
+                        <input id="three" name="three" type="number" min="0">
+                    </td>
+                <tr>
+                    <td>
+                        <input id="four" name="four" type="number" min="0">
+                    </td>
+                    <td>
+                        <input id="five" name="five" type="number" min="0">
+                    </td>
+                    <td>
+                        <input id="six" name="six" type="number" min="0">
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                        <input id="seven" name="seven" type="number" min="0">
+                    </td>
+                    <td>
+                        <input id="eight" name="eight" type="number" min="0">
+                    </td>
+                    <td>
+                        <input id="nine" name="nine" type="number" min="0">
+                    </td>
+                     </tr>
+                 <tr>
+                    <td colspan="3">
+                        <input id="ten" name="ten" type="number" min="0">
+                    </td>
+                </tr>
+             </table>
+                <br>
+                <label style="color:white; padding-top:30px" for="fixed">Enter a fixed wage</label>
+                <input id="fixed" name="fixed" type="number" min="0">
+                <br>
+                <label style="color:white; padding-top:30px" for="per">Enter a wage per item</label>
+                <input id="per" name="per" type="number" min="0">
+
+            <br>
+            <input type="submit">
+            </form>
+
+            <p th:text="'Bonus Threshold= '+${a}"></p>
+<br>
+            <table style="width:90%">
+                <tr>
+                    <th colspan="3" style="text-align:center">Wages of each employee</th>
+                </tr>
+                <tr>
+                    <td >
+                        <p th:text="${b}"></p>
+                    </td>
+
+                    <td>
+                        <p th:text="${c}"></p>
+                    </td>
+                    <td>
+                        <p th:text="${d}"></p>
+                    </td>
+                <tr>
+                    <td>
+                        <p th:text="${r}"></p>
+                    </td>
+                    <td>
+                        <p th:text="${f}"></p>
+                    </td>
+                    <td>
+                        <p th:text="${g}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p th:text="${h}"></p>
+                    </td>
+                    <td>
+                        <p th:text="${i}"></p>
+                    </td>
+                    <td>
+                        <p th:text="${j}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <p th:text="${k}"></p>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <p></p>
+         </div>
+    </div>
 </div>
 </body>
 </html>
