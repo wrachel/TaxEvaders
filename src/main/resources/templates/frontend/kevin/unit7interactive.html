@@ -6,7 +6,7 @@
 
 <head>
     <div layout:fragment="metadata" th:remove="tag">
-        <title>Unit 6 FRQ Interactive</title>
+        <title>Unit 7 FRQ Interactive</title>
     </div>
 </head>
 
@@ -15,21 +15,19 @@
 <div layout:fragment="content" th:remove="tag">
     <!-- Start of body content specific to page -->
     <div style="color:var(--text); padding:30px">
-        <h1 class="sectionTitle">Unit 6 FRQ</h1>
+        <h1 class="sectionTitle">Unit 7 FRQ</h1>
 
         <div class="row" style="padding-left:20px">
-            <form action="/kevin/unit6/interactive">
-                <label for="ing">Send list of "ing" words (separated with<br> comma and a space).</label><br>
-                <input class="inputForm" type="text" id="ing" name="ingList"> <br>
+            <form action="/kevin/unit7/interactive">
+                <label for="firstName">First Name:</label><br>
+                <input class="inputForm" type="text" id="firstName" name="firstName"> <br>
 
-                <label for="items">Make an Items Sold List (separated with<br> comma and a space).</label><br>
-                <input class="inputForm" type="text" id="items" name="itemsSoldList"> <br>
+                <label for="lastName">Last Name:</label><br>
+                <input class="inputForm" type="text" id="lastName" name="lastName"> <br>
 
-                <label for="fixed">What's the fixed wage?</label><br>
-                <input class="inputForm" type="text" id="fixed" name="fixed"> <br>
+                <label for="usedNames">Make a Names Used List (separated with<br> comma and a space).</label><br>
+                <input class="inputForm" type="text" id="usedNames" name="usedNames"> <br>
 
-                <label for="peritem">What's the price per item?</label><br>
-                <input class="inputForm" type="text" id="peritem" name="perItem"> <br>
 
                 <br>
 
@@ -39,13 +37,10 @@
                 <table>
                     <tr>
                         <td>
-                            <p th:each="words : ${ingWords}" th:text="${words}"><p/>
+                            <p th:each="names : ${list1}" th:text="${names}"><p/>
                         </td>
                         <td>
-                            <p th:text="${bonusThreshold}"></p>
-                        </td>
-                        <td>
-                            <p th:each="nums : ${wages}" th:text="${nums}"><p/>
+                            <p th:each="names : ${list2}" th:text="${names}"><p/>
                         </td>
                     </tr>
                 </table>

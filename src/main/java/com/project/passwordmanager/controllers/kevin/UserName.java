@@ -8,7 +8,7 @@ public class UserName
 
 // The list of possible user names, based on a user’s first and last names and initialized by the constructor.
 
-    private ArrayList<String> possibleNames;
+    ArrayList<String> possibleNames;
     private ArrayList<String> usedNames;
     private String firstName;
     private String lastName;
@@ -21,7 +21,7 @@ public class UserName
      * and contain only uppercase and lowercase letters.
 
      */
-
+    public UserName(){}
     public UserName(String firstName, String lastName)
 
     {
@@ -41,7 +41,9 @@ public class UserName
 
     {
         for(String names : arr) {
-            return name.equals(names);
+            if(name.equals(names)) {
+                return true;
+            }
         }
 
         return false; // idk it made me put a return statement
@@ -50,17 +52,20 @@ public class UserName
 
     public void setAvailableUserNames(String[] usedNames)
     {
-        for(int i = 0; i < possibleNames.size(); i++) {
-            if(isUsed(possibleNames.get(i), usedNames)) {
-                possibleNames.remove(i);
+    ArrayList<String> temp = new ArrayList<>();
+        for (String possibleName : possibleNames) {
+            if (!(isUsed(possibleName, usedNames))) {
+                temp.add(possibleName);
             }
         }
+        possibleNames.clear();
+        possibleNames.addAll(temp);
     }
 
     // for testing purposes
     public static void main(String[] args) {
         UserName user1 = new UserName("Kevin", "Do");
-        String[] used = {"DoKev"};
+        String[] used = {"DoKev", "DoKevin"};
         user1.setAvailableUserNames(used);
         for(String name: user1.possibleNames){
             System.out.println(name);
