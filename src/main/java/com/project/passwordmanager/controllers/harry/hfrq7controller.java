@@ -27,5 +27,10 @@ public class hfrq7controller {
         model.addAttribute("count", n);
         return "frqs/harryfrq7";
     }
+    @GetMapping("/harry/fq7code")
+    public String code(){
+        return "/frqs/frq7code";
+
+    }
 
 }
