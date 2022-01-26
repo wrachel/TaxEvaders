@@ -21,11 +21,15 @@
                 <br>
                 <label style="color:white; padding-top:30px" for="last">Enter last name: </label>
                 <input id="last" name="last" type="text" required>
-
-
+                <p th:text="'Result: '+${a}"></p>
                 <br>
-                <input type="submit" value="Generate!">
+                <p th:text="'number of names: '+${count}"></p>
+                <br>
+                <input type="submit" value="Submit">
+
             </form>
+
+
         </div>
     </div>
 </div>
