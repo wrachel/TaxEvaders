@@ -1,3 +1,5 @@
+package com.project.frqs.bryant;
+
 public class Book {
 	private String title;
 	private String author; 
@@ -7,7 +9,7 @@ public class Book {
 		author = a;
 	}
 
-	public void printBookInfo() {
-		System.out.print(title + ", written by " + author);
+	public String printBookInfo() {
+		return title + ", written by " + author;
 	}
 }
