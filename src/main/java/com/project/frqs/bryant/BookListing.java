@@ -12,9 +12,4 @@ public class BookListing {
 	public String printDescription() {
 		return book.printBookInfo() + ", $" + price;
 	}
-	
-	/*
-	book1 = Book("Frankenstein", "Mary Shelley");
-	book2 = PictureBook("The Wonderful Wizard of Oz", "L. Frank Baum", "W.W. Denslow");
-	*/
 }
