@@ -33,4 +33,15 @@ public class UserName {
 			}
 		}
 	}
+	
+	public String getNames() {
+		return possibleNames.toString();
+	}
+	
+	public static void main(String[] args) {
+		UserName nameList = new UserName("John", "Smith");
+		System.out.println(nameList.getNames());
+		nameList.setAvailableUserNames();
+		System.out.println(nameList.getNames());
+    }
 }
