@@ -1,3 +1,5 @@
+package com.project.frqs.bryant;
+
 public class Plot {
 	private String cropType;
 	private int cropYield;

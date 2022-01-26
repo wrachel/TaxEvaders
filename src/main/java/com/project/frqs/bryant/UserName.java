@@ -1,3 +1,4 @@
+package com.project.frqs.bryant;
 import java.util.ArrayList;
 
 public class UserName {
@@ -41,7 +42,7 @@ public class UserName {
 	public static void main(String[] args) {
 		UserName nameList = new UserName("John", "Smith");
 		System.out.println(nameList.getNames());
-		nameList.setAvailableUserNames();
+		nameList.setAvailableUserNames(new String[] {"SmithJ"});
 		System.out.println(nameList.getNames());
     }
 }
