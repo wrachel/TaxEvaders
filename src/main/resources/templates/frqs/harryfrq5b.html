@@ -69,7 +69,45 @@
         </tr>
       </table>
       <br>
-
+<p>import java.util.Random; <br>
+  public class PasswordGenerator { <br>
+  private static int passwordsGenerated =0; <br>
+  private static Random random = new Random(); <br>
+  private String prefix; <br>
+  private int length; <br>
+  public PasswordGenerator(int length,String prefix) { <br>
+  this.prefix = prefix; <br>
+  this.length = length; <br>
+  } <br>
+  public PasswordGenerator(int length) { <br>
+  this.prefix = "A"; <br>
+  this.length = length; <br>
+  } <br>
+  public String pwGen(){ <br>
+  String pwd= this.prefix+"."; <br>
+  for(int i=1;i<=this.length;i++){ <br>
+  pwd+=random.nextInt(10); <br>
+  } <br>
+  passwordsGenerated+=1; <br>
+  return pwd; <br>
+  } <br>
+  public int pwCount(){ <br>
+  return passwordsGenerated; <br>
+  } <br>
+  public static void main(String[] args) { <br>
+  PasswordGenerator pw1 = new PasswordGenerator(4,"chs"); <br>
+  System.out.println(pw1.pwCount()); <br>
+  System.out.println(pw1.pwGen()); <br>
+  System.out.println(pw1.pwGen()); <br>
+  System.out.println(pw1.pwCount()); <br>
+  PasswordGenerator pw2 = new PasswordGenerator(6); <br>
+  System.out.println(pw2.pwCount()); <br>
+  System.out.println(pw2.pwGen()); <br>
+  System.out.println(pw2.pwCount()); <br>
+  System.out.println(pw1.pwCount()); <br>
+  } <br>
+  }
+</p>
 
     </div>
   </div>

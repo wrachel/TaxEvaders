@@ -116,7 +116,35 @@
                 </tr>
             </table>
             <br>
-            <p></p>
+            <p>
+            public double computeBonusThreshold() {<br>
+            int total = itemsSold[0];<br>
+            int min = itemsSold[0];<br>
+            int max = itemsSold[0];<br>
+            for(int i = 1; i < itemsSold.length; i++) {<br>
+            total += itemsSold[i];<br>
+            if(itemsSold[i] < min) {<br>
+            min = itemsSold[i];<br>
+            }<br>
+            if(itemsSold[i] > max) {<br>
+            max = itemsSold[i];<br>
+            }<br>
+            }<br>
+            return (total - min - max) / (double) (itemsSold.length - 2);<br>
+            }<br>
+            public void computeWages(double fixedWage, double perItemWage) {<br>
+            double threshold = computeBonusThreshold();<br>
+            for(int i = 0; i < itemsSold.length; i++) {<br>
+            double baseWage = fixedWage + perItemWage * itemsSold[i];<br>
+            if(itemsSold[i] > threshold) {<br>
+            wages[i] = baseWage * 1.1;<br>
+            }<br>
+            else {<br>
+            wages[i] = baseWage;<br>
+            }<br>
+            }<br>
+            }
+            </p>
          </div>
     </div>
 </div>
