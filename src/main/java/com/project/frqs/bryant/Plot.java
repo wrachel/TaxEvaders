@@ -1,5 +1,4 @@
 public class Plot {
-
 	private String cropType;
 	private int cropYield;
 

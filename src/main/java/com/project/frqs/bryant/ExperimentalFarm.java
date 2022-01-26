@@ -1,7 +1,6 @@
 import com.project.frqs.bryant.Plot;
 
 public class ExperimentalFarm {
-
 	private Plot[][] farmPlots;
 
 	public ExperimentalFarm(Plot[][] p) {
