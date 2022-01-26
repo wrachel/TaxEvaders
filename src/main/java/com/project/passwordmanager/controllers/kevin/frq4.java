@@ -24,7 +24,7 @@ public class frq4 {
             }
             prevChar = str.charAt(i);
         }
-        return maxStreak.charAt(0)+ " " + maxStreak.length();
+        return maxStreak.charAt(0)+ " " + (maxStreak.length()+1);
     }
 
     private int playerOneCoins;

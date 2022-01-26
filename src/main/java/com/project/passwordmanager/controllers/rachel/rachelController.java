@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
         return "frqs/rachel/rachelfrq3";
     }
-    @GetMapping("/rachel/displayFRQ6")
+    @GetMapping("/rachel/displayFRQ3")
     public String displayFRQ3(){
-        return "frqs/rachel/rachelfrq6";
+        return "frqs/rachel/displayFRQ3";
     }
 
 

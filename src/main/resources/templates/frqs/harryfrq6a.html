@@ -15,9 +15,18 @@
     <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
         <h1 class="sectionTitle">Unit 6 FRQ Question 1</h1>
         <div class="sectionText">
+            <form action="/harry/frq6a" method="GET" style="padding-bottom:30px;">
+                <label style="color:white; padding-top:30px" for="find">Enter character to find words that end with it:</label>
+                <input id="find" name="find" type="text">
+                <p>String list: "ten", "fading", "post", "card", "thunder", "hinge", "trailing", "batting"</p>
+                <p>for (String str : words) {   <br>
+                    if(str.substring(str.length - 3).equals("ing")) {   <br>
+                    System.out.println(str);   <br>
+                    }</p>
+                <p th:text="'Result: '+ ${a}"></p>
+                <input type="submit">
 
-
-
+            </form>
         </div>
     </div>
 </div>
