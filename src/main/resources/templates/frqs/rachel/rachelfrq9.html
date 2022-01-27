@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit 9 FRQ</title>
+</head>
+<body>
+<div>
+    <form action="/rachel/frq9">
+        <label for="title">Name the title of a book: </label>
+        <input id="title" name="title" type="text"><br>
+        <label for="author">Name the author: </label>
+        <input id="author" name="author" type="text"><br>
+        <label for="illustrator">If there is an illustrator, name the illustrator: </label>
+        <input id="illustrator" name="illustrator" type="text"><br>
+        <label for="price">If the price of the book is known, name the price: </label>
+        <input id="price" name="price" type="text"><br>
+        <input type="submit">
+    </form>
+</div>
+
+<table class="results">
+    <tr>
+        <td><p>Here is some statements about your book: </p></td>
+        <td th:text= "${returnstatement1}" ></td>
+        <td th:text= "${returnstatement2}" ></td>
+        <td th:text= "${returnstatement3}" ></td>
+    </tr>
+</table>
+
+</body>
+</html>

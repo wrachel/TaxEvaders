@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 import com.project.frqs.rachel.rachelfrq7;
 import com.project.frqs.rachel.rachelfrq6;
+import com.project.frqs.rachel.frq9.rachelBook;
+import com.project.frqs.rachel.frq9.RachelPictureBook;
+import com.project.frqs.rachel.frq9.rachelBookListing;
 
 @Controller
 public class rachController {
@@ -34,6 +37,20 @@ public class rachController {
         rachelfrq7 randomUsername = new rachelfrq7(firstName, lastName);
         model.addAttribute("username", randomUsername.randomUsername());
         return "frqs/rachel/rachelfrq7";
+    }
+
+    @GetMapping("/rachel/frq9")
+    public String rachelfrq9(@RequestParam(name="title", required = false, defaultValue = "Frankenstein")String title, @RequestParam(name="author", required = false, defaultValue = "Mary Shelley")String author, @RequestParam(name="illustrator", required = false)String illustrator, @RequestParam(name="price", required = false)double price, Model model){
+        rachelBook FirstBook = new rachelBook(title, author);
+        model.addAttribute("returnstatement1", FirstBook.toString());
+
+        RachelPictureBook SecondBook = new RachelPictureBook(title, author, illustrator);
+        model.addAttribute("returnstatement2", SecondBook.toString());
+
+        rachelBookListing ThirdBook = new rachelBookListing(title, author, price);
+        model.addAttribute("returnstatement3", ThirdBook.toString());
+
+        return "/frqs/rachel/rachelfrq9";
     }
 
 }

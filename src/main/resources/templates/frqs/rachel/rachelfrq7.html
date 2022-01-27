@@ -12,6 +12,8 @@
     </style>
 </head>
 <body>
+<h1>CollegeBoard Unit 7 FRQ</h1>
+<p>In this FRQ, users can input their first name and last name and receive a random username using their first and last name.</p>
 <div>
     <form action="/rachel/frq7">
         <label for="firstName">What is your first name?: </label>
@@ -28,15 +30,39 @@
         <td th:text= "${username}" ></td>
     </tr>
 </table>
-<code>
 
+<h2>Reflection</h2>
+<p></p>
+
+<h3>Key concepts</h3>
+<p>String methods, for example: length() or matches() or substring()</p>
+<p>Understand how arrays work and different methods that you can use in arrays -> in example, how to get the size of an array or add/remove values from an array </p>
+
+<code>
+    a)
+
+    public UserName(String firstName, String lastName){
+        if (firstName.length() > 0 && lastName.length() > 0 && firstName.matches("[a-zA-Z]+") && lastName.matches("[a-zA-Z]+")){
+            for(int i = 0; i < firstName.length(); i++){
+                possibleNames.add(lastName + firstName.substring(0, i));
+            }
+        }
+        else{
+            System.out.println("Please make sure both firstName and lastName only contain upper/lowercase letters, and are at least a length of 1");
+        }
+    }
+
+    b)
+    public void setAvailableUserNames(String[] usedNames){
+        for(int i = 0; i < possibleNames.size(); i++){
+            if (isUsed(possibleNames.get(i), usedNames){
+                possibleNames.remove(i);
+                i--;
+            }
+        }
+    }
 </code>
 
-
-<h2>Reflection Questions</h2>
-<p>Key Concepts for this week: </p>
-<p></p>
-<p> </p>
 
 </body>
 </html>
