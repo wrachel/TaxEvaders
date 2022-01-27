@@ -3,21 +3,21 @@ import java.util.ArrayList;
 
 public class UserName {
 	// The list of possible user names, based on a user’s first and last names and initialized by the constructor.
-	private ArrayList<String> possibleNames;
+	private ArrayList<String> possibleNames = new ArrayList<>();
 
 	/** Constructs a UserName object as described in part (a).
 	* Precondition: firstName and lastName have length greater than 0
 	* and contain only uppercase and lowercase letters. */
 	public UserName(String firstName, String lastName) {
-		for (int i = 0; i < firstName.length(); i++) {
-			possibleNames.add(lastName + firstName.substring(i));
+		for (int i = 1; i <= firstName.length(); i++) {
+			this.possibleNames.add(lastName + firstName.substring(0, i));
 		}
 	}
 
 	/** Returns true if arr contains name, and false otherwise. */
 	public boolean isUsed(String name, String[] arr) {
 		for (int i = 0; i < arr.length; i++) {
-			if (name == arr[i]) {
+			if (name.equals(arr[i])) {
 				return true;
 			}
 		}
@@ -30,7 +30,7 @@ public class UserName {
 	{
 		for (int i = possibleNames.size(); i > 0; i--) {
 			if (isUsed(possibleNames.get(i - 1), usedNames)) {
-				possibleNames.remove(i);
+				possibleNames.remove(i - 1);
 			}
 		}
 	}
