@@ -12,4 +12,9 @@ public class Book {
 	public String printBookInfo() {
 		return title + ", written by " + author;
 	}
+
+	public static void main(String[] args) {
+		Book book1 = new Book("Frankenstein", "Mary Shelley");
+		System.out.println(book1.printBookInfo());
+	}
 }

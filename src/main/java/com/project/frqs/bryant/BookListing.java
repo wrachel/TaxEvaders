@@ -10,6 +10,12 @@ public class BookListing {
 	}
 
 	public String printDescription() {
-		return book.printBookInfo() + ", $" + price;
+		return String.format("%s, $%.2f", book.printBookInfo(), price);
+	}
+
+	public static void main(String[] args) {
+		Book book1 = new Book("Frankenstein", "Mary Shelley");
+		BookListing listing1 = new BookListing(book1, 12.50);
+		System.out.println(listing1.printDescription());
 	}
 }
