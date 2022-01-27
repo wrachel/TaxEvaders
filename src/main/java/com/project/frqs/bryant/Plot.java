@@ -18,7 +18,7 @@ public class Plot {
 	}
 
 	public String toString() {
-		return String.format("This farm plants %s with a yield of %s", cropType, cropYield)
+		return String.format("This farm plants %s with a yield of %s", cropType, cropYield);
 	}
 
 	public static void main(String[] args) {
