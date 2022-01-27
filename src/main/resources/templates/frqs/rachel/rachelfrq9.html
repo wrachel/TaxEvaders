@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Unit 9 FRQ</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
 </head>
 <body>
+
+<h1>CollegeBoard Unit 9 FRQ Question 1</h1>
 <div>
     <form action="/rachel/frq9">
         <label for="title">Name the title of a book: </label>
@@ -27,6 +35,56 @@
         <td th:text= "${returnstatement3}" ></td>
     </tr>
 </table>
+
+<code>
+    #1
+    a)
+
+    public class PictureBook extends Book {
+        private String illustrator;
+
+        public PictureBook(String t, String a, String i){
+            super(t, a);
+            illustrator = i;
+        }
+
+        public void printBookInfo{
+            super.printBookInfo();
+            System.out.println("and illustrated by " + illustrator);
+        }
+    }
+
+
+
+    b)
+
+    ArrayList<Book> myLibrary = new ArrayList<Book>();
+
+    Book book1 = new Book("Frankenstein", "Mary Shelley");
+    PictureBook book2 = new PictureBook("The Wonderful Wizard of Oz", "L. Frank Baum", "W.W. Denslow");
+
+    myLibrary.add(book1);
+    myLibrary.add(book2);
+
+
+    c)
+
+    public class BookListing extends Book{
+        private double price;
+
+        public BookListing(String t, String a, double p){
+            super(t, a);
+            price = p;
+        }
+
+        public void printDescription{
+            super.printBookInfo();
+            System.out.println("$" + price);
+        }
+    }
+
+
+</code>
 
 </body>
 </html>

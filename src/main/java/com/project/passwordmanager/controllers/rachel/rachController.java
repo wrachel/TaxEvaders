@@ -40,15 +40,28 @@ public class rachController {
     }
 
     @GetMapping("/rachel/frq9")
-    public String rachelfrq9(@RequestParam(name="title", required = false, defaultValue = "Frankenstein")String title, @RequestParam(name="author", required = false, defaultValue = "Mary Shelley")String author, @RequestParam(name="illustrator", required = false)String illustrator, @RequestParam(name="price", required = false)double price, Model model){
-        rachelBook FirstBook = new rachelBook(title, author);
-        model.addAttribute("returnstatement1", FirstBook.toString());
+    public String rachelfrq9(@RequestParam(name="title", required = true, defaultValue = "Frankenstein")String title, @RequestParam(name="author", required = true, defaultValue = "Mary Shelley")String author, @RequestParam(name="illustrator", required = false)String illustrator, @RequestParam(name="price", required = false)Double price, Model model){
+        if(price == null && illustrator == null){
+            rachelBook FirstBook = new rachelBook(title, author);
+            model.addAttribute("returnstatement1", FirstBook.toString());
+        }
 
-        RachelPictureBook SecondBook = new RachelPictureBook(title, author, illustrator);
-        model.addAttribute("returnstatement2", SecondBook.toString());
+        else if(illustrator == null && !(price == null)){
+            rachelBookListing ThirdBook = new rachelBookListing(title, author, price);
+            model.addAttribute("returnstatement3", ThirdBook.toString());
+        }
+        else if(price == null && !(illustrator == null)){
+            RachelPictureBook SecondBook = new RachelPictureBook(title, author, illustrator);
+            model.addAttribute("returnstatement2", SecondBook.toString());
+        }
 
-        rachelBookListing ThirdBook = new rachelBookListing(title, author, price);
-        model.addAttribute("returnstatement3", ThirdBook.toString());
+        else if(!(price == null) && !(illustrator == null)){
+            RachelPictureBook SecondBook = new RachelPictureBook(title, author, illustrator);
+            model.addAttribute("returnstatement2", SecondBook.toString());
+
+            rachelBookListing ThirdBook = new rachelBookListing(title, author, price);
+            model.addAttribute("returnstatement3", ThirdBook.toString());
+        }
 
         return "/frqs/rachel/rachelfrq9";
     }
