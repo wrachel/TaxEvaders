@@ -12,7 +12,10 @@
 </head>
 <body>
 
-<h1>CollegeBoard Unit 9 FRQ Question 1</h1>
+<h1>CollegeBoard Unit 9 FRQ Question 1 & Question 2</h1>
+
+<h3>CollegeBoard unit 9 FRQ Question 1</h3>
+<p>In this question, users can list a title of a book, author, illustrator, or price, and a statement will return depending on what information was given.</p>
 <div>
     <form action="/rachel/frq9">
         <label for="title">Name the title of a book: </label>
@@ -22,7 +25,7 @@
         <label for="illustrator">If there is an illustrator, name the illustrator: </label>
         <input id="illustrator" name="illustrator" type="text"><br>
         <label for="price">If the price of the book is known, name the price: </label>
-        <input id="price" name="price" type="text"><br>
+        <input id="price" name="price" type="number" step="0.01"><br>
         <input type="submit">
     </form>
 </div>
@@ -30,9 +33,8 @@
 <table class="results">
     <tr>
         <td><p>Here is some statements about your book: </p></td>
+        <td th:text= "${returnstatement}" ></td>
         <td th:text= "${returnstatement1}" ></td>
-        <td th:text= "${returnstatement2}" ></td>
-        <td th:text= "${returnstatement3}" ></td>
     </tr>
 </table>
 
@@ -58,7 +60,7 @@
 
     b)
 
-    ArrayList<Book> myLibrary = new ArrayList<Book>();
+    ArrayList<!--Book> myLibrary = new ArrayList<Book-->();
 
     Book book1 = new Book("Frankenstein", "Mary Shelley");
     PictureBook book2 = new PictureBook("The Wonderful Wizard of Oz", "L. Frank Baum", "W.W. Denslow");
@@ -83,8 +85,42 @@
         }
     }
 
-
 </code>
+<h3>CollegeBoard Unit 9 Question 2</h3>
+<p> In this problem, users can provide a multitude of information about an animal of their choosing. They need to name the animal species,specifically if it is an elephant, and whether or not it is a herbivore. Users can also give the animal a name.</p>
+<div>
+    <form action="/rachel/frq9">
+
+        <label for="elephant">Check this box if your animal is an elephant: </label>
+        <input style="margin-left:10px" class="inputRadioCheck" type="checkbox" id="elephant" name="elephant">
+
+        <label for="tusk">If you have an elephant, how long is its tusks?: </label>
+        <input id="tusk" name="tusk" type="number" step="0.01"><br>
+
+        <label for="species">If your animal is not an elephant, name another animal species: </label>
+        <input id="species" name="species" type="text"><br>
+
+        <label for="animalName">If you could have this animal as a pet, what would it's name be? </label>
+        <input id="animalName" name="animalName" type="text"><br>
+        <br>
+
+        <label for="herbivore">Check this box if your animal is a herbivore: </label>
+        <input style="margin-left:10px" class="inputRadioCheck" type="checkbox" id="herbivore" name="herbivore"> <br>
+        <br>
+
+        <label for="notHerbivore">If this animal is not a herbivore, then what is it? Is it a carnivore or omnivore?</label>
+        <input id="notHerbivore" name="notHerbivore" type="text"><br>
+        <input type="submit">
+    </form>
+
+
+    <table class="results">
+        <tr>
+            <td><p>Here is some information about your animal: </p></td>
+            <td th:text= "${returnAnimal}" ></td>
+        </tr>
+    </table>
+</div>
 
 </body>
 </html>
