@@ -15,7 +15,7 @@ public class ExperimentalFarm {
 		int max_y = -1;
 		for (int i = 0; i < farmPlots.length; i++) {
 			for (int j = 0; j < farmPlots[0].length; j++) {
-				if (farmPlots[i][j].getCropType() == c) {
+				if (farmPlots[i][j].getCropType().equals(c)) {
 					if (farmPlots[i][j].getCropYield() > max) {
 						max = farmPlots[i][j].getCropYield();
 						max_x = i;
