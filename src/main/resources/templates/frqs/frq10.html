@@ -12,82 +12,17 @@
 </head>
 <body>
 <h2>Demo</h2>
-<form action="/frq9">
-    <label for="title">What is the title of the book? </label>
-    <input type="text" id="title" name="title"> <br>
-    <label for="author">Who is the author of the book? </label>
-    <input type="text" id="author" name="author"> <br>
-    <label for="illustrator">Who is the illustrator of the book? </label>
-    <input type="text" id="illustrator" name="illustrator"> <br>
-    <label for="price">What is the price of the book? </label>
-    <input type="text" id="price" name="price"> <br>
-    <label for="type">Which animal are we creating? </label>
-    <select id="type" name="type">
-        <option value="1">Animal (general)</option>
-        <option value="2">Herbivore</option>
-        <option value="3">e l e p h a n t</option>
-    </select> <br>
-    <label for="name">What is the name of the animal? </label>
-    <input type="text" id="name" name="name"> <br>
-    <label for="foodStrategy" id="strattext">What is the feeding strategy of the animal? </label>
-    <input type="text" id="foodStrategy" name="foodStrategy"> <br>
-    <label for="species" id="speciestext">What is the species of the animal? </label>
-    <input type="text" id="species" name="species"> <br>
-    <label for="tusks" id="tuskstext">How long are the elephant's tusks? (meters)</label>
-    <input type="text" id="tusks" name="tusks"> <br>
+<form action="/frq10">
+    <label for="numerator">What is the numerator? </label>
+    <input type="text" id="numerator" name="numerator"> <br>
+    <label for="denominator">What is the denominator? </label>
+    <input type="text" id="denominator" name="denominator"> <br>
 
     <input type="submit" value="Submit">
 </form>
 
-<script>
-    let strat = document.getElementById('foodStrategy');
-    let species = document.getElementById('species');
-    let tusks = document.getElementById('tusks');
-    let strattext = document.getElementById('strattext');
-    let speciestext = document.getElementById('speciestext');
-    let tuskstext = document.getElementById('tuskstext');
-
-    tusks.style.display = 'none';
-    tuskstext.style.display = 'none';
-
-    function changeElement(value) {
-        switch (value) {
-            case '1':
-                strat.style.display = 'inline';
-                species.style.display = 'inline';
-                tusks.style.display = 'none';
-                strattext.style.display = 'inline';
-                speciestext.style.display = 'inline';
-                tuskstext.style.display = 'none';
-                break;
-            case '2':
-                strat.style.display = 'none';
-                species.style.display = 'inline';
-                tusks.style.display = 'none';
-                strattext.style.display = 'none';
-                speciestext.style.display = 'inline';
-                tuskstext.style.display = 'none';
-                break;
-            case '3':
-                strat.style.display = 'none';
-                species.style.display = 'none';
-                tusks.style.display = 'inline';
-                strattext.style.display = 'none';
-                speciestext.style.display = 'none';
-                tuskstext.style.display = 'inline';
-                break;
-            default:
-                alert("Uh oh.");
-        }
-    }
-
-    type.addEventListener("input", function (e) {
-        changeElement(this.value);
-    });
-</script>
 <table class="mx-auto">
-    <p>Book info: <span th:text="${bookinfo}"></span></p>
-    <p>Animal: <span th:text="${animal}"></span></p>
+    <p>Reduced fraction: <span th:text="${fraction}"></span></p>
 </table>
 
 <h2>Obligatory Reflection</h2>
@@ -98,46 +33,38 @@
 
 <h2>Obligatory Code</h2>
 <code>
-    public class Book {
-        private String title;
-        private String author;
+    import java.util.Arrays;
+    public class NumberSystem {
+        public static int gcf(int a, int b) { // i hate doing recursion so i implemented the extended euclidean algorithm instead
+            int[] bezouts = new int[] {1, 0, 0, 1}; // not technically necessary but i like math okay
+            int q, temp, b1, b2, b3, b4, v1, v2;
 
-        public Book(String t, String a) {
-            title = t;
-            author = a;
+            v1 = a; v2 = b; // sheerly for verification purposes
+
+            while (b != 0) {
+                q = a/b;
+                temp = a % b; // java doesn't let us do parallel assignments i am so sad
+                a = b;
+                b = temp;
+
+                b1 = bezouts[0]; b2 = bezouts[1]; b3 = bezouts[2]; b4 = bezouts[3]; // no parallel assignments part two electric boogaloo
+                bezouts = new int[] {b2, b1 - q * b2, b4, b3 - q * b4};
+            }
+
+            if (bezouts[0] * v1 + bezouts[2] * v2 != a) { // something has gone terribly, terribly wrong.
+                return -1;
+            }
+            return a;
         }
 
-        public String printBookInfo() {
-            return title + ", written by " + author;
-        }
-    }
-
-
-    public class PictureBook extends Book {
-        private String illustrator;
-
-        public PictureBook(String t, String a, String i) {
-            super(t, a);
-            illustrator = i;
-        }
-
-        public String printBookInfo() {
-            return super.printBookInfo() + " and illustrated by " + illustrator;
-        }
-    }
-
-
-    public class BookListing {
-        private Book book;
-        private double price;
-
-        public BookListing(Book book, double price) {
-            this.book = book;
-            this.price = price;
-        }
-
-        public String printDescription() {
-            return String.format("%s, $%.2f", book.printBookInfo(), price);
+        public static String reduceFraction(int numerator, int denominator) {
+            int comFac = gcf(numerator, denominator);
+            numerator /= comFac;
+            denominator /= comFac;
+            if (denominator == 1) {
+                return String.valueOf(numerator);
+            }
+            return String.format("%d/%d", numerator, denominator);
         }
     }
 </code>
