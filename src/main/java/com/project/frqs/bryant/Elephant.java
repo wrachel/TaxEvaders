@@ -9,7 +9,7 @@ public class Elephant extends Herbivore {
 	}
 
 	public String toString() {
-		return super.toString() + " with tusks " + tuskLength + " long";
+		return super.toString() + " with tusks " + tuskLength + " meters long";
 	}
 
 	public static void main(String[] args) {
