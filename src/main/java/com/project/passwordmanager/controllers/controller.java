@@ -8,6 +8,7 @@ import com.project.frqs.bryant.invitation;
 import com.project.frqs.bryant.passwordGenerator;
 import com.project.frqs.bryant.badGrammar;
 import com.project.frqs.bryant.Payroll;
+import com.project.frqs.bryant.UserName;
 import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -353,6 +354,16 @@ public class controller {
         model.addAttribute("wages", wages.getWages());
         model.addAttribute("items", new int[] {48, 50, 37, 62, 38, 70, 55, 37, 64, 60});
         return "frqs/frq6";
+    }
+
+    @GetMapping("/frq7")
+    public String frq7(@RequestParam(name = "firstname", required = false, defaultValue = "John") String firstName, @RequestParam(name = "lastname", required = false, defaultValue = "Smith") String lastName, @RequestParam(name = "taken", required = false, defaultValue = "") String taken, Model model) {
+        String[] takenNames = taken.split(",");
+        UserName usernameGenerator = new UserName(firstName, lastName);
+        usernameGenerator.setAvailableUserNames(takenNames);
+
+        model.addAttribute("usernames", usernameGenerator.getNamesArray());
+        return "frqs/frq7";
     }
 
     @GetMapping("/rachel/frq2")
