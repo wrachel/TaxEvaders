@@ -375,6 +375,48 @@ public class controller {
         return "frqs/frq8";
     }
 
+    @GetMapping("/frq9")
+    public String frq9(@RequestParam(name = "title", required = false, defaultValue = "CODE CODE CODE: An Autobiography") String title, @RequestParam(name = "author", required = false, defaultValue = "John Mortensen") String author, @RequestParam(name = "illustrator", required = false, defaultValue = "") String illustrator, @RequestParam(name = "price", required = false, defaultValue = "0.0") double price, @RequestParam(name = "type", required = false, defaultValue = "1") int type, @RequestParam(name = "name", required = false, defaultValue = "Nelson") String name, @RequestParam(name = "foodStrategy", required = false, defaultValue = "carnivore") String foodStrategy, @RequestParam(name = "species", required = false, defaultValue = "Nighthawk") String species, @RequestParam(name = "tusks", required = false, defaultValue = "5.0") double tusks, Model model) {
+        if (!(illustrator.isEmpty())) {
+            PictureBook book = new PictureBook(title, author, illustrator);
+            if (price > 0) {
+                BookListing listing = new BookListing(book, price);
+                model.addAttribute("bookinfo", listing.printDescription());
+            }
+            else {
+                model.addAttribute("bookinfo", book.printBookInfo());
+            }
+        }
+        else {
+            Book book = new Book(title, author);
+            if (price > 0) { // this needs to be repeated because Java is actually garbage
+                BookListing listing = new BookListing(book, price);
+                model.addAttribute("bookinfo", listing.printDescription());
+            }
+            else {
+                model.addAttribute("bookinfo", book.printBookInfo());
+            }
+        }
+        if (type == 1) {
+            Animal animal = new Animal(foodStrategy, species, name);
+            model.addAttribute("animal", animal.toString());
+        }
+        else if (type == 2) {
+            Herbivore animal = new Herbivore(species, name);
+            model.addAttribute("animal", animal.toString());
+        }
+        else if (type == 3) {
+            Elephant animal = new Elephant(name, tusks);
+            model.addAttribute("animal", animal.toString());
+        }
+        else {
+            String animal = "Error";
+            model.addAttribute("animal", animal);
+        }
+
+        return "frqs/frq9";
+    }
+
     @GetMapping("/rachel/frq2")
     public String frqunit2(/*@RequestParam(name = "vertical", required = false, defaultValue = "7")int vertical, @RequestParam(name = "horizontal", required = false, defaultValue = "7")int horizontal, @RequestParam(name = "initSeq", required = false, defaultValue = "0101 0101 0101")String initSeq,@RequestParam(name = "changeSeq", required = false, defaultValue = "0011 0011 0011")String changeSeq,@RequestParam(name = "insertSeq", required = false, defaultValue = "1111 1111")String insertSeg, @RequestParam(name = "oldSeq", required = false, defaultValue = "00")String oldSeq, @RequestParam(name = "segment", required = false, defaultValue = "00")String segment, Model lightseqmodel*/){
         //lightseqmodel.addAttribute("returnvalue", display_everything(vertical, horizontal, initSeq, changeSeq, insertSeg, oldSeq, segment));
