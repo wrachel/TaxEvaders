@@ -3,10 +3,10 @@ package com.project.frqs.rachel.frq9;
 import com.project.frqs.bryant.Book;
 
 public class rachelBookListing extends rachelBook{
-    private double price;
+    private Double price;
     private rachelBook book;
 
-    public rachelBookListing(String t, String a, double p){
+    public rachelBookListing(String t, String a, Double p){
         super(t, a);
         price = p;
     }
