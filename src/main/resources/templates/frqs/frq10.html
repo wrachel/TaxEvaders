@@ -140,42 +140,6 @@
             return String.format("%s, $%.2f", book.printBookInfo(), price);
         }
     }
-
-
-    public class Animal {
-        private String foodStrategy, species, name;
-
-        public Animal(String foodStrategy, String species, String name) {
-            this.foodStrategy = foodStrategy;
-            this.species = species;
-            this.name = name;
-        }
-
-        public String toString() {
-            return String.format("%s the %s is a %s", name, species, foodStrategy);
-        }
-    }
-
-
-    public class Herbivore extends Animal {
-        public Herbivore(String species, String name) {
-            super("herbivore", species, name);
-        }
-    }
-
-
-    public class Elephant extends Herbivore {
-        private double tuskLength;
-
-        public Elephant(String name, double tuskLength) {
-            super("elephant", name);
-            this.tuskLength = tuskLength;
-        }
-
-        public String toString() {
-            return super.toString() + " with tusks " + tuskLength + " meters long";
-        }
-    }   
 </code>
 </body>
 </html>
