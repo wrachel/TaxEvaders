@@ -2,13 +2,7 @@ package com.project.passwordmanager.controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.project.frqs.bryant.CoinGame;
-import com.project.frqs.bryant.stringUtil;
-import com.project.frqs.bryant.invitation;
-import com.project.frqs.bryant.passwordGenerator;
-import com.project.frqs.bryant.badGrammar;
-import com.project.frqs.bryant.Payroll;
-import com.project.frqs.bryant.UserName;
+import com.project.frqs.bryant.*;
 import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -364,6 +358,21 @@ public class controller {
 
         model.addAttribute("usernames", usernameGenerator.getNamesArray());
         return "frqs/frq7";
+    }
+
+    @GetMapping("/frq8")
+    public String frq8(@RequestParam(name = "crop", required = false, defaultValue = "corn") String crop, @RequestParam(name = "column", required = false, defaultValue = "0") int column, Model model) {
+        Plot[][] plots = new Plot[][] {
+                {new Plot("corn", 20), new Plot("corn", 30), new Plot("peas", 10)},
+                {new Plot("peas", 30), new Plot("corn", 40), new Plot("corn", 62)},
+                {new Plot("wheat", 10), new Plot("corn", 50), new Plot("rice", 30)},
+                {new Plot("corn", 55), new Plot("corn", 30), new Plot("peas", 30)}
+        };
+        ExperimentalFarm farm = new ExperimentalFarm(plots);
+
+        model.addAttribute("desc", new String[] {"Highest yield", "Same crop in column?"});
+        model.addAttribute("data", new String[] {String.valueOf(farm.getHighestYield(crop)), String.valueOf(farm.sameCrop(column))});
+        return "frqs/frq8";
     }
 
     @GetMapping("/rachel/frq2")

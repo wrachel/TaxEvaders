@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Very professional project</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+<h2>Demo</h2>
+<form action="/frq8">
+    <label for="crop">Which crop would you like to check? </label>
+    <input type="text" id="crop" name="crop"> <br>
+    <label for="column">Which column would you like to check? </label>
+    <input type="text" id="column" name="column"> <br>
+
+    <input type="submit" value="Submit">
+</form>
+<table class="mx-auto">
+    <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Value</th>
+    </tr>
+    <tr th:each="value, idx : ${data}">
+        <td th:text="${desc[idx.index]}"></td>
+        <td th:text="${value}"></td>
+    </tr>
+</table>
+
+<h2>Obligatory Reflection</h2>
+<p>So. Password generation. I took the lazy way out and just used the built-in random module, since that was clearly what CollegeBoard wanted us to do. I just want to state for the record that this is the most obvious usecase for a CSPRNG and we really should have used one. The current implementation is insecure.</p>
+<p>Otherwise, not much to say. Just format strings and...that's it, to be entirely honest. I don't even remember what this unit was about, but it certainly wasn't anything difficult.</p>
+
+
+<h2>Obligatory Code</h2>
+<code>
+    public class Plot {
+        private String cropType;
+        private int cropYield;
+
+        public Plot(String crop, int yield) {
+            this.cropType = crop;
+            this.cropYield = yield;
+        }
+
+        public String getCropType() {
+            return cropType;
+        }
+
+        public int getCropYield() {
+            return cropYield;
+        }
+
+        public String toString() {
+            return String.format("This farm plants %s with a yield of %s", cropType, cropYield);
+        }
+    }
+
+
+    public class ExperimentalFarm {
+        private Plot[][] farmPlots;
+
+        public ExperimentalFarm(Plot[][] p) {
+            this.farmPlots = p;
+        }
+
+        public Plot getHighestYield(String c) {
+            int max = -1;
+            int max_x = -1;
+            int max_y = -1;
+            for (int i = 0; i < farmPlots.length; i++) {
+                for (int j = 0; j < farmPlots[0].length; j++) {
+                    if (farmPlots[i][j].getCropType().equals(c)) {
+                        if (farmPlots[i][j].getCropYield() > max) {
+                            max = farmPlots[i][j].getCropYield();
+                            max_x = i;
+                            max_y = j;
+                        }
+                    }
+                }
+            }
+            if (max_x + max_y == -2) {
+                return null;
+            }
+            return farmPlots[max_x][max_y];
+        }
+
+        public boolean sameCrop(int col) {
+            String cropType = farmPlots[0][col].getCropType();
+            for (int i = 1; i < farmPlots.length; i++) {
+                if (!(farmPlots[i][col].getCropType().equals(cropType))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+</code>
+</body>
+</html>
