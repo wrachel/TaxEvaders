@@ -25,9 +25,7 @@ public class UserName {
 	}
 
 	/** Removes strings from possibleNames that are found in usedNames as described in part (b). */
-
-	public void setAvailableUserNames(String[] usedNames)
-	{
+	public void setAvailableUserNames(String[] usedNames) {
 		for (int i = possibleNames.size(); i > 0; i--) {
 			if (isUsed(possibleNames.get(i - 1), usedNames)) {
 				possibleNames.remove(i - 1);
@@ -38,7 +36,11 @@ public class UserName {
 	public String getNames() {
 		return possibleNames.toString();
 	}
-	
+
+	public String[] getNamesArray() {
+		return possibleNames.toArray(new String[0]);
+	}
+
 	public static void main(String[] args) {
 		UserName nameList = new UserName("John", "Smith");
 		System.out.println(nameList.getNames());
