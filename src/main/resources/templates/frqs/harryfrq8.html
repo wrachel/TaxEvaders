@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Harry's Page</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout --><
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+        <h1 class="sectionTitle">Unit 8 FRQ Question 1</h1>
+        <div class="sectionText">
+            <p>Enter plot type and yield: </p>
+            <form action="/harry/frq8" method="GET" style="padding-bottom:30px;">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>0</th>
+                        <th >1</th>
+                        <th >2</th>
+                    </tr>
+                    <tr>
+                        <th >0</th>
+                        <td>
+                            <select name="crop1" id="crop1">
+                             <option value="bananas">corn</option>
+                             <option value="peas">peas</option>
+                             <option value="corn">bananas</option>
+                             </select>
+                            <label style="color:white; padding-top:30px" for="yield1"></label>
+                            <input id="yield1" name="yield1" type="number" required>
+                        </td>
+                        <td><select name="crop2" id="crop2">
+                            <option value="bananas">corn</option>
+                            <option value="peas">peas</option>
+                            <option value="corn">bananas</option>
+                        </select>
+                            <label style="color:white; padding-top:30px" for="yield2"></label>
+                            <input id="yield2" name="yield2" type="number" required></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th >2</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
