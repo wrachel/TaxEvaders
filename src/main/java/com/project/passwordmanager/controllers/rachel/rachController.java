@@ -19,6 +19,7 @@ import com.project.frqs.rachel.frq9.rachelBookListing;
 import com.project.frqs.rachel.frq9.rachelAnimal;
 import com.project.frqs.rachel.frq9.rachelElephant;
 import com.project.frqs.rachel.frq9.rachelHerbivore;
+import com.project.frqs.rachel.rachelfrq10;
 
 @Controller
 public class rachController {
@@ -40,6 +41,14 @@ public class rachController {
         rachelfrq7 randomUsername = new rachelfrq7(firstName, lastName);
         model.addAttribute("username", randomUsername.randomUsername());
         return "frqs/rachel/rachelfrq7";
+    }
+
+    @GetMapping("/rachel/frq10")
+    public String rachelfrq10(@RequestParam(name="number1", required = false, defaultValue = "3")int number1, @RequestParam(name="number2", required = false, defaultValue="6")int number2, @RequestParam(name="numerator", required = false, defaultValue="10")int numerator, @RequestParam(name="denominator", required = false, defaultValue="30")int denominator, Model model){
+        rachelfrq10 NumberSystem = new rachelfrq10();
+        model.addAttribute("gcf", NumberSystem.gcf(number1, number2));
+        model.addAttribute("reduced", NumberSystem.reduceFraction(numerator, denominator));
+        return "frqs/rachel/rachelfrq10";
     }
 
     @GetMapping("/rachel/frq9")

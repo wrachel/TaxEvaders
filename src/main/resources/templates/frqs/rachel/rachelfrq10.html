@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit 10 FRQ</title>
+
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+
+<h1>CollegeBoard Unit 10 FRQ</h1>
+<h3>In this part of the FRQ, users can enter two numbers (integers) and find the GCF of the two integers.</h3>
+
+<div>
+    <form action="/rachel/frq10">
+        <label for="number1">What is the first number?: </label>
+        <input id="number1" name="number1" type="number" step="1"><br>
+        <label for="number2">What is the second number?: </label>
+        <input id="number2" name="number2" type="text"><br>
+        <input type="submit">
+    </form>
+</div>
+
+<table class="results">
+    <tr>
+        <td><p>Here is the gcf of the integers you entered!: </p></td>
+        <td th:text= "${gcf}" ></td>
+    </tr>
+</table>
+<h3>In this part of the FRQ, a user can enter the numerator and denominator of a fraction to find what the reduced fraction will be. </h3>
+<div>
+    <form action="/rachel/frq10">
+        <label for="numerator">What would you like the numerator to be?: </label>
+        <input id="numerator" name="numerator" type="number" step="1"><br>
+        <label for="denominator">What would you like the denominator to be?: </label>
+        <input id="denominator" name="denominator" type="number" step="1"><br>
+        <input type="submit">
+    </form>
+</div>
+
+<table class="results">
+    <tr>
+        <td><p>Here is what your fraction reduces to!: </p></td>
+        <td th:text= "${reduced}" ></td>
+    </tr>
+</table>
+
+<h2>Reflection</h2>
+<p>Overall, I thought taht this FRQ was relatively easy. The key thing was mostly for part a, which was using recursion. Part b was fairly simple and did not really test anything new. </p>
+<p>Key Takeaways:</p>
+<p>Recursion. Also, used a little bit of wrapper classes here in order to convert integer to string easier (not necessary for CB solution but necessary for MVC implementation). </p>
+
+<code>
+
+    public class NumberSystem
+    {
+    part a)
+        public static int gcf(int a, int b){
+            int temp = a % b;
+                if(temp == 0){
+                return b;
+            }
+            else{
+                return gcf(b, temp); //recursion
+            }
+        }
+
+
+    part b)
+        public static void reduceFraction(int numerator, int denominator){
+                if(numerator % denominator = 0){
+                System.out.println(numerator / denominator);
+            }
+            else{
+                int gcf = NumberSystem.gcf(numerator, denominator);
+                System.out.println(numerator/gcf + "/" + denominator/gcf);
+            }
+
+        }
+
+    }
+
+</code>
+</body>
+</html>
