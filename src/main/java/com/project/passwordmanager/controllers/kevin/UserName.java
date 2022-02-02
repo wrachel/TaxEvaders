@@ -6,12 +6,9 @@ public class UserName
 
 {
 
-// The list of possible user names, based on a user’s first and last names and initialized by the constructor.
+// The list of possible usernames, based on a user’s first and last names and initialized by the constructor.
 
     ArrayList<String> possibleNames;
-    private ArrayList<String> usedNames;
-    private String firstName;
-    private String lastName;
 
 
     /** Constructs a UserName object as described in part (a).
@@ -25,10 +22,7 @@ public class UserName
     public UserName(String firstName, String lastName)
 
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        possibleNames = new ArrayList<String>();
-
+        possibleNames = new ArrayList<>();
         for(int i = 1; i<=firstName.length(); i++) {
             possibleNames.add(lastName+firstName.substring(0,i));
         }
@@ -46,7 +40,7 @@ public class UserName
             }
         }
 
-        return false; // idk it made me put a return statement
+        return false;
     }
 
 
