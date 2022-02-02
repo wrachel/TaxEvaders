@@ -9,7 +9,7 @@ public class ExperimentalFarm
     private Plot[][] farmPlots;
 
 
-
+    public ExperimentalFarm(){}
     public ExperimentalFarm(Plot[][] p)
 
     {
@@ -21,8 +21,8 @@ public class ExperimentalFarm
 
 
     /** Returns the plot with the highest yield for a given crop type, as described in part (a). */
-
-    public Plot getHighestYield(String c)
+    // supposed to return datatype Plot but I will return a String
+    public String getHighestYield(String c)
 
     {
         int highestYield = 0;
@@ -39,8 +39,9 @@ public class ExperimentalFarm
                 }
             }
         }
-        System.out.println("farmPlots["+highestI+"]["+highestJ+"]");
-        return farmPlots[highestI][highestJ];
+//        System.out.println("farmPlots["+highestI+"]["+highestJ+"]");
+        //return farmPlots[highestI][highestJ];
+        return "farmPlots["+highestI+"]["+highestJ+"]";
     }
 
 
