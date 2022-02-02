@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+
+    class userName {<br>
+    private String firstName;<br>
+    private String lastName;<br>
+    private int N;<br>
+    private String[] possibleUsernames;
+</p><br>
+<p>
+    userName( String fN, String lN)<br>
+    {<br>
+
+    this.firstName = new String(fN);<br>
+    this.lastName = new String(lN);<br>
+    N = this.firstName.length();<br>
+    possibleUsernames = new String[N];<br>
+    CreateUserNames();<br>
+    }<br>
+</p>
+<p>
+
+    public int GetCount() {<br>
+    return(N);<br>
+    }<br>
+
+    private void CreateUserNames()<br>
+    {<br>
+    for (int iLoop=1; iLoop<=N; iLoop++)<br>
+    {<br>
+
+    String subStr = firstName.substring(0,iLoop);
+    <br>
+    possibleUsernames[iLoop-1]= lastName+subStr;<br>
+    }</p>
+<p>
+    }<br>
+
+    String IndexerGetIndexAt( int iIndexPos)<br>
+    {<br>
+    String strReturn=null;<br>
+    if ((iIndexPos>=0) && (iIndexPos< N))<br>
+    {<br>
+    strReturn = possibleUsernames[iIndexPos];<br>
+    }<br>
+    return(strReturn);<br>
+    }<br>
+
+
+    }
+</p>
+
+</body>
+</html>

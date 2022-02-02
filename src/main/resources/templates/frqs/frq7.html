@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Very professional project</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+<h2>Demo</h2>
+<form action="/frq7">
+    <label for="firstname">What is your first name? </label>
+    <input type="text" id="firstname" name="firstname"> <br>
+    <label for="lastname">What is your last name? </label>
+    <input type="text" id="lastname" name="lastname"> <br>
+    <label for="taken">Which usernames are taken? (Please use a comma separated list, no spaces) </label>
+    <input type="text" id="taken" name="taken"> <br>
+
+    <input type="submit" value="Submit">
+</form>
+<table class="mx-auto">
+    <tr>
+        <th scope="col">Username</th>
+    </tr>
+    <tr th:each="value : ${usernames}">
+        <td th:text="${value}"></td>
+    </tr>
+</table>
+
+<h2>Obligatory Reflection</h2>
+<p>This is actually my first time working with ArrayList. Yeah, yeah, I know we learned about it a long time ago. I prefer dynamically reallocating arrays instead of using ArrayLists. Call me old fashioned.<p>
+<p>To be entirely honest, they were <em>not</em> much easier to use than normal Arrays. I honestly think I prefer just straight up using arrays, because at least then I don't have to keep searching up methods to access random indices.</p>
+<p>Everything else was pretty straightforward. I can't really say I had any trouble with the linear search.</p>
+
+
+<h2>Obligatory Code</h2>
+<p><strong>Note:</strong> Thymeleaf is refusing to cooperate, so find the code <a href="/frqs/frq7.txt">here</a>.</p>
+</body>
+</html>

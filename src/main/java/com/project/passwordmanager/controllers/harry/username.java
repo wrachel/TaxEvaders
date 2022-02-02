@@ -2,31 +2,66 @@ package com.project.passwordmanager.controllers.harry;
 
 import java.util.ArrayList;
 
-public class username {
-    public username(String firstName, String lastName)
+class userName
 
-    { /* to be implemented in part (a) */
-   // possibleNames = new ArrayList<String>();
-
-  //  for(int i = 1,; i < firstName.length; i++) {
-      //  possibleNames.add(lastName+firstName.substring(0,i));
-   // }
-
-}
-
-    /** Returns true if arr contains name, and false otherwise. */
-
-    public boolean isUsed(String name, String[] arr)
-
-    { /* implementation not shown */ return false;}
+{
 
 
 
-    /** Removes strings from possibleNames that are found in usedNames as described in part (b).
+    private String firstName;
+    private String lastName;
+    private int N;
+    private String[] possibleUsernames;
 
-     */
+    userName( String fN, String lN)
+    {
 
-    public void setAvailableUserNames(String[] usedNames)
+        this.firstName = new String(fN);
+        this.lastName = new String(lN);
+        N = this.firstName.length();
+        possibleUsernames = new String[N];
+        CreateUserNames();
+    }
 
-    { /* to be implemented in part (b) */ }
+
+    public int GetCount() {
+        return(N);
+    }
+
+    private void CreateUserNames()
+    {
+        for (int iLoop=1; iLoop<=N; iLoop++)
+        {
+
+            String subStr = firstName.substring(0,iLoop);
+
+            possibleUsernames[iLoop-1]= lastName+subStr;
+
+        }
+
+    }
+
+    String IndexerGetIndexAt( int iIndexPos)
+    {
+        String strReturn=null;
+        if ((iIndexPos>=0) && (iIndexPos<N))
+        {
+            strReturn = possibleUsernames[iIndexPos];
+        }
+        return(strReturn);
+    }
+/*
+   public static void main()
+    {
+
+        userName myUserNames = new userName("Patrick","Baldwin");
+        int n = myUserNames.GetCount();
+        for (int iLoop=0; iLoop<n; iLoop++)
+        {
+            System.out.println( myUserNames.IndexerGetIndexAt(iLoop));
+        }
+   }
+*/
+
+
 }

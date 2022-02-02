@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Very professional project</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+<h2>Demo</h2>
+<form action="/frq10">
+    <label for="numerator">What is the numerator? </label>
+    <input type="text" id="numerator" name="numerator"> <br>
+    <label for="denominator">What is the denominator? </label>
+    <input type="text" id="denominator" name="denominator"> <br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<table class="mx-auto">
+    <p>Reduced fraction: <span th:text="${fraction}"></span></p>
+</table>
+
+<h2>Obligatory Reflection</h2>
+<p>As an FRQ, this was not particularly difficult. The problem is clearly an introductory exercise into inheritance, and the code is like 30 lines total.</p>
+<p>The MVC, on the other hand, was much more difficult. In order to demonstrate all of the classes, I need a substantial number of conditionals. Java does not like this. I ended up violating DRY in like thirty different places and I hate it.</p>
+<p>Seriously, it sucks. Also, I had to touch Javascript, which I haven't touched in a while. It was fun. Super clumsy, of course. I think I could have handled it better, maybe with divs? But it works.</p>
+
+
+<h2>Obligatory Code</h2>
+<code>
+    import java.util.Arrays;
+    public class NumberSystem {
+        public static int gcf(int a, int b) { // i hate doing recursion so i implemented the extended euclidean algorithm instead
+            int[] bezouts = new int[] {1, 0, 0, 1}; // not technically necessary but i like math okay
+            int q, temp, b1, b2, b3, b4, v1, v2;
+
+            v1 = a; v2 = b; // sheerly for verification purposes
+
+            while (b != 0) {
+                q = a/b;
+                temp = a % b; // java doesn't let us do parallel assignments i am so sad
+                a = b;
+                b = temp;
+
+                b1 = bezouts[0]; b2 = bezouts[1]; b3 = bezouts[2]; b4 = bezouts[3]; // no parallel assignments part two electric boogaloo
+                bezouts = new int[] {b2, b1 - q * b2, b4, b3 - q * b4};
+            }
+
+            if (bezouts[0] * v1 + bezouts[2] * v2 != a) { // something has gone terribly, terribly wrong.
+                return -1;
+            }
+            return a;
+        }
+
+        public static String reduceFraction(int numerator, int denominator) {
+            int comFac = gcf(numerator, denominator);
+            numerator /= comFac;
+            denominator /= comFac;
+            if (denominator == 1) {
+                return String.valueOf(numerator);
+            }
+            return String.format("%d/%d", numerator, denominator);
+        }
+    }
+</code>
+</body>
+</html>

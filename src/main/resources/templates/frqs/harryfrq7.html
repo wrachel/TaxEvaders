@@ -13,7 +13,7 @@
 <body>
 <div layout:fragment="content" th:remove="tag">
     <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
-        <h1 class="sectionTitle">Unit 6 FRQ Question 2</h1>
+        <h1 class="sectionTitle">Unit 7 FRQ Question 1</h1>
         <div class="sectionText">
             <form action="/harry/frq7" method="GET" style="padding-bottom:30px;">
                 <label style="color:white; padding-top:30px" for="first">Enter first name: </label>
@@ -21,11 +21,15 @@
                 <br>
                 <label style="color:white; padding-top:30px" for="last">Enter last name: </label>
                 <input id="last" name="last" type="text" required>
-
-
+                <p th:text="'Result: '+${a}"></p>
                 <br>
-                <input type="submit" value="Generate!">
+                <p th:text="'number of names: '+${count}"></p>
+                <br>
+                <input type="submit" value="Submit">
+
             </form>
+
+            <a href="/harry/fq7code">code</a>
         </div>
     </div>
 </div>

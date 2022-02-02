@@ -2,12 +2,7 @@ package com.project.passwordmanager.controllers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.project.frqs.bryant.CoinGame;
-import com.project.frqs.bryant.stringUtil;
-import com.project.frqs.bryant.invitation;
-import com.project.frqs.bryant.passwordGenerator;
-import com.project.frqs.bryant.badGrammar;
-import com.project.frqs.bryant.Payroll;
+import com.project.frqs.bryant.*;
 import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -353,6 +348,79 @@ public class controller {
         model.addAttribute("wages", wages.getWages());
         model.addAttribute("items", new int[] {48, 50, 37, 62, 38, 70, 55, 37, 64, 60});
         return "frqs/frq6";
+    }
+
+    @GetMapping("/frq7")
+    public String frq7(@RequestParam(name = "firstname", required = false, defaultValue = "John") String firstName, @RequestParam(name = "lastname", required = false, defaultValue = "Smith") String lastName, @RequestParam(name = "taken", required = false, defaultValue = "") String taken, Model model) {
+        String[] takenNames = taken.split(",");
+        UserName usernameGenerator = new UserName(firstName, lastName);
+        usernameGenerator.setAvailableUserNames(takenNames);
+
+        model.addAttribute("usernames", usernameGenerator.getNamesArray());
+        return "frqs/frq7";
+    }
+
+    @GetMapping("/frq8")
+    public String frq8(@RequestParam(name = "crop", required = false, defaultValue = "corn") String crop, @RequestParam(name = "column", required = false, defaultValue = "0") int column, Model model) {
+        Plot[][] plots = new Plot[][] {
+                {new Plot("corn", 20), new Plot("corn", 30), new Plot("peas", 10)},
+                {new Plot("peas", 30), new Plot("corn", 40), new Plot("corn", 62)},
+                {new Plot("wheat", 10), new Plot("corn", 50), new Plot("rice", 30)},
+                {new Plot("corn", 55), new Plot("corn", 30), new Plot("peas", 30)}
+        };
+        ExperimentalFarm farm = new ExperimentalFarm(plots);
+
+        model.addAttribute("desc", new String[] {"Highest yield", "Same crop in column?"});
+        model.addAttribute("data", new String[] {String.valueOf(farm.getHighestYield(crop)), String.valueOf(farm.sameCrop(column))});
+        return "frqs/frq8";
+    }
+
+    @GetMapping("/frq9")
+    public String frq9(@RequestParam(name = "title", required = false, defaultValue = "CODE CODE CODE: An Autobiography") String title, @RequestParam(name = "author", required = false, defaultValue = "John Mortensen") String author, @RequestParam(name = "illustrator", required = false, defaultValue = "") String illustrator, @RequestParam(name = "price", required = false, defaultValue = "0.0") double price, @RequestParam(name = "type", required = false, defaultValue = "1") int type, @RequestParam(name = "name", required = false, defaultValue = "Nelson") String name, @RequestParam(name = "foodStrategy", required = false, defaultValue = "carnivore") String foodStrategy, @RequestParam(name = "species", required = false, defaultValue = "Nighthawk") String species, @RequestParam(name = "tusks", required = false, defaultValue = "5.0") double tusks, Model model) {
+        if (!(illustrator.isEmpty())) {
+            PictureBook book = new PictureBook(title, author, illustrator);
+            if (price > 0) {
+                BookListing listing = new BookListing(book, price);
+                model.addAttribute("bookinfo", listing.printDescription());
+            }
+            else {
+                model.addAttribute("bookinfo", book.printBookInfo());
+            }
+        }
+        else {
+            Book book = new Book(title, author);
+            if (price > 0) { // this needs to be repeated because Java is actually garbage
+                BookListing listing = new BookListing(book, price);
+                model.addAttribute("bookinfo", listing.printDescription());
+            }
+            else {
+                model.addAttribute("bookinfo", book.printBookInfo());
+            }
+        }
+        if (type == 1) {
+            Animal animal = new Animal(foodStrategy, species, name);
+            model.addAttribute("animal", animal.toString());
+        }
+        else if (type == 2) {
+            Herbivore animal = new Herbivore(species, name);
+            model.addAttribute("animal", animal.toString());
+        }
+        else if (type == 3) {
+            Elephant animal = new Elephant(name, tusks);
+            model.addAttribute("animal", animal.toString());
+        }
+        else {
+            String animal = "Error";
+            model.addAttribute("animal", animal);
+        }
+
+        return "frqs/frq9";
+    }
+
+    @GetMapping("/frq10")
+    public String frq10(@RequestParam(name = "numerator", required = false, defaultValue = "1") int numerator, @RequestParam(name = "denominator", required = false, defaultValue = "2") int denominator, Model model) {
+        model.addAttribute("fraction", NumberSystem.reduceFraction(numerator, denominator));
+        return "frqs/frq10";
     }
 
     @GetMapping("/rachel/frq2")

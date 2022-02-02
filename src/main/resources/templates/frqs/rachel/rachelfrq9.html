@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit 9 FRQ</title>
+    <style>
+        code {
+            display: block;
+            white-space: pre-wrap
+        }
+    </style>
+</head>
+<body>
+
+<h1>CollegeBoard Unit 9 FRQ Question 1 & Question 2</h1>
+
+<h3>CollegeBoard unit 9 FRQ Question 1</h3>
+<p>In this question, users can list a title of a book, author, illustrator, or price, and a statement will return depending on what information was given.</p>
+<p>This question uses parent class and child class that extends the parent class. Both will be linked.</p>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/frq9/rachelBook.java">Parent Class</a>
+<p>  </p>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/frq9/RachelPictureBook.java">Child Class listing the illustrator</a>
+<p>  </p>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/frq9/rachelBookListing.java">Child Class with the price of the book</a>
+<div>
+    <form action="/rachel/frq9">
+        <label for="title">Name the title of a book: </label>
+        <input id="title" name="title" type="text"><br>
+        <label for="author">Name the author: </label>
+        <input id="author" name="author" type="text"><br>
+        <label for="illustrator">If there is an illustrator, name the illustrator: </label>
+        <input id="illustrator" name="illustrator" type="text"><br>
+        <label for="price">If the price of the book is known, name the price: </label>
+        <input id="price" name="price" type="number" step="0.01"><br>
+        <input type="submit">
+    </form>
+</div>
+
+<table class="results">
+    <tr>
+        <td><p>Here is some statements about your book: </p></td>
+        <td th:text= "${returnstatement}" ></td>
+        <td th:text= "${returnstatement1}" ></td>
+    </tr>
+</table>
+
+<code>
+    #1
+    a)
+
+    public class PictureBook extends Book {
+        private String illustrator;
+
+        public PictureBook(String t, String a, String i){
+            super(t, a);
+            illustrator = i;
+        }
+
+        public void printBookInfo{
+            super.printBookInfo();
+            System.out.println("and illustrated by " + illustrator);
+        }
+    }
+
+
+
+    b)
+
+    ArrayList<!--Book> myLibrary = new ArrayList<Book-->();
+
+    Book book1 = new Book("Frankenstein", "Mary Shelley");
+    PictureBook book2 = new PictureBook("The Wonderful Wizard of Oz", "L. Frank Baum", "W.W. Denslow");
+
+    myLibrary.add(book1);
+    myLibrary.add(book2);
+
+
+    c)
+
+    public class BookListing extends Book{
+        private double price;
+
+        public BookListing(String t, String a, double p){
+            super(t, a);
+            price = p;
+        }
+
+        public void printDescription{
+            super.printBookInfo();
+            System.out.println("$" + price);
+        }
+    }
+
+</code>
+<h3>CollegeBoard Unit 9 Question 2</h3>
+<p> In this problem, users can provide a multitude of information about an animal of their choosing. They need to name the animal species,specifically if it is an elephant, and whether or not it is a herbivore. Users can also give the animal a name.</p>
+<p>In this problem, there are parent classes and child classes. Both will be linked.</p>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/frq9/rachelAnimal.java">Parent Class: encompassing all animals</a>
+<p>  </p>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/frq9/rachelHerbivore.java">Child Class of rachelAnimal: for specifically herbivores</a>
+<p>  </p>
+<a href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/frqs/rachel/frq9/rachelElephant.java">Child class of rachelHerbivore: specifically for Elephants</a>
+
+<div>
+    <form action="/rachel/frq9">
+
+        <label for="elephant">Check this box if your animal is an elephant: </label>
+        <input style="margin-left:10px" class="inputRadioCheck" type="checkbox" id="elephant" name="elephant">
+
+        <label for="tusk">If you have an elephant, how long is its tusks?: </label>
+        <input id="tusk" name="tusk" type="number" step="0.01"><br>
+
+        <label for="species">If your animal is not an elephant, name another animal species: </label>
+        <input id="species" name="species" type="text"><br>
+
+        <label for="animalName">If you could have this animal as a pet, what would it's name be? </label>
+        <input id="animalName" name="animalName" type="text"><br>
+        <br>
+
+        <label for="herbivore">Check this box if your animal is a herbivore: </label>
+        <input style="margin-left:10px" class="inputRadioCheck" type="checkbox" id="herbivore" name="herbivore"> <br>
+        <br>
+
+        <label for="notHerbivore">If this animal is not a herbivore, then what is it? Is it a carnivore or omnivore?</label>
+        <input id="notHerbivore" name="notHerbivore" type="text"><br>
+        <input type="submit">
+    </form>
+
+
+    <table class="results">
+        <tr>
+            <td><p>Here is some information about your animal: </p></td>
+            <td th:text= "${returnAnimal}" ></td>
+        </tr>
+    </table>
+</div>
+
+<h3>CollegeBoard Unit 9 FRQ Question 2 SOLUTIONS</h3>
+<code>
+    #2
+    a)
+    public class Animal{
+        private String type;
+        private String species;
+        private String name;
+
+        public Animal(String t, String s, String n){
+            type = t;
+            species = s;
+            name = n;
+        }
+
+        public String toString(){
+            String returnStatement = name + " the " + species + " is a " + type;
+            return returnStatement;
+        }`
+
+    }
+
+    b)
+    public class Herbivore extends Animal{
+        private String species;
+        private String name;
+
+        public Herbivore(String s, String n){
+            super("Herbivore", s, n);
+        }
+
+    }
+
+
+    c)
+    public class Elephant extends Herbivore{
+        private double tusks;
+
+        public Elephant(String n, double tu){
+            super("elephant", n);
+            tusks = tu;
+        }
+
+        public String toString(){
+            String s = super.toString() + "with tusks " + tusks + "meters long";
+            return s;
+        }
+
+    }
+</code>
+
+<h2>CollegeBoard Unit 9 Question 1 & Question 2 Reflection</h2>
+<p>I thought that the questions for this unit were relatively challenging, but were also very helpful in introducing more on parent and child classes, and specifically how the super() keyword can be used when extending classes.</p>
+<p>I thought that question 1 and question 2 were very similar, so it was a lot of practice on the same topic, but it was overall very helpful in refreshing my memory on how to navigate parent & child classes!</p>
+<p>Key Concepts: Parent & Child class (how to extend classes), super() keyword, toString() method</p>
+
+</body>
+</html>
