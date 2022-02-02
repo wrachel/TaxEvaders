@@ -25,21 +25,9 @@ public class frq3 {
     }
 
     public String rsvpMaker(boolean rsvp, int selection) {
-        String food = "";
         String message = "";
-
         if(rsvp) {
-            switch(selection) {
-                case 1:
-                    food = "beef";
-                    break;
-                case 2:
-                    food = "chicken";
-                    break;
-                case 3:
-                    food = "pasta";
-                    break;
-            }
+            String food = foodSelection(selection);
             message = "Thanks for attending. You will be served " + food + ".";
         } else {
             message = "Sorry you can't make it.";
