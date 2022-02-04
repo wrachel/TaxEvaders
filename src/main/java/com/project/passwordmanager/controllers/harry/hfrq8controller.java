@@ -73,7 +73,7 @@ public class hfrq8controller {
             model.addAttribute("y3",highestYield2.toString());
         }
         catch (Exception e){
-            model.addAttribute("y3","wehat: null");
+            model.addAttribute("y3","wheat: null");
         }
         try{
             model.addAttribute("y4",highestYield3.toString());

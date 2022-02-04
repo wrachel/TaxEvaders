@@ -12,7 +12,42 @@
 <!-- layout::fragment="content" is heart of ThymeLeaf layout --><
 <body>
 <div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+        <h1 class="sectionTitle">Unit 9 FRQ Question 1</h1>
+        <div class="sectionText">
+            <form action="/harry/frq9" method="GET" style="padding-bottom:30px;">
+                <label style="color:white; padding-top:30px" for="author">(A)Enter author: </label>
+                <input id="author" name="author" type="text" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="illustrator">Enter illustrator: </label>
+                <input id="illustrator" name="illustrator" type="text" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="title">Enter title: </label>
+                <input id="title" name="title" type="text" required>
+                <br>
+                <p th:text="'Result: '+${a}"></p>
+                <br>
+                <label style="color:white; padding-top:30px" for="lib">(B)Enter book title to add to library: </label>
+                <input id="lib" name="lib" type="text" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="libauth">Enter book author: </label>
+                <input id="libauth" name="libauth" type="text" required>
+                <br>
+                <p th:text="'Library Books: '+${b}"></p>
+                <label style="color:white; padding-top:30px" for="price1">(C)Enter a book price: </label>
+                <input id="price1" name="price1" type="number" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="price2">Enter another book price: </label>
+                <input id="price2" name="price2" type="number" required>
 
+                <a href="/harry/code9">Code</a>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+
+
+            </div>
+        </div>
 </div>
 </body>
 </html>
