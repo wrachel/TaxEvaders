@@ -8,8 +8,6 @@ public class ExperimentalFarm
 
     private Plot[][] farmPlots;
 
-
-    public ExperimentalFarm(){}
     public ExperimentalFarm(Plot[][] p)
 
     {

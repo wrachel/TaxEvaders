@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 
 @Controller
-public class frq7controller extends UserName {
+public class frq7controller {
     @GetMapping("/kevin/unit7/interactive")
     public String displayFRQInteractive(Model model,
                                         @RequestParam(name = "firstName", required = false, defaultValue = "Kevin") String firstName,

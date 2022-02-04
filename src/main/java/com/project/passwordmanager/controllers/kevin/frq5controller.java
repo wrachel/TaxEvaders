@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-public class frq5controller extends Invitation {
+public class frq5controller {
 
 
     @GetMapping("/kevin/unit5/interactive")

@@ -1,0 +1,54 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Unit 10 FRQ Interactive</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <!-- Start of body content specific to page -->
+    <div style="color:var(--text); padding:30px">
+        <h1 class="sectionTitle">Unit 10 FRQ</h1>
+        <a style="color:var(--blue)" target="_blank" href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/passwordmanager/controllers/kevin/NumberSystem.java">code</a>
+        <div class="row" style="padding-left:20px">
+            <form action="/kevin/unit10/interactive">
+                <label for="number1">Integer 1: </label><br>
+                <input class="inputForm" type="text" id="number1" name="number1"> <br>
+
+                <label for="number2">Integer 2: </label><br>
+                <input class="inputForm" type="text" id="number2" name="number2"> <br>
+<br>
+                <div class="row justify-content-around" style="width:50%; margin:0">
+                    <label for="selection1">gcf</label>
+                    <input class="inputRadioCheck" type="radio" id="selection1" name="selection" value="gcf">
+                    <label for="selection2">fraction</label>
+                    <input class="inputRadioCheck" type="radio" id="selection2" name="selection" value="fraction">
+                </div>
+
+                <br>
+
+                <input class="submitButton" type="submit" value="Submit">
+            </form>
+            <div style="margin-left:50px">
+                <table>
+                    <tr>
+                        <td>
+                            <p th:text="${result}"><p/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- end of body content specific to page -->
+    </div>
+</div>
+</body>
+</html>

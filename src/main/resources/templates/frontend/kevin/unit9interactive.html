@@ -1,0 +1,54 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+  <div layout:fragment="metadata" th:remove="tag">
+    <title>Unit 9 FRQ Interactive</title>
+  </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout -->
+<body>
+<div layout:fragment="content" th:remove="tag">
+  <!-- Start of body content specific to page -->
+  <div style="color:var(--text); padding:30px">
+    <h1 class="sectionTitle">Unit 9 FRQ</h1>
+    <a style="color:var(--blue)" target="_blank" href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/passwordmanager/controllers/kevin/PictureBook.java">code</a>
+    <br><a style="color:var(--blue)" target="_blank" href="https://github.com/wrachel/TaxEvaders/blob/main/src/main/java/com/project/passwordmanager/controllers/kevin/BookListing.java">code</a>
+    <div class="row" style="padding-left:20px">
+      <form action="/kevin/unit9/interactive">
+        <label for="title">Book Title:</label><br>
+        <input class="inputForm" type="text" id="title" name="title"> <br>
+
+        <label for="author">Author Name:</label><br>
+        <input class="inputForm" type="text" id="author" name="author"> <br>
+
+        <label for="illustrator">Illustrator Name (try putting or not putting <br> an illustrator):</label><br>
+        <input class="inputForm" type="text" id="illustrator" name="illustrator"> <br>
+
+        <label for="price">Price (try putting or not putting a price):</label><br>
+        <input class="inputForm" type="text" id="price" name="price"> <br>
+
+        <br>
+
+        <input class="submitButton" type="submit" value="Submit">
+      </form>
+      <div style="margin-left:50px">
+        <table>
+          <tr>
+            <td>
+              <p th:text="${book}"><p/>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- end of body content specific to page -->
+  </div>
+</div>
+</body>
+</html>
