@@ -51,6 +51,11 @@ public class rachController {
         return "frqs/rachel/rachelfrq10";
     }
 
+    @GetMapping("/rachel/frq8")
+        public String rachelfrq8(){
+        return "frqs/rachel/rachelfrq8";
+    }
+
     @GetMapping("/rachel/frq9")
     public String rachelfrq9(@RequestParam(name="title", required = true, defaultValue = "Frankenstein")String title, @RequestParam(name="author", required = true, defaultValue = "Mary Shelley")String author, @RequestParam(name="illustrator", required = false)String illustrator, @RequestParam(name="price", required = false)Double price,
                              @RequestParam(name="animalName", required = true, defaultValue = "gary")String animalName, @RequestParam(name="elephant", required = false, defaultValue = "false")Boolean elephant, @RequestParam(name="species", required = false, defaultValue = "dog")String species, @RequestParam(name="notHerbivore", required = false, defaultValue = "omnivore")String notHerbivore, @RequestParam(name="herbivore", required = false, defaultValue = "false")Boolean herbivore, @RequestParam(name="tusk", required = false, defaultValue = "5.0")double tusk, Model model){
