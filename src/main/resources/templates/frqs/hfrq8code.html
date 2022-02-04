@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+public class Plot<br>
+{<br>
+private String cropType;<br>
+private int cropYield;<br>
+public Plot(String crop, int yield)<br>
+{<br>
+this.cropType = crop;<br>
+this.cropYield = yield;<br>
+}<br>
+public String getCropType()<br>
+{<br>
+return cropType;<br>
+}<br>
+public int getCropYield()<br>
+{<br>
+return cropYield;<br>
+}<br>
+public String toString() {<br>
+return this.cropType+", "+this.getCropYield();<br>
+}<br>
+}<br>
+
+public class ExperimentalFarm<br>
+{<br>
+private Plot[][] farmPlots;<br>
+public ExperimentalFarm(Plot[][] p)<br>
+{<br>
+this.farmPlots = p;<br>
+}<br>
+{<br>
+Plot plot = null;<br>
+int highest = this.farmPlots[0][0].getCropYield();<br>
+for(int i=0;i<4;i++)<br>
+{<br>
+for(int j=0;j<3;j++)<br>
+{<br>
+if(farmPlots[i][j].getCropType().equalsIgnoreCase(c) && farmPlots[i][j].getCropYield()>highest)<br>
+{<br>
+highest = farmPlots[i][j].getCropYield();<br>
+plot = farmPlots[i][j];<br>
+}<br>
+}<br>
+}<br>
+if(plot != null)<br>
+return plot;<br>
+else{<br>
+return null;<br>
+}<br>
+public boolean sameCrop(int col)<br>
+{<br>
+boolean check = true;<br>
+String crop = farmPlots[0][col].getCropType();<br>
+for(int i=0;i<4;i++)<br>
+{<br>
+if(!farmPlots[i][col].getCropType().equalsIgnoreCase(crop))<br>
+{<br>
+check = false;<br>
+break;<br>
+}<br>
+}<br>
+return check;<br>
+
+}<br>
+}<br>
+public static void main(String[] args)<br>
+{<br>
+Plot p1 = new Plot("corn",20);<br>
+Plot p2 = new Plot("corn",30);<br>
+Plot p3 = new Plot("peas",10);<br>
+Plot p4 = new Plot("peas",30);<br>
+Plot p5 = new Plot("corn",40);<br>
+Plot p6 = new Plot("corn",62);<br>
+Plot p7 = new Plot("wheat",10);<br>
+Plot p8 = new Plot("corn",50);<br>
+Plot p9 = new Plot("rice",30);<br>
+Plot p10 = new Plot("corn",55);<br>
+Plot p11 = new Plot("corn",30);<br>
+Plot p12 = new Plot("peas",30);<br>
+Plot[][] plots = {{p1,p2,p3},<br>
+{p4,p5,p6},<br>
+{p7,p8,p9},<br>
+{p10,p11,p12}};<br>
+ExperimentalFarm f = new ExperimentalFarm(plots);
+Plot highestYield = f.getHighestYield("corn");<br>
+Plot highestYield1 = f.getHighestYield("peas");<br>
+Plot highestYield2 = f.getHighestYield("bananas");<br>
+try {<br>
+System.out.println(highestYield.toString());<br>
+System.out.println(highestYield1.toString());<br>
+System.out.println(highestYield2.toString());<br>
+}<br>
+catch(Exception e)<br>
+{<br>
+System.out.println("null");<br>
+}<br>
+System.out.println("The method call f.sameCrop(0)");<br>
+System.out.println(f.sameCrop(0));<br>
+System.out.println("The method call f.sameCrop(1)");<br>
+System.out.println(f.sameCrop(1));<br>
+}<br>
+}<br>
+</p>
+</body>
+</html>

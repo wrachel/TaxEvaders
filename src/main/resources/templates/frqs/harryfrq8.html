@@ -28,43 +28,137 @@
                         <th >0</th>
                         <td>
                             <select name="crop1" id="crop1">
-                             <option value="bananas">corn</option>
+                             <option value="corn">corn</option>
                              <option value="peas">peas</option>
-                             <option value="corn">bananas</option>
+                                <option value="wheat">wheat</option>
+                                <option value="rice">rice</option>
                              </select>
                             <label style="color:white; padding-top:30px" for="yield1"></label>
                             <input id="yield1" name="yield1" type="number" required>
                         </td>
-                        <td><select name="crop2" id="crop2">
-                            <option value="bananas">corn</option>
+                        <td>
+                            <select name="crop2" id="crop2">
+                            <option value="corn">corn</option>
                             <option value="peas">peas</option>
-                            <option value="corn">bananas</option>
+                                <option value="wheat">wheat</option>
+                                <option value="rice">rice</option>
                         </select>
                             <label style="color:white; padding-top:30px" for="yield2"></label>
                             <input id="yield2" name="yield2" type="number" required></td>
-                        <td></td>
+                        <td>
+                            <select name="crop3" id="crop3">
+                            <option value="corn">corn</option>
+                            <option value="peas">peas</option>
+                                <option value="wheat">wheat</option>
+                                <option value="rice">rice</option>
+                              </select>
+                            <label style="color:white; padding-top:30px" for="yield3"></label>
+                            <input id="yield3" name="yield3" type="number" required></td></td>
                     </tr>
                     <tr>
                         <th>1</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><select name="crop4" id="crop4">
+                            <option value="corn">corn</option>
+                            <option value="peas">peas</option>
+                            <option value="wheat">wheat</option>
+                            <option value="rice">rice</option>
+                        </select>
+                            <label style="color:white; padding-top:30px" for="yield4"></label>
+                            <input id="yield4" name="yield4" type="number" required></td></td>
+                        <td><select name="crop5" id="crop5">
+                            <option value="corn">corn</option>
+                            <option value="peas">peas</option>
+                            <option value="wheat">wheat</option>
+                            <option value="rice">rice</option>
+                        </select>
+                            <label style="color:white; padding-top:30px" for="yield5"></label>
+                            <input id="yield5" name="yield5" type="number" required></td></td>
+                        <td><select name="crop6" id="crop6">
+                            <option value="corn">corn</option>
+                            <option value="peas">peas</option>
+                            <option value="wheat">wheat</option>
+                            <option value="rice">rice</option>
+                        </select>
+                            <label style="color:white; padding-top:30px" for="yield6"></label>
+                            <input id="yield6" name="yield6" type="number" required></td></td>
                     </tr>
                     <tr>
                         <th >2</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><select name="crop7" id="crop7">
+                            <option value="corn">corn</option>
+                            <option value="peas">peas</option>
+                            <option value="wheat">wheat</option>
+                            <option value="rice">rice</option>
+                        </select>
+                            <label style="color:white; padding-top:30px" for="yield7"></label>
+                            <input id="yield7" name="yield7" type="number" required></td></td>
+                        <td>
+                            <select name="crop8" id="crop8">
+                                <option value="corn">corn</option>
+                                <option value="peas">peas</option>
+                                <option value="wheat">wheat</option>
+                                <option value="rice">rice</option>
+                            </select>
+                            <label style="color:white; padding-top:30px" for="yield8"></label>
+                            <input id="yield8" name="yield8" type="number" required></td>
+                        </td>
+                        <td>
+                            <select name="crop9" id="crop9">
+                                <option value="corn">corn</option>
+                                <option value="peas">peas</option>
+                                <option value="wheat">wheat</option>
+                                <option value="rice">rice</option>
+                            </select>
+                            <label style="color:white; padding-top:30px" for="yield9"></label>
+                            <input id="yield9" name="yield9" type="number" required></td>
+                        </td>
                     </tr>
                     <tr>
                         <th>3</th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><select name="crop10" id="crop10">
+                            <option value="corn">corn</option>
+                            <option value="peas">peas</option>
+                            <option value="wheat">wheat</option>
+                            <option value="rice">rice</option>
+                        </select>
+                            <label style="color:white; padding-top:30px" for="yield10"></label>
+                            <input id="yield10" name="yield10" type="number" required></td></td>
+                        <td>
+                            <select name="crop11" id="crop11">
+                            <option value="corn">corn</option>
+                            <option value="peas">peas</option>
+                                <option value="wheat">wheat</option>
+                                <option value="rice">rice</option>
+                        </select>
+                            <label style="color:white; padding-top:30px" for="yield11"></label>
+                            <input id="yield11" name="yield11" type="number" required>
+                        </td>
+                        <td>
+                            <select name="crop12" id="crop12">
+                                <option value="corn">corn</option>
+                                <option value="peas">peas</option>
+                                <option value="wheat">wheat</option>
+                                <option value="rice">rice</option>
+                            </select>
+                            <label style="color:white; padding-top:30px" for="yield12"></label>
+                            <input id="yield12" name="yield12" type="number" required></td>
+                        </td>
                     </tr>
                 </table>
+                <br>
                 <input type="submit" value="Submit">
             </form>
+
+            <p>Highest Yield for each crop: </p><br>
+            <p th:text="${y1}"></p><br>
+            <p th:text="${y2}"></p><br>
+            <p th:text="${y3}"></p><br>
+            <p th:text="${y4}"></p><br>
+            <p th:text="'Same crop in column 0: '+${c1}"></p><br>
+            <p th:text="'Same crop in column 1: '+${c2}"></p><br>
+            <p th:text="'Same crop in column 2: '+${c3}"></p>
+            <br>
+            <a href="/harry/frq8code">Code</a>
         </div>
     </div>
 </div>
