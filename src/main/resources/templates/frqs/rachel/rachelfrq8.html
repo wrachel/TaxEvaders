@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CollegeBoard Unit 8 FRQ</title>
+
+  <style>
+    code {
+      display: block;
+      white-space: pre-wrap
+    }
+  </style>
+</head>
+<body>
+<h3>Unit 8 Quesiton</h3>
+<code>
+  a)
+  public Plot getHighestYield(String c){
+    int numRows = farmPlots.length;
+    int numColumns = farmPlots[0].length;
+    int highestYield = 0;
+
+    Plot plot = null;
+
+    for(int i = 0; i < numRows; i++){
+      for(int j = 0; j < numColumns; j++){
+      if (farmPlots[i][j].getCropType().equals(c) && farmPlots[i][j].getCropYield() > highestYield){
+        highestYield = farmPlots[i][j].getCropYield();
+        plot = farmPlots[i][j];
+      }
+    }
+  }
+
+    return plot;
+  }
+
+  b)
+  public boolean sameCrop(int col){
+
+    boolean same = false;
+
+    for (int i = 0; i < farmPlots.length - 1; i--){
+      if(farmPlots[i][col].equals(farmPlots[i+1][col])){
+      same = true;
+    }
+    else{
+      same = false;
+    }
+    }
+
+    return same;
+  }
+
+</code>
+
+<h2>Reflection</h2>
+<p>This FRQ was actually very interesting because it dealt with 2D arrays, but also 2D arrays of objects that were already created. This FRQ required knowledge of different methods in 2D arrays, as well as how to iterate through a 2D array</p>
+</body>
+</html>
