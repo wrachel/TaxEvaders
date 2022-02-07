@@ -20,7 +20,6 @@ public class Invitation {
         return "Dear "+me+", please attend my event at " + address + ". See you then, " + hostName + ".";
     }
 
-    public Invitation() {}
     public Invitation(String address) {
         this.address = address;
         hostName = "Host";

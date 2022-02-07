@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.ArrayList;
 
 @Controller
-public class frq8controller extends ExperimentalFarm {
+public class frq8controller {
     @GetMapping("/kevin/unit8/interactive")
     public String displayFRQInteractive(Model model,
                                         @RequestParam(name = "crop", required = false, defaultValue = "corn") String crop,
