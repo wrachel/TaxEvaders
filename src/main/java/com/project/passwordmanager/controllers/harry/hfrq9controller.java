@@ -57,12 +57,23 @@ public class hfrq9controller {
     @GetMapping("/harry/frq9b")
     public String frqb( @RequestParam(name = "name", required = false, defaultValue = "Lisa") String name,
                         @RequestParam(name = "specie", required = false, defaultValue = "Lion") String specie,
-                        @RequestParam(name = "food", required = false, defaultValue = "carnivore") String food,Model model) throws IOException{
+                        @RequestParam(name = "food", required = false, defaultValue = "carnivore") String food,
+                        @RequestParam(name = "name2", required = false, defaultValue = "Gary") String name2,
+                        @RequestParam(name = "specie2", required = false, defaultValue = "Giraffe") String specie2,
+                        @RequestParam(name = "name3", required = false, defaultValue = "Giraffe") String name3,
+                        @RequestParam(name = "length", required = false, defaultValue = "2.0") double  length,Model model) throws IOException{
 
   Animal animal =new Animal(food, specie, name);
   String info=animal.toString();
   model.addAttribute("a", info);
 
+  Herbivore herbivore= new Herbivore(specie2, name2);
+  String info2=herbivore.toString();
+  model.addAttribute("b", info2);
+
+  Elephant elephant = new Elephant(name3, length);
+  String info3=elephant.toString();
+  model.addAttribute("c",info3);
 
         return "frqs/harryfrq9b";
     }

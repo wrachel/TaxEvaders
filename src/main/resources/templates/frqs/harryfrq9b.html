@@ -32,6 +32,21 @@
                 <br>
                  <p th:text="'Result: '+${a}"></p>
 
+                <label style="color:white; padding-top:30px" for="name2">(B)Enter name of animal: </label>
+                <input id="name2" name="name2" type="text" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="specie2">Enter herbivorous species: </label>
+                <input id="specie2" name="specie2" type="text" required>
+                <br>
+                <p th:text="'Result: '+${b}"></p>
+
+                <label style="color:white; padding-top:30px" for="name3">(C)Enter name of animal: </label>
+                <input id="name3" name="name3" type="text" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="length">Enter the length of the tusk: </label>
+                <input id="length" name="length" type="number" required>
+                <p th:text="'Result: '+${c}" ></p>
+
                 <br>
                 <input type="submit" value="Submit">
             </form>
