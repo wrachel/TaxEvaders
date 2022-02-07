@@ -17,8 +17,8 @@ public class hfrq9controller {
                          @RequestParam(name = "illustrator", required = false, defaultValue = "F.D. Bedford") String illustrator,
                          @RequestParam(name = "libauth", required = false, defaultValue = "Marry Shelley") String libauth,
                          @RequestParam(name = "lib", required = false, defaultValue = "Frankenstein") String lib,
-                         @RequestParam(name = "price1", required = false, defaultValue = "Frankenstein") String price1,
-                         @RequestParam(name = "price2", required = false, defaultValue = "Frankenstein") String price2,Model model) throws IOException {
+                         @RequestParam(name = "price1", required = false, defaultValue = "10") String price1,
+                         @RequestParam(name = "price2", required = false, defaultValue = "12") String price2,Model model) throws IOException {
 
 
         PictureBook parta = new PictureBook(title, author, illustrator);
@@ -52,5 +52,18 @@ public class hfrq9controller {
     @GetMapping("/harry/code9")
     public String frqcode(){
         return "frqs/frq9code";
+    }
+
+    @GetMapping("/harry/frq9b")
+    public String frqb( @RequestParam(name = "name", required = false, defaultValue = "Lisa") String name,
+                        @RequestParam(name = "specie", required = false, defaultValue = "Lion") String specie,
+                        @RequestParam(name = "food", required = false, defaultValue = "carnivore") String food,Model model) throws IOException{
+
+  Animal animal =new Animal(food, specie, name);
+  String info=animal.toString();
+  model.addAttribute("a", info);
+
+
+        return "frqs/harryfrq9b";
     }
 }

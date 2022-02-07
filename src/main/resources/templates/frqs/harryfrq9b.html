@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
+
+<head>
+    <div layout:fragment="metadata" th:remove="tag">
+        <title>Harry's Page</title>
+    </div>
+</head>
+
+<!-- layout::fragment="content" is heart of ThymeLeaf layout --><
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;">
+        <h1 class="sectionTitle">Unit 9 FRQ Question 2</h1>
+        <div class="sectionText">
+            <form action="/harry/frq9b" method="GET" style="padding-bottom:30px;">
+                <label style="color:white; padding-top:30px" for="name">(A)Enter name of animal: </label>
+                <input id="name" name="name" type="text" required>
+                <br>
+                <label style="color:white; padding-top:30px" for="specie">Enter species of animal: </label>
+                <input id="specie" name="specie" type="text" required>
+                <br>
+                <p>Herbivore, omnivore, or carnivore?</p>
+                <select name="food" id="food">
+
+                    <option value="herbivore">herbivore</option>
+                    <option value="carnivore">carnivore</option>
+                    <option value="ominivore">omnivore</option>
+                </select>
+                <br>
+                 <p th:text="'Result: '+${a}"></p>
+
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+
+                </div>
+        </div>
+</div>
+</body>
+</html>
