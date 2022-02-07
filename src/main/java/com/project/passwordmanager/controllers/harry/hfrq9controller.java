@@ -77,4 +77,8 @@ public class hfrq9controller {
 
         return "frqs/harryfrq9b";
     }
+    @GetMapping("/harry/code9b")
+    public String bcode(){
+        return "frqs/hfrq9code";
+    }
 }
