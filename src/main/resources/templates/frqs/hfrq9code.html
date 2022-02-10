@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    Part A: <br>
+    public class Animal {<br>
+    private String classification;<br>
+    private String species;<br>
+    private String name;<br>
+    public Animal(String c, String s, String n) {<br>
+    classification = c;<br>
+    species = s;<br>
+    name = n;<br>
+    }<br>
+    public String toString() {<br>
+    String str = "";<br>
+    str = name + " the " + species + " is a " + classification;<br>
+    return str;<br>
+    }<br>
+    }<br>
+  Part B: <br>
+    public class Herbivore extends Animal {  <br>
+    public Herbivore(String s, String n) {<br>
+    super("herbivore", s, n);<br>
+    }<br>
+    }<br>
+Part C:<br>
+    public class Elephant extends Herbivore {<br>
+    private double tuskLength;<br>
+    public Elephant(String n, double t) {<br>
+    super("elephant", n);<br>
+    tuskLength = t;<br>
+    }<br>
+    public String toString() {<br>
+    return super.toString() + " with tusks " + tuskLength + " meters long";<br>
+    }<br>
+    }<br>
+
+</p>
+</body>
+</html>

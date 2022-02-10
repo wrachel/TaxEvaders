@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 @Controller
-public class frq6controller extends Payroll {
+public class frq6controller {
 
     @GetMapping("/kevin/unit6/interactive")
     public String displayFRQInteractive(Model model,

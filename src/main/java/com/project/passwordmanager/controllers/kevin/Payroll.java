@@ -64,6 +64,4 @@ public class Payroll
         this.itemsSold = itemsSold;
         this.wages = wages;
     }
-
-    public Payroll() {}
 }

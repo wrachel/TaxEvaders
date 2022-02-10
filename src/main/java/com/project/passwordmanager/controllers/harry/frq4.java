@@ -12,7 +12,7 @@ private String largestStreak, currentStreak;
 //question a
     public String longestStreak(String str) throws IndexOutOfBoundsException{
         previousChar = ' ';
-
+    
          largestStreak = "";
          currentStreak = "";
 
