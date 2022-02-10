@@ -309,6 +309,28 @@ public class controller {
         return "frontend/about-rachel";
     }
 
+    @GetMapping("/passgenerator")
+    public String passwordGenerator(Model passmodel) throws IOException, InterruptedException {
+
+        /*HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://strong-password-generator-and-checker.p.rapidapi.com/api/generate_password"))
+                .header("content-type", "application/json")
+                .header("x-rapidapi-host", "strong-password-generator-and-checker.p.rapidapi.com")
+                .header("x-rapidapi-key", "8211d43935msh926990e704c2717p15ea0fjsn8c393a17973a")
+                .method("POST", HttpRequest.BodyPublishers.ofString("{\r\n    \"password_length\": \"12\"\r\n}"))
+                .build();
+        HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        var map = new ObjectMapper().readValue(response.body(), HashMap.class);
+        System.out.println(map);
+        passmodel.addAttribute("passGen", map);
+
+         */
+
+        return "frontend/RandomPassGen";
+    }
+
     @GetMapping("/frq3")
     public String frq3(@RequestParam(name = "rsvp", required = false, defaultValue = "false") boolean rsvp, @RequestParam(name = "selection", required = false, defaultValue = "1") int selection, @RequestParam(name = "check", required = false, defaultValue = "Sorry you can't make it.") String option2, @RequestParam(name = "initx", required = false, defaultValue = "0") int initx, @RequestParam(name = "inity", required = false, defaultValue = "0") int inity, @RequestParam(name = "side", required = false, defaultValue = "10") int side, Model model) {
         model.addAttribute("data", get_result(rsvp, selection, option2));
@@ -519,6 +541,7 @@ public class controller {
     public String get_test(Model model, @ModelAttribute("test") String test) {
         return test;
     }
+
 
     }
 
