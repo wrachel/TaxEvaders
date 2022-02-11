@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Part A: <br>
+public static int gcf(int a, int b)<br>
+
+{  if (b==0)<br>
+return a;<br>
+else<br>
+return gcf(b, a % b);<br>
+}<br>
+<br>
+Part B:<br>
+
+public static String reduceFraction(int n, int d)<br>
+
+
+
+{<br>
+
+int newn= n/gcf(n,d);<br>
+int newd= d/gcf(n,d);<br>
+
+if(newd!=1) {<br>
+return newn + "/" + newd;<br>
+}<br>
+else if(newd==0){<br>
+return "undefined";<br>
+}<br>
+else{<br>
+return Integer.toString(newn);<br>
+}<br>
+
+}
+</body>
+</html>

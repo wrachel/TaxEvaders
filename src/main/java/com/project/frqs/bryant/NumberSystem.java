@@ -6,7 +6,6 @@ public class NumberSystem {
 
     /** Precondition: a and b are positive integers.
      * Returns the greatest common factor of a and b, as described in part (a). */
-
     public static int gcf(int a, int b) { // i hate doing recursion so i implemented the extended euclidean algorithm instead
         int[] bezouts = new int[] {1, 0, 0, 1}; // not technically necessary but i like math okay
         int q, temp, b1, b2, b3, b4, v1, v2;
@@ -32,7 +31,6 @@ public class NumberSystem {
     /** Precondition: numerator and denominator are positive integers.
      * Reduces the fraction numerator / denominator
      * and prints the result, as described in part (b). */
-
     public static String reduceFraction(int numerator, int denominator) {
         int comFac = gcf(numerator, denominator);
         numerator /= comFac;

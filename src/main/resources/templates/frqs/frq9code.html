@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+Part A:<br>
+    public class PictureBook extends Book {<br>
+    private String illustrator;<br>
+
+    public PictureBook(String title, String author, String illustrator) {<br>
+    super(title, author);<br>
+    this.illustrator = illustrator;<br>
+    }<br>
+    public String printBookInfo(){<br>
+
+    return super.printBookInfo() + " and illustrated by " + illustrator;<br>
+    }<br>
+
+    }<br>
+</p>
+<p>
+    Part B:<br>
+    Book book1 = new Book("Frankenstein", "Mary Shelley");<br>
+    PictureBook book2 = new PictureBook("The Wonderful Wizard of Oz", "L. Frank Baum", "W.W. Denslow");<br>
+    </p>
+    <p th:text="'ArrayList<String>myLibrary = new ArrayList<String>();'"></p>
+    <p>
+    myLibrary.add(book1);<br>
+    myLibrary.add(book2);
+</p>
+<p>
+    Part C:<br>
+    public class BookListing{<br>
+    private String book;<br>
+    private double price;<br>
+    public BookListing(String book, double price){<br>
+    this.book = book;<br>
+    this.price = price;<br>
+    }<br>
+    public String printDescription(){<br>
+    return book + ", $"+price;<br>
+    }<br>
+    }
+</p>
+</body>
+</html>

@@ -19,9 +19,10 @@
         <div><center>
             <a title="click to toggle!" onclick="imageSwitch(1)"><img id="image1" style="display:none" th:src="@{/images/grayharry.jpg}" src="/static/images/grayharry.jpg" width="400px" height="400px"></a>
             <a title="click to toggle!" onclick="imageSwitch(2)"><img id="image2" style="display:inline" th:src="@{/images/harry.jpg}" src="static/images/harry.jpg" width="400px" height="400px"></a>
-                <h1 style="" class="aboutName">Harry Li</h1>
+            <h2 style="" class="aboutName"> Click The Picture!</h2>
         </center></div>
         <div>
+            <h1 style="" class="aboutName">Harry Li </h1>
             <table class="miniTable">
                 <thead>
                 <tr>
@@ -29,6 +30,8 @@
                     <th><a href="https://github.com/wrachel/TaxEvaders/commits?author=wiz124" target ="_blank">Commits</a></th>
                     <th><a href="https://docs.google.com/document/d/16_k_1SHg_x8uD2hea02EN_f5rCSypD75EXhMNy_6yiI/edit" target ="_blank">Journal</a></th>
                     <th><a href="https://github.com/wrachel/TaxEvaders#readme" target ="_blank">ReadMe</a></th>
+                    <th><a href="https://github.com/wrachel/TaxEvaders/wiki/Harry's-FRQ" target ="_blank">Reflections</a></th>
+                    <!-- -->
                 </tr>
                 </thead>
             </table>
@@ -36,15 +39,15 @@
                 <center>
                     <p class="smallTitle">NBA API</p>
                     <form action="/about/harry" method="GET">
-                        <label style="color:white" for="player">Search NBA player by ID</label>
+                        <label style="color:white" for="player">Search NBA player by ID number</label>
                         <input id="player" name="player" type="number">
                         <input type="submit">
                     </form>
                     <div style="padding-top:20px">
-
-                        <p th:text="${map.first_name} + ${space} + ${map.last_name}"  style="color:white;padding-top:15px"></p>
-                        <p style="color:white;padding-top:15px" th:text="${map.position}"></p>
-                        <p style="color:white;padding-top:15px" th:text="${map.team.full_name}"></p>
+                        <p th:text="'Result:'"></p>
+                        <p th:text="'Player: ' +${map.first_name} + ${space} + ${map.last_name}"  style="color:white;padding-top:15px"></p>
+                        <p style="color:white;padding-top:15px" th:text="'Position: '+${map.position}"></p>
+                        <p style="color:white;padding-top:15px" th:text="'Current Team: '+${map.team.full_name}"></p>
                     </div>
                 </center>
             </div>
@@ -109,6 +112,16 @@
             <ul>
                 <li>
                     <a title="click to view page!" href="/harry/frq9">Unit 9 Question 1</a>
+                    <ul>
+                        <li>
+                            <a title="click to view page!" href="/harry/frq9b">Unit 9 Question 2</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a title="click to view page!" href="/harry/frq10">Unit 10 Question 1</a>
                 </li>
             </ul>
     </div>
