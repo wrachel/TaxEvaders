@@ -1,15 +1,20 @@
 <!-- This page is illustrative and contains ideas about HTML formatting -->
 <!DOCTYPE HTML>
 <!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
-<html>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{layout}" lang="en">
 
 <head>
+    <div layout:fragment="metadata" th:remove="tag">
     <title>Password Generator</title>
     <link rel="stylesheet" href="morestyles.css" />
     <script src="script.js" defer></script>
+    </div>
 </head>
 
 <body>
+<div layout:fragment="content" th:remove="tag">
+    <div style="color:var(--text); padding-top:30px; padding-left: 30px;" class="sectionText">
 <!--
 <div class="container">
     <h2>Password Generator</h2>
@@ -71,7 +76,7 @@
                 <input type="checkbox" id="symbols" checked>
             </div>
         </div>
-        <button class="btn" id="generate" type="submit">Generate Password</button>
+        <button class="btn" id="generate" type="submit" style="color:var(--text); font-size:25px">Generate Password</button>
     </div>
 </form>
 
@@ -89,8 +94,8 @@
         </ul>
     </div>
 </div>
-
-
+</div>
+</div>
 <script>
     const resultDOM = document.getElementById("result");
     const copybtnDOM = document.getElementById("copy");
@@ -137,6 +142,36 @@
         }
         return passwordCharacters.join("");
     };
+
+    //make the "copy to clipboard" function
+    copybtnDOM.addEventListener("click", () => {
+        const textarea = document.createElement("textarea");
+        const passwordToCopy = resultDOM.innerText;
+        // A Case when Password is Empty
+        if (!passwordToCopy) return;
+        // Copy Functionality
+        textarea.value = passwordToCopy;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+        alert("Coped Password to Clipboard");
+    });
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const characterAmount = lengthDOM.value;
+        const includeUppercase = uppercaseDOM.checked;
+        const includeNumbers = numbersDOM.checked;
+        const includeSymbols = symbolsDOM.checked;
+        const password = generatePassword(
+            characterAmount,
+            includeUppercase,
+            includeNumbers,
+            includeSymbols
+        );
+        resultDOM.innerText = password;
+    });
 
 
 </script>
