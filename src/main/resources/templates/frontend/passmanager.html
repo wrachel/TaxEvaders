@@ -17,6 +17,16 @@
 <div style="padding-top:5%" class="row justify-content-center">
     <div style="width:50%">
         <p th:text="${username}"></p>
+
+        <table style="margin-bottom:25px">
+            <form>
+                <td><input name="application" id="application" type="text"></td>
+                <td><input name="username" id="username" type="text"></td>
+                <td><input name="password" type="password"></td>
+                <td><input type="submit" value="SUBMIT"></td>
+            </form>
+        </table>
+
         <table id="passtable">
             <thead>
                 <th>Application</th>
