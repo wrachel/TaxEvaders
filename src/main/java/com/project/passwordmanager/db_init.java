@@ -7,9 +7,9 @@ import java.sql.Statement;
 public class db_init {
     public static void init(String url) {
         Connection conn = null;
-        String init_query = "CREATE TABLE IF NOT EXISTS userinfo (\n"
-                + "	userid integer PRIMARY KEY,\n"
-                + " username text NOT NULL,\n"
+        String init_query = "CREATE TABLE IF NOT EXISTS passwords (\n"
+                + "	userid integer NOT NULL,\n"
+                + "	service text NOT NULL,\n"
                 + " password text NOT NULL\n"
                 + ");";
 
@@ -32,7 +32,7 @@ public class db_init {
         }
     }
     public static void main(String[] args) {
-        String url = "jdbc:sqlite:db/test_auth.db";
+        String url = "jdbc:sqlite:db/password.db";
         init(url);
     }
 }
