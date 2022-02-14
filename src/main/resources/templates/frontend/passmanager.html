@@ -17,7 +17,17 @@
 <div style="padding-top:5%" class="row justify-content-center">
     <div style="width:50%">
         <p th:text="${username}"></p>
-        <table id="passtable">
+
+        <table style="margin-bottom:25px; text-align:center">
+            <form action="/passmanager">
+                <td><input class="passBoxEditable" name="application" id="application" type="text" placeholder="application"></td>
+                <td><input class="passBoxEditable" name="username" id="username" type="text" placeholder="username"></td>
+                <td><input class="passBoxEditable" name="password" type="password" placeholder="password"></td>
+                <td><input style="width:200px" class="submitButton" type="submit" value="SUBMIT"></td>
+            </form>
+        </table>
+
+        <table style="text-align: center" id="passtable">
             <thead>
                 <th>Application</th>
                 <th>Username</th>

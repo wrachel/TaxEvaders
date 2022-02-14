@@ -549,6 +549,10 @@ public class controller {
         return test;
     }
 
+    @GetMapping("/passgen")
+    public String generator(){
+        return "frontend/RandomPassGen";
+    }
 
     }
 
