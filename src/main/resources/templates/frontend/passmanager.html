@@ -15,9 +15,16 @@
 <div layout:fragment="content" th:remove="tag">
     <!-- Start of body content specific to page -->
 <div style="padding-top:5%" class="row justify-content-center">
-    <div style="width:50%">
-        <p th:text="${username}"></p>
+    <div style="width:50%; color:var(--text)">
 
+        <div class="row justify-content-between">
+            <h1 class="sectionTitle" th:text="${username}"></h1>
+            <div style="padding-top:10px">
+                <form>
+                    <input type="text" class="roundSearch" name="searchText">
+                </form>
+            </div>
+        </div>
         <table style="margin-bottom:25px; text-align:center">
             <form action="/passmanager">
                 <td><input class="passBoxEditable" name="application" id="application" type="text" placeholder="application"></td>
