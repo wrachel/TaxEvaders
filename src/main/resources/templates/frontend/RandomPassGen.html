@@ -50,10 +50,10 @@
         Generate password
     </button>
 </div> -->
-
+<div style="margin-top:10%;" class="row justify-content-center">
 <form id="passwordGeneratorForm">
-    <div class="container">
-        <h2>Password Generator Application</h2>
+    <div class="container" style="background-color:var(--nav); color: var(--text); padding:20px;">
+        <h1><strong>Password Generator Application</strong></h1>
         <div class="result__container">
             <span id="result"></span>
             <button id="copy">Copy</button>
@@ -79,12 +79,11 @@
         <button class="btn" id="generate" type="submit" style="color:var(--text); font-size:25px">Generate Password</button>
     </div>
 </form>
+</div>
 
 <!-- SOCIAL PANEL HTML -->
 <div class="social-panel-container">
     <div class="social-panel">
-        <button class="close-btn"><i class="fas fa-times"></i></button>
-        <h4>Get in touch on</h4>
         <ul>
             <li>
                 <a href="https://github.com/wrachel/TaxEvaders" target="_blank">
@@ -155,7 +154,7 @@
         textarea.select();
         document.execCommand("copy");
         textarea.remove();
-        alert("Coped Password to Clipboard");
+        alert("Copied Password to Clipboard");
     });
 
     form.addEventListener("submit", (e) => {
