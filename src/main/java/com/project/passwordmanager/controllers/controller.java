@@ -68,6 +68,13 @@ public class controller {
         return "frontend/signup";
     }
 
+    @PostMapping("/signup")
+    public String signUpPost(@RequestParam(name="username", required=true) String username, @RequestParam(name="password", required=true) String password, Model model) {
+        System.out.println(username);
+        System.out.println(password);
+        return "frontend/signup";
+    }
+
     @GetMapping("/about/kevin")
     public String kevin(@RequestParam(name="artist", required=false, defaultValue="NOTD") String artist, Model model) throws IOException, InterruptedException, ParseException, JSONException {
 
