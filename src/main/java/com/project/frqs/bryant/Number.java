@@ -31,10 +31,6 @@ public class Number {
         return this.index;
     }
 
-    public int valueOf() {
-        return this.index;
-    }
-
     // Write a tester method
     public static void main(String[] args) {
         // Create an ArrayList of Type Number, my ArrayList is called squirrels
@@ -45,26 +41,12 @@ public class Number {
             squirrels.add(new Number());
         }
 
+        // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
         Collections.sort(squirrels, new Comparator<Number>() {
             public int compare(Number s1, Number s2) {
                 return s1.getClassSize() - s2.getClassSize();
             }
         });
-
-//        // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
-//        for (int i = 1; i < squirrels.size(); i++) {
-//            Number squirrel = squirrels.get(i);
-//
-//            int searchIdx = i - 1;
-//            while (searchIdx > 0 && squirrel.getClassSize() < squirrels.get(searchIdx).getClassSize()) {
-//                searchIdx--;
-//            }
-//
-//            if (searchIdx != i) {
-//                squirrels.add(searchIdx, squirrel);
-//                squirrels.remove(i + 1);
-//            }
-//        }
 
         // Print a formatted message with number of Squirrels and Index by which they were created, use enhanced for loop
         for (Number squirrel : squirrels) {
