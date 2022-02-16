@@ -25,6 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // shamele
                 .loginPage("/signin")
                 .permitAll()
                 .and()
+            .csrf()
+                .disable() // TEMPORARY, CSRF IS KINDA IMPORTANT
             .logout()
                 .permitAll();
     }
