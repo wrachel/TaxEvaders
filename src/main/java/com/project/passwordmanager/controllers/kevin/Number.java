@@ -1,5 +1,6 @@
 package com.project.passwordmanager.controllers.kevin;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,11 +25,14 @@ public class Number {
 
 
     // It contains a getter for Index, or the order it was initialized
+    public int getIndex(ArrayList<Number> list, Number object) {
+        return list.indexOf(object);
+    }
+
 
     // Write a tester method
     public static void main(String[] args) {
         // Create an ArrayList of Type Number, my ArrayList is called squirrels
-        ArrayList<Number> squirrels = new ArrayList<>();
 
         // Initialize 10 squirrels of class type Number
         Number test0 = new Number();
@@ -44,26 +48,26 @@ public class Number {
 
         Number[] list = {test0, test1, test2, test3, test4, test5, test6, test7, test8, test9};
 
-        squirrels.addAll(Arrays.asList(list));
+        ArrayList<Number> squirrels = new ArrayList<>(Arrays.asList(list));
+        ArrayList<Number> copy = new ArrayList<>(squirrels);
 
         // Insert Number instance into ArrayList Squirrel in least to greatest order by random number, mine required nested loops
         Number temp = new Number();
 
-        for(int j = 0; j < list.length - 1; j++) {
+        for(int j = 0; j < squirrels.size() - 1; j++) {
             for (int i = 1; i <= 9; i++) {
-                if (list[i].getSquirrels() < list[i - 1].getSquirrels()) {
-                    temp = list[i];
-                    list[i] = list[i - 1];
-                    list[i - 1] = temp;
+                if (squirrels.get(i).getSquirrels() < squirrels.get(i - 1).getSquirrels()) {
+                    temp = squirrels.get(i);
+                    squirrels.set(i, squirrels.get(i-1));
+                    squirrels.set(i - 1, temp);
                 }
             }
         }
 
-        squirrels.addAll(List.of(list));
 
         // Print a formatted message with number of Squirrels and Index by which they were created, use enhanced for loop
         for(Number item : squirrels) {
-            System.out.println(item.getSquirrels());
+            System.out.println("squirrels: " + item.getSquirrels() + " index: " + item.getIndex(copy, item));
         }
     }
 
