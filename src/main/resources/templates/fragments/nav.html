@@ -24,6 +24,7 @@
                 <li class="nav-item">
                     <a style="color:var(--dirtywhite)" class="navbarLink nav-link" href="/passmanager">PASSMANAGER</a>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a style="color:var(--dirtywhite)" class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         MINILABS
@@ -35,6 +36,7 @@
                         <a class="navbarDropdownLink dropdown-item" href="/about/rachel">RACHEL</a>
                     </div>
                 </li>
+
                 <li class="nav-item">
                     <a style="color:var(--dirtywhite)" class="navbarLink nav-link" href="/signin">SIGN IN</a>
                 </li>
@@ -47,10 +49,21 @@
             <input style="visibility: hidden" type="checkbox" id="checkbox">
             <label for="checkbox" style="font-size:2em; color: var(--dirtywhite)"><i id="changeicon" class="fas fa-moon"></i></label>
         </div>
-        <div style="position:fixed; left:20px; top:15px">
-            <a href=""><img src="/static/images/ppf.png" th:src="@{/images/ppf.png}" width="36px" height="36px" style="border-radius: 50%;"> </a>
-        </div>
+
+<!-- pfp signin and signup links -->
+        <div style="position:fixed; left:20px; top:15px;" class="row justify-conetent-center" >
+            <a href="/signin"><img src="/static/images/ppf.png" th:src="@{/images/ppf.png}" width="36px" height="36px" style="border-radius: 50%;"> </a>
+
+        <li class="nav-item dropdown">
+            <a style="color:var(--dirtywhite)" class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </a>
+            <div style="background-color: var(--nav);" class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="navbarDropdownLink dropdown-item" href="/signin">SIGN IN</a>
+                <a class="navbarDropdownLink dropdown-item" href="/signup">SIGNUP</a>
+            </div>
+        </li>
     </div>
+
     <script type="text/javascript">
         const lightSwitch=document.getElementById("checkbox");
 
@@ -77,6 +90,7 @@
                 : localStorage.removeItem("lightSwitch");
         })
     </script>
+    </div>
 </nav>
 
 <!-- Begin navigation fragments -->
