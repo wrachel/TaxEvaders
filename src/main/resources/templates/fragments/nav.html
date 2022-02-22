@@ -51,17 +51,31 @@
         </div>
 
 <!-- pfp signin and signup links -->
-        <div style="position:fixed; left:20px; top:15px;" class="row justify-conetent-center" >
-            <a href="/signin"><img src="/static/images/ppf.png" th:src="@{/images/ppf.png}" width="36px" height="36px" style="border-radius: 50%;"> </a>
-
-        <li class="nav-item dropdown">
-            <a style="color:var(--dirtywhite)" class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div style="position:fixed; left:20px; top:2px;padding-top:8px; padding-right:14px" >
+            <ul class="nav">
+            <li class="nav-item dropdown">
+                <a style="color:var(--dirtywhite)" class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   <img src="/static/images/ppf.png" th:src="@{/images/ppf.png}" width="36px" height="36px"  style="border-radius: 50%;" class="nav-item dropdown">
+               </a>
+                    <div style="background-color: var(--nav);" class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="navbarDropdownLink dropdown-item" href="/signin">SIGN IN</a>
+                        <a class="navbarDropdownLink dropdown-item" href="/signup">SIGNUP</a>
+                    </div>
+            </li>
+            </ul>
+        </div>
+            <!--
+            <li class="nav-item dropdown">
+                <a style="color:var(--dirtywhite)" class="navbarLink nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    MINILABS
                 </a>
-            <div style="background-color: var(--nav);" class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="navbarDropdownLink dropdown-item" href="/signin">SIGN IN</a>
-                <a class="navbarDropdownLink dropdown-item" href="/signup">SIGNUP</a>
-            </div>
-        </li>
+                <div style="background-color: var(--nav);" class="dropdownMenuBox dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="navbarDropdownLink dropdown-item" href="/about/bryant">BRYANT</a>
+                    <a class="navbarDropdownLink dropdown-item" href="/about/harry">HARRY</a>
+                    <a class="navbarDropdownLink dropdown-item" href="/about/kevin">KEVIN</a>
+                    <a class="navbarDropdownLink dropdown-item" href="/about/rachel">RACHEL</a>
+                </div>
+            </li>-->
     </div>
 
     <script type="text/javascript">
