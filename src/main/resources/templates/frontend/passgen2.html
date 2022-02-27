@@ -1,0 +1,123 @@
+<!-- This page is illustrative and contains ideas about HTML formatting -->
+<!DOCTYPE HTML>
+<!-- Signals to the Layout Dialect which layout should be used to decorate this View -->
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="morestyles.css" />
+    <script src="script.js" defer></script>
+
+</head>
+
+
+<body>
+
+<h1>Password Generator</h1>
+
+<!--
+<div class="container">
+    <h2>Password Generator</h2>
+    <div class="result-container">
+        <span id="result"></span>
+        <button class="btn" id="clipboard">
+            <i class="far fa-clipboard"></i>
+        </button>
+    </div>
+    <div class="settings">
+        <div class="setting">
+            <label>Password length</label>
+            <input type="number" id="length" min='4' max='20' value='20' />
+        </div>
+        <div class="setting">
+            <label>Include uppercase letters</label>
+            <input type="checkbox" id="uppercase" checked />
+        </div>
+        <div class="setting">
+            <label>Include lowercase letters</label>
+            <input type="checkbox" id="lowercase" checked />
+        </div>
+        <div class="setting">
+            <label>Include numbers</label>
+            <input type="checkbox" id="numbers" checked />
+        </div>
+        <div class="setting">
+            <label>Include symbols</label>
+            <input type="checkbox" id="symbols" checked />
+        </div>
+    </div>
+    <button class="btn btn-large" id="generate">
+        Generate password
+    </button>
+</div> -->
+<!--
+<form id="passwordGeneratorForm">
+    <div class="container">
+        <h2>Password Generator Application</h2>
+        <div class="result__container">
+            <span id="result"></span>
+            <button id="copy">Copy</button>
+        </div>
+        <div class="options">
+            <div class="option">
+                <label>Length</label>
+                <input type="number" id="length" min="4" max="20" value="10">
+            </div>
+            <div class="option">
+                <label>Include Uppercase</label>
+                <input type="checkbox" id="uppercase" checked>
+            </div>
+            <div class="option">
+                <label>Include Numbers</label>
+                <input type="checkbox" id="numbers" checked>
+            </div>
+            <div class="option">
+                <label>Include Symbols</label>
+                <input type="checkbox" id="symbols" checked>
+            </div>
+        </div>
+        <button class="btn" id="generate" type="submit">Generate Password</button>
+    </div>
+</form>
+-->
+
+<form action="/passgenerator">
+    <label for="length1">Length </label>
+    <input type="number" id="length1" min="8" max="20" value="10" name="length1"><br>
+    <label for="uppercase1">Include Uppercase</label>
+    <input type="checkbox" id="uppercase1" name="uppercase1" checked><br>
+    <label for="numbers1">Include Numbers</label>
+    <input type="checkbox" id="numbers1" name="numbers1" checked><br>
+    <label for="symbols1">Include Symbols</label>
+    <input type="checkbox" id="symbols1" name="symbols1" checked><br>
+    <input type="submit">
+</form>
+
+<table class="results">
+    <tr>
+        <td><p>Random Password: </p></td>
+        <td th:text= "${password}" ></td>
+    </tr>
+</table>
+
+
+<!-- SOCIAL PANEL HTML -->
+<div class="social-panel-container">
+    <div class="social-panel">
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+        <h4>Get in touch on</h4>
+        <ul>
+            <li>
+                <a href="https://github.com/wrachel/TaxEvaders" target="_blank">
+                    Github!
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+</html>

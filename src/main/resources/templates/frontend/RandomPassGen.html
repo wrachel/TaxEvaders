@@ -51,7 +51,7 @@
     </button>
 </div> -->
 <div style="margin-top:10%;" class="row justify-content-center">
-<form id="passwordGeneratorForm">
+<form id="passwordGeneratorForm" action="">
     <div class="container" style="background-color:var(--nav); color: var(--text); padding:20px; justify-content:center;">
         <h1><strong>Password Generator Application</strong></h1>
         <div class="result__container">
@@ -81,18 +81,7 @@
 </form>
 </div>
 
-<!-- SOCIAL PANEL HTML -->
-<div class="social-panel-container">
-    <div class="social-panel">
-        <ul>
-            <li>
-                <a href="https://github.com/wrachel/TaxEvaders" target="_blank">
-                   Github!
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
+
 </div>
 </div>
 <script>
@@ -174,6 +163,25 @@
 
 
 </script>
+
+<form action="/passgenerator">
+    <label for="length1">Length </label>
+    <input type="number" id="length1" min="8" max="20" value="10" name="length1"><br>
+    <label for="uppercase1">Include Uppercase</label>
+    <input type="checkbox" id="uppercase1" name="uppercase1" checked><br>
+    <label for="numbers1">Include Numbers</label>
+    <input type="checkbox" id="numbers1" name="numbers1" checked><br>
+    <label for="symbols1">Include Symbols</label>
+    <input type="checkbox" id="symbols1" name="symbols1" checked><br>
+    <input type="submit">
+</form>
+
+<table class="results">
+    <tr>
+        <td><p>Random Password: </p></td>
+        <td th:text= "${password}" ></td>
+    </tr>
+</table>
 
 </body>
 </html>
