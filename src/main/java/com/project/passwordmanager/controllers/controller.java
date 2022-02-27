@@ -555,5 +555,9 @@ public class controller {
         return "frontend/RandomPassGen";
     }
 
-    }
 
+@GetMapping("/profile")
+public String profile(){
+    return "frontend/profile";
+    }
+}
