@@ -3,6 +3,7 @@ package com.project.passwordmanager.controllers;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.project.frqs.bryant.*;
+import com.project.passwordmanager.JavaPassGenerator;
 import com.project.passwordmanager.controllers.kevin.LightSequence;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -69,9 +70,10 @@ public class controller {
     }
 
     @PostMapping("/signup")
-    public String signUpPost(@RequestParam(name="username", required=true) String username, @RequestParam(name="password", required=true) String password, Model model) {
+    public String signUpPost(@RequestParam(name="username") String username, @RequestParam(name="email") String email, @RequestParam(name="password") String password, Model model) {
         System.out.println(username);
         System.out.println(password);
+        System.out.println(email);
         return "frontend/signup";
     }
 
@@ -317,7 +319,10 @@ public class controller {
     }
 
     @GetMapping("/passgenerator")
-    public String passwordGenerator(Model passmodel) throws IOException, InterruptedException {
+    public String passwordGenerator(@RequestParam(name = "length1", required = true, defaultValue="10")int length1, @RequestParam(name="uppercase1", required = true, defaultValue="true")boolean uppercase1, @RequestParam(name="numbers1", required=true, defaultValue="true") boolean numbers1, @RequestParam(name="symbols1", required=true, defaultValue="true")boolean symbols1, Model passmodel) throws IOException, InterruptedException {
+
+        JavaPassGenerator passwordGenerator = new JavaPassGenerator(true, true, true, 10);
+        passmodel.addAttribute("password", passwordGenerator.generate(10));
 
         /*HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://strong-password-generator-and-checker.p.rapidapi.com/api/generate_password"))
@@ -335,7 +340,7 @@ public class controller {
 
          */
 
-        return "frontend/RandomPassGen";
+        return "frontend/passgen2";
     }
 
     @GetMapping("/frq3")
@@ -554,5 +559,9 @@ public class controller {
         return "frontend/RandomPassGen";
     }
 
-    }
 
+@GetMapping("/profile")
+public String profile(){
+    return "frontend/profile";
+    }
+}
