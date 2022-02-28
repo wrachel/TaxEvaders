@@ -33,16 +33,16 @@ public class JavaPassGenerator {
 
         // Collect the categories to use.
         ArrayList<String> charCategories = new ArrayList<>(4);
-        if (useLower) {
+        if (useLower = true) {
             charCategories.add(LOWER);
         }
-        if (useUpper) {
+        if (useUpper = true) {
             charCategories.add(UPPER);
         }
-        if (useDigits) {
+        if (useDigits = true) {
             charCategories.add(DIGITS);
         }
-        if (useSymbols) {
+        if (useSymbols = true) {
             charCategories.add(SYMBOLS);
         }
 
