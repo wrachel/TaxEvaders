@@ -52,10 +52,13 @@ public class controller {
         return "frontend/passtester";
     }
 
+    public boolean pass=false;
     @GetMapping("/passmanager")
     public String passManager(Model model) {
         UserDetails principal = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("username", principal.getUsername());
+
+
         return "frontend/passmanager";
     }
 
@@ -561,7 +564,40 @@ public class controller {
 
 
 @GetMapping("/profile")
-public String profile(){
+public String profile(@RequestParam(name="inputLastName", required = false, defaultValue = "a") String inputLastName ,
+                      @RequestParam(name="inputFirstName", required = false, defaultValue = "a") String inputFirstName ,
+                      @RequestParam(name="inputOrgName", required = false, defaultValue = "a") String inputOrgName ,
+                      @RequestParam(name="inputLocation", required = false, defaultValue = "a") String inputLocation ,
+                      @RequestParam(name="inputEmailAddress", required = false, defaultValue = "a") String inputEmailAddress ,
+                      @RequestParam(name="inputPhone", required = false, defaultValue = "a") String inputPhone ,
+                      @RequestParam(name="inputBirthday", required = false, defaultValue = "a") String inputBirthday , Model model) throws IOException{
+
+      if(!Objects.equals(inputLastName, "a")){
+          model.addAttribute("a","Changes Saved");
+
+      }
+    if(!Objects.equals(inputFirstName, "a")){
+        model.addAttribute("a","Changes Saved");
+    }
+   if(!Objects.equals(inputLastName,  "a")){
+        model.addAttribute("a","Changes Saved");
+    }
+    if(!Objects.equals(inputOrgName, "a")){
+       model.addAttribute("a", "Changes Saved");
+      }
+       if(!Objects.equals(inputLocation, "a")){
+          model.addAttribute("a", "Changes Saved");
+      }
+       if(!Objects.equals(inputEmailAddress, "a")){
+          model.addAttribute("a", "Changes Saved");
+      }
+      if(!Objects.equals(inputPhone, "a")){
+          model.addAttribute("a", "Changes Saved");
+      }
+      if(!Objects.equals(inputBirthday, "a")){
+          model.addAttribute("a", "Changes Saved");
+      }
+
     return "frontend/profile";
     }
 }
