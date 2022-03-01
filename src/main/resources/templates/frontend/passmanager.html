@@ -21,7 +21,7 @@
             <h1 class="sectionTitle" th:text="${username}"></h1>
             <div style="padding-top:10px">
                 <form>
-                    <input type="text" class="roundSearch" name="searchText">
+                    <input id="searchInput" onkeyup="searchFunction()" type="text" class="roundSearch" name="searchText">
                 </form>
             </div>
         </div>
@@ -74,6 +74,24 @@
 -->
     </div>
     <script>
+
+        function searchFunction() {
+            var input = document.getElementById("searchInput");
+            var filter = input.value.toUpperCase();
+            var list = document.getElementsByClassName("applicationCell");
+            var row = document.getElementsByClassName("tableRow");
+
+            for (i = 0; i < list.length; i++) {
+                item = list[i];
+                text = item.textContent || item.innerText;
+                if (text.toUpperCase().indexOf(filter) > -1) {
+                    row[i].style.display = "";
+                } else {
+                    row[i].style.display = "none"
+                }
+            }
+        }
+
         function viewPassword(num) {
             var passwordField = document.getElementById("password_ID"+num);
             passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
@@ -106,7 +124,7 @@
     <script>
         const generateHTML = (row, idx) => {
             html = "";
-            html += `<td>${row[0]}</td>
+            html += `<td class="applicationCell">${row[0]}</td>
                      <td><input class="passBox" id="username_ID${idx+1}" readonly type="text" value="Test"></td>
                      <td><input class="passBox" id="password_ID${idx+1}" readonly type="password" value="${row[1]}"></td>
                      <td>
@@ -130,6 +148,7 @@
                     data.forEach((e, idx) => {
                         const tbody = document.querySelector('#passtable tbody');
                         const tr = document.createElement('tr');
+                        tr.className = "tableRow"
                         tr.innerHTML = generateHTML(e, idx);
                         tbody.appendChild(tr);
                     })
