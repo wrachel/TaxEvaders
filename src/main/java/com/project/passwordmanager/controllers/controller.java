@@ -69,7 +69,7 @@ public class controller {
         return "frontend/signup";
     }
 
-    @PostMapping("/signup")
+        @PostMapping("/signup")
     public String signUpPost(@RequestParam(name="username") String username, @RequestParam(name="email") String email, @RequestParam(name="password") String password, Model model) {
         System.out.println(username);
         System.out.println(password);
